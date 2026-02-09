@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@contracts/*": ["./src/contracts/*"],
+      "@decorators/*": ["./src/decorators/*"],
+      "@routing/*": ["./src/routing/*"],
+      "@validation*": ["./src/validation/*"],
+      "@guards/*": ["./src/guards/*"],
+      "@context/*": ["./src/context/*"],
+      "@exceptions/*": ["./src/exceptions/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@tests/*": ["./tests/*"]
+    }
+  },
+  "include": ["src"]
+}
