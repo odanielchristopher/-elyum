@@ -8,14 +8,15 @@
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "@di/*": ["./src/di/*"],
-      "@context/*": ["./src/context/*"],
-      "@types/*": ["./src/types/*"],
-      "@errors*": ["./src/errors*"],
-      "@decorators/*": ["./src/decorators*"],
-      "@lifecycle/*": ["./src/lifecycle*"],
-      "@metadata/*": ["./src/metadata*"],
-      "@tests/*": ["./tests/*"]
+      "@elyum/di/*": ["./src/di/*"],
+      "@elyum/context/*": ["./src/context/*"],
+      "@elyum/types/*": ["./src/types/*"],
+      "@elyum/errors/*": ["./src/errors/*"],
+      "@elyum/decorators/*": ["./src/decorators/*"],
+      "@elyum/lifecycle/*": ["./src/lifecycle/*"],
+      "@elyum/metadata/*": ["./src/metadata/*"],
+      "@elyum/helpers/*": ["./src/helpers/*"],
+      "@elyum/tests/*": ["./tests/*"]
     }
   },
   "include": ["src"]
