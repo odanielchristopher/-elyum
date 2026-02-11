@@ -9,7 +9,7 @@ export default mergeConfig(
   defineConfig({
     test: {
       name: '@elyum/http',
-      include: ['tests/**/*.spec.ts'],
+      environment: 'node',
     },
     resolve: {
       alias: {

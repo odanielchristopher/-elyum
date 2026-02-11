@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@contracts/*": ["./src/contracts/*"],
@@ -19,5 +19,5 @@
       "@tests/*": ["./tests/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }
