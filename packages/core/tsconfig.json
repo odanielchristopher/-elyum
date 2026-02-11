@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@elyum/di/*": ["./src/di/*"],
@@ -19,5 +19,5 @@
       "@elyum/tests/*": ["./tests/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }
