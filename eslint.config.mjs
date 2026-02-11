@@ -35,6 +35,7 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
       'prettier/prettier': 'error',
       quotes: ['error', 'single'],
       semi: ['error', 'always'],

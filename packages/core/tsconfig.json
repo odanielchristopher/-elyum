@@ -14,7 +14,6 @@
       "@elyum/errors/*": ["./src/errors/*"],
       "@elyum/decorators/*": ["./src/decorators/*"],
       "@elyum/enums/*": ["./src/enums/*"],
-      "@elyum/lifecycle/*": ["./src/lifecycle/*"],
       "@elyum/metadata/*": ["./src/metadata/*"],
       "@elyum/helpers/*": ["./src/helpers/*"],
       "@elyum/tests/*": ["./tests/*"]
