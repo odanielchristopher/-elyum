@@ -1,9 +1,10 @@
-export abstract class ElyumError extends Error {
-  public readonly code: string;
+import { ErrorCode } from 'src/enums/error-code.enum';
 
-  constructor(message: string, code: string) {
+export abstract class ElyumError extends Error {
+  abstract readonly code: ErrorCode;
+
+  constructor(message: string) {
     super(message);
     this.name = new.target.name;
-    this.code = code;
   }
 }
