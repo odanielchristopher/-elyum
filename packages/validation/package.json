@@ -1,6 +1,7 @@
 {
   "name": "@elyum/validation",
   "version": "0.1.0",
+  "description": "Framework-agnostic validation interfaces for Elyum",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -11,5 +12,13 @@
     "test": "vitest",
     "test:ci": "vitest run",
     "test:coverage": "vitest --coverage"
-  }
+  },
+  "keywords": [
+    "validation",
+    "validator",
+    "schema",
+    "interface"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
 }

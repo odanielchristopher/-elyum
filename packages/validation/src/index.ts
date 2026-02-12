@@ -1,8 +1,8 @@
 export type {
   InferValidatorOutput,
   IValidator,
-} from '@elyum/contracts/validator.contract';
+} from './contracts/validator.contract';
 
-export { ValidationError } from '@elyum/errors/validation.error';
+export { ValidationError } from './errors/validation.error';
 
-export type { ValidationErrorItem } from '@elyum/types/validation-error-item.type';
+export type { ValidationErrorItem } from './types/validation-error-item.type';

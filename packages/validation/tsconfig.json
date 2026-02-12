@@ -5,14 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "dist",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@elyum/contracts/*": ["./src/contracts/*"],
-      "@elyum/types/*": ["./src/types/*"],
-      "@elyum/errors/*": ["./src/errors/*"],
-      "@elyum/tests/*": ["./tests/*"]
-    }
+    "rootDir": "."
   },
   "include": ["src", "tests"]
 }
