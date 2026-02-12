@@ -1,6 +1,7 @@
+import { describe, expect, it } from 'vitest';
+
 import { ElyumError } from '@elyum/errors/contracts/elyum.error';
 import { ProviderIsNotInjectable } from '@elyum/errors/provider-is-not-injectable.error';
-import { describe, expect, it } from 'vitest';
 
 describe('ProviderIsNotInjectable', () => {
   it('should build correct message for named class', () => {
