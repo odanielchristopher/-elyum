@@ -15,7 +15,7 @@ export type ValueProvider<T = any> = {
 
 export type FactoryProvider<T = any> = {
   token: InjectionToken<T>;
-  useFactory: (...args: any[]) => T | Promise<T>;
+  useFactory: (...args: any[]) => T;
   inject?: InjectionToken[];
   scope?: Scope;
 };

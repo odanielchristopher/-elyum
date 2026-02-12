@@ -16,6 +16,8 @@ export default mergeConfig(
         '@elyum/di': path.resolve(__dirname, 'src', 'di'),
         '@elyum/context': path.resolve(__dirname, 'src', 'context'),
         '@elyum/decorators': path.resolve(__dirname, 'src', 'decorators'),
+        '@elyum/constants': path.resolve(__dirname, 'src', 'constants'),
+        '@elyum/utils': path.resolve(__dirname, 'src', 'utils'),
         '@elyum/enums': path.resolve(__dirname, 'src', 'enums'),
         '@elyum/metadata': path.resolve(__dirname, 'src', 'metadata'),
         '@elyum/types': path.resolve(__dirname, 'src', 'types'),

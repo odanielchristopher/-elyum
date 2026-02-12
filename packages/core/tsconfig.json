@@ -13,6 +13,8 @@
       "@elyum/types/*": ["./src/types/*"],
       "@elyum/errors/*": ["./src/errors/*"],
       "@elyum/decorators/*": ["./src/decorators/*"],
+      "@elyum/constants/*": ["./src/constants/*"],
+      "@elyum/utils/*": ["./src/utils/*"],
       "@elyum/enums/*": ["./src/enums/*"],
       "@elyum/metadata/*": ["./src/metadata/*"],
       "@elyum/helpers/*": ["./src/helpers/*"],
