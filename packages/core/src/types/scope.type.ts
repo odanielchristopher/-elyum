@@ -1,1 +1,1 @@
-export type Scope = 'singleton' | 'request' | 'transient';
+export type Scope = 'singleton' | 'scoped' | 'transient';

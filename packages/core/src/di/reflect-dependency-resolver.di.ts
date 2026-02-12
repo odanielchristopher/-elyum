@@ -48,7 +48,7 @@ export class ReflectDependencyResolver implements DependencyResolver {
       if (cached !== undefined) return cached;
     }
 
-    if (scope === 'request') {
+    if (scope === 'scoped') {
       const cached = container.getValue(token);
       if (cached !== undefined) return cached;
     }
@@ -109,7 +109,7 @@ export class ReflectDependencyResolver implements DependencyResolver {
       container.getRoot().setValue(token, instance);
     }
 
-    if (scope === 'request') {
+    if (scope === 'scoped') {
       container.setValue(token, instance);
     }
 

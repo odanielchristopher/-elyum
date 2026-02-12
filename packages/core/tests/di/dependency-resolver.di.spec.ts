@@ -331,7 +331,7 @@ describe('ReflectDependencyResolver', () => {
         container.register({
           token: Service,
           useClass: Service,
-          scope: 'request',
+          scope: 'scoped',
         });
 
         // Act
@@ -351,7 +351,7 @@ describe('ReflectDependencyResolver', () => {
         container.register({
           token: Service,
           useClass: Service,
-          scope: 'request',
+          scope: 'scoped',
         });
 
         const child1 = container.fork();
