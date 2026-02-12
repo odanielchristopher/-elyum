@@ -9,11 +9,11 @@ export type ValidationErrorItem = {
   message: string;
 
   /** Código do erro (opcional, para i18n) */
-  code?: string;
+  code?: string | undefined;
 
   /** Valor que falhou na validação (opcional) */
-  received?: unknown;
+  received?: unknown | undefined;
 
   /** Valor esperado (opcional) */
-  expected?: unknown;
+  expected?: unknown | undefined;
 };

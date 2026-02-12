@@ -18,7 +18,5 @@
     "validator",
     "schema",
     "interface"
-  ],
-  "dependencies": {},
-  "devDependencies": {}
+  ]
 }

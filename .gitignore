@@ -69,3 +69,4 @@ node_modules
 coverage
 .env
 tsconfig.tsbuildinfo
+dist
