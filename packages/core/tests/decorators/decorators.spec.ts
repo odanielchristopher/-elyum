@@ -1,11 +1,11 @@
+import { describe, expect, it } from 'vitest';
+
 import {
   INJECT_METADATA_KEY,
   OPTIONAL_METADATA_KEY,
   PROVIDER_TOKEN_METADATA_KEY,
   SCOPE_METADATA_KEY,
 } from '@elyum/constants/shared.constants';
-import { describe, expect, it } from 'vitest';
-
 import { Inject } from '@elyum/decorators/inject.decorator';
 import { Injectable } from '@elyum/decorators/injectable.decorator';
 import { OptionalInject } from '@elyum/decorators/optional-inject.decorator';

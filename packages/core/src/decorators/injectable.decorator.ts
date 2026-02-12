@@ -1,8 +1,8 @@
 import {
+  INJECTABLE_META_KEY,
   PROVIDER_TOKEN_METADATA_KEY,
   SCOPE_METADATA_KEY,
 } from '@elyum/constants/shared.constants';
-
 import { InjectionToken } from '@elyum/types/injection-token.type';
 import { Scope } from '@elyum/types/scope.type';
 
@@ -33,5 +33,6 @@ export function Injectable(options: InjectableOptions = {}): ClassDecorator {
   return (target) => {
     Reflect.defineMetadata(PROVIDER_TOKEN_METADATA_KEY, options.token, target);
     Reflect.defineMetadata(SCOPE_METADATA_KEY, options.scope, target);
+    Reflect.defineMetadata(INJECTABLE_META_KEY, true, target);
   };
 }

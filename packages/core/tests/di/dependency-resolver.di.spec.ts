@@ -1,10 +1,10 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import {
   DEPENDENCIES_METADATA_KEY,
   INJECT_METADATA_KEY,
   OPTIONAL_METADATA_KEY,
 } from '@elyum/constants/shared.constants';
-import { beforeEach, describe, expect, it } from 'vitest';
-
 import { ElyumContainer } from '@elyum/di/container.di';
 import { ReflectDependencyResolver } from '@elyum/di/reflect-dependency-resolver.di';
 import { ReflectMetadataReader } from '@elyum/di/reflect-metadata-reader.di';
