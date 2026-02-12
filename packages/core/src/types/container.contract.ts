@@ -13,4 +13,6 @@ export interface ContainerDI {
   setValue<T>(token: InjectionToken<T>, value: T): void;
 
   getRoot(): ContainerDI;
+
+  fork(): ContainerDI;
 }

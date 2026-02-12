@@ -41,4 +41,8 @@ export class ElyumContainer implements ContainerDI {
   getRoot(): ContainerDI {
     return this.parent ? this.parent.getRoot() : this;
   }
+
+  fork(): ContainerDI {
+    return new ElyumContainer(this.dependencyResolver, this);
+  }
 }
