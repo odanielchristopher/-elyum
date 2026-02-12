@@ -1,0 +1,15 @@
+{
+  "name": "@elyum/validation",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start:dev": "tsx src/index.ts",
+    "ci:lint": "prettier --check src",
+    "typecheck": "tsc --noEmit",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "test:coverage": "vitest --coverage"
+  }
+}
