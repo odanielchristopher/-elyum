@@ -1,0 +1,28 @@
+{
+  "name": "@elyum/validation-zod",
+  "version": "0.1.0",
+  "description": "Zod adapter for Elyum validation",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start:dev": "tsx src/index.ts",
+    "ci:lint": "prettier --check src",
+    "typecheck": "tsc --noEmit",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [
+    "elyum",
+    "validation",
+    "zod",
+    "adapter"
+  ],
+  "dependencies": {
+    "@elyum/validation": "workspace:*"
+  },
+  "peerDependencies": {
+    "zod": "^3.0.0"
+  }
+}
