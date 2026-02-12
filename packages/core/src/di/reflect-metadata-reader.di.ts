@@ -1,5 +1,4 @@
-import { Constructor } from '@elyum/types/constructor.type';
-import { MetadataReader } from '@elyum/types/metadata-reader.type';
+import { Constructor, MetadataReader } from '../types';
 
 export class ReflectMetadataReader implements MetadataReader {
   get<TResult = any, TKey = any>(

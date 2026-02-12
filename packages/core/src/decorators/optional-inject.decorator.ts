@@ -1,8 +1,8 @@
 import {
   INJECT_METADATA_KEY,
   OPTIONAL_METADATA_KEY,
-} from '@elyum/constants/shared.constants';
-import { InjectionToken } from '@elyum/types/injection-token.type';
+} from '../constants/shared.constants';
+import { InjectionToken } from '../types';
 
 /**
  * Marca parâmetro como injeção opcional

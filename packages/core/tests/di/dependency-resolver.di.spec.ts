@@ -1,16 +1,15 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-
 import {
+  CircularDependencyError,
   DEPENDENCIES_METADATA_KEY,
+  ElyumContainer,
   INJECT_METADATA_KEY,
   OPTIONAL_METADATA_KEY,
-} from '@elyum/constants/shared.constants';
-import { ElyumContainer } from '@elyum/di/container.di';
-import { ReflectDependencyResolver } from '@elyum/di/reflect-dependency-resolver.di';
-import { ReflectMetadataReader } from '@elyum/di/reflect-metadata-reader.di';
-import { CircularDependencyError } from '@elyum/errors/circular-dependency.error';
-import { ProviderNotFoundError } from '@elyum/errors/provider-not-found.error';
-import { Provider } from '@elyum/types/provider.type';
+  Provider,
+  ProviderNotFoundError,
+  ReflectDependencyResolver,
+  ReflectMetadataReader,
+} from '@elyum/core';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('ReflectDependencyResolver', () => {
   let container: ElyumContainer;

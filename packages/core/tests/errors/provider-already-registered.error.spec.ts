@@ -1,9 +1,10 @@
+import {
+  ElyumError,
+  InjectionToken,
+  ProviderAlreadyRegisteredError,
+  describeToken,
+} from '@elyum/core';
 import { describe, expect, it } from 'vitest';
-
-import { ElyumError } from '@elyum/errors/contracts/elyum.error';
-import { ProviderAlreadyRegisteredError } from '@elyum/errors/provider-already-registered.error';
-import { describeToken } from '@elyum/helpers/describe-token.helper';
-import { InjectionToken } from '@elyum/types/injection-token.type';
 
 describe('ProviderAlreadyRegisteredError', () => {
   it('should build correct message', () => {

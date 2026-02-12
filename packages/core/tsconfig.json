@@ -5,21 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "dist",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@elyum/di/*": ["./src/di/*"],
-      "@elyum/context/*": ["./src/context/*"],
-      "@elyum/types/*": ["./src/types/*"],
-      "@elyum/errors/*": ["./src/errors/*"],
-      "@elyum/decorators/*": ["./src/decorators/*"],
-      "@elyum/constants/*": ["./src/constants/*"],
-      "@elyum/utils/*": ["./src/utils/*"],
-      "@elyum/enums/*": ["./src/enums/*"],
-      "@elyum/metadata/*": ["./src/metadata/*"],
-      "@elyum/helpers/*": ["./src/helpers/*"],
-      "@elyum/tests/*": ["./tests/*"]
-    }
+    "rootDir": "."
   },
   "include": ["src", "tests"]
 }

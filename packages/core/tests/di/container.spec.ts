@@ -1,10 +1,12 @@
+import {
+  ElyumContainer,
+  Provider,
+  ProviderAlreadyRegisteredError,
+  ReflectDependencyResolver,
+  ReflectMetadataReader,
+  ValueProvider,
+} from '@elyum/core';
 import { beforeEach, describe, expect, it } from 'vitest';
-
-import { ElyumContainer } from '@elyum/di/container.di';
-import { ReflectDependencyResolver } from '@elyum/di/reflect-dependency-resolver.di';
-import { ReflectMetadataReader } from '@elyum/di/reflect-metadata-reader.di';
-import { ProviderAlreadyRegisteredError } from '@elyum/errors/provider-already-registered.error';
-import { Provider, ValueProvider } from '@elyum/types/provider.type';
 
 describe('ElyumContainer', () => {
   let container: ElyumContainer;

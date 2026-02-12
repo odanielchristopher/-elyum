@@ -2,16 +2,18 @@ import {
   DEPENDENCIES_METADATA_KEY,
   INJECT_METADATA_KEY,
   OPTIONAL_METADATA_KEY,
-} from '@elyum/constants/shared.constants';
-import { CircularDependencyError } from '@elyum/errors/circular-dependency.error';
-import { ProviderNotFoundError } from '@elyum/errors/provider-not-found.error';
-import { ContainerDI } from '@elyum/types/container.contract';
-import { DependencyResolver } from '@elyum/types/dependency-resolver.type';
-import { InjectionToken } from '@elyum/types/injection-token.type';
-import { MetadataReader } from '@elyum/types/metadata-reader.type';
-import { ClassProvider, FactoryProvider } from '@elyum/types/provider.type';
-import { ResolveOptions } from '@elyum/types/resolve-options.type';
-import { isClassProvider, isFactoryProvider } from '@elyum/utils/shared.utils';
+} from '../constants/shared.constants';
+import { CircularDependencyError, ProviderNotFoundError } from '../errors';
+import {
+  ClassProvider,
+  ContainerDI,
+  DependencyResolver,
+  FactoryProvider,
+  InjectionToken,
+  MetadataReader,
+  ResolveOptions,
+} from '../types';
+import { isClassProvider, isFactoryProvider } from '../utils/shared.utils';
 
 export class ReflectDependencyResolver implements DependencyResolver {
   constructor(private readonly metadataReader: MetadataReader) {}

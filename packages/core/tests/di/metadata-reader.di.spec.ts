@@ -1,6 +1,5 @@
+import { ReflectMetadataReader } from '@elyum/core';
 import { beforeEach, describe, expect, it } from 'vitest';
-
-import { ReflectMetadataReader } from '@elyum/di/reflect-metadata-reader.di';
 
 describe('ReflectMetadataReader', () => {
   let reader: ReflectMetadataReader;

@@ -1,6 +1,6 @@
-import { ErrorCode } from '@elyum/enums/error-code.enum';
-import { describeToken } from '@elyum/helpers/describe-token.helper';
-import { InjectionToken } from '@elyum/types/injection-token.type';
+import { ErrorCode } from '../enums';
+import { describeToken } from '../helpers/describe-token.helper';
+import { InjectionToken } from '../types';
 
 import { ElyumError } from './contracts/elyum.error';
 

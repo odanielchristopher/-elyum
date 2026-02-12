@@ -1,4 +1,4 @@
-import { InjectionToken } from '@elyum/types/injection-token.type';
+import { InjectionToken } from '../types';
 
 export function describeToken(token: InjectionToken): string {
   if (typeof token === 'string') {

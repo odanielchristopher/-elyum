@@ -1,9 +1,11 @@
-import { ProviderAlreadyRegisteredError } from '@elyum/errors/provider-already-registered.error';
-import { ContainerDI } from '@elyum/types/container.contract';
-import { DependencyResolver } from '@elyum/types/dependency-resolver.type';
-import { InjectionToken } from '@elyum/types/injection-token.type';
-import { Provider } from '@elyum/types/provider.type';
-import { ResolveOptions } from '@elyum/types/resolve-options.type';
+import { ProviderAlreadyRegisteredError } from '../errors';
+import {
+  ContainerDI,
+  DependencyResolver,
+  InjectionToken,
+  Provider,
+  ResolveOptions,
+} from '../types';
 
 export class ElyumContainer implements ContainerDI {
   private providers = new Map<InjectionToken, Provider>();
