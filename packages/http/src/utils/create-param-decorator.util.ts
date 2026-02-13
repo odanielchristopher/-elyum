@@ -90,44 +90,40 @@ export interface ParamDecoratorConfig<TInput = any, TOutput = any> {
  *  },
  * });
  */
-export function createParamDecorator<TInput = any, TOutput = any>({
+export function createParamDecorator<TInput = undefined, TOutput = any>({
   factory,
   source = 'custom',
 }: {
   factory: ParamFactory<TInput, TOutput>;
   source?: ParamSource;
-}): (key?: string, validator?: IValidator<any, any>) => ParameterDecorator {
-  return (
-    key?: string,
+}): TInput extends undefined
+  ? (validator?: IValidator<any, any>) => ParameterDecorator
+  : (key: TInput, validator?: IValidator<any, any>) => ParameterDecorator {
+  return ((
+    key?: TInput,
     validator?: IValidator<any, any>,
   ): ParameterDecorator => {
     return (target, propertyKey, parameterIndex) => {
-      // Criar metadata do parâmetro
-      const paramMetadata: ParamMetadata = {
+      const paramMetadata: ParamMetadata<TInput> = {
         index: parameterIndex,
-        type: source as any, // Convertido para ParamType no executor
+        type: source as any,
         key,
         validator,
         factory,
       };
 
-      // Obter parâmetros existentes
-      const existingParams = Reflect.getMetadata(
-        ROUTE_PARAMS_METADATA_KEY,
-        target,
-        propertyKey!,
-      ) as ParamMetadata[] | undefined;
+      const existingParams =
+        Reflect.getMetadata(ROUTE_PARAMS_METADATA_KEY, target, propertyKey!) ??
+        [];
 
-      const params = existingParams || [];
-      params.push(paramMetadata);
+      existingParams.push(paramMetadata);
 
-      // Armazenar
       Reflect.defineMetadata(
         ROUTE_PARAMS_METADATA_KEY,
-        params,
+        existingParams,
         target,
         propertyKey!,
       );
     };
-  };
+  }) as any;
 }

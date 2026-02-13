@@ -18,7 +18,7 @@ export type ParamType =
  *
  * Descreve como extrair e validar um parâmetro
  */
-export interface ParamMetadata {
+export interface ParamMetadata<TKey = string> {
   /** Índice do parâmetro no método (0, 1, 2, ...) */
   index: number;
 
@@ -30,7 +30,7 @@ export interface ParamMetadata {
    * @example @Query('page') → key = 'page'
    * @example @Param('id') → key = 'id'
    */
-  key?: string | undefined;
+  key?: TKey | undefined;
 
   /**
    * Validator para validação (opcional)
