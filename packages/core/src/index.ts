@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 
 export * from './constants/shared.constants';
+export * from './context';
 export * from './decorators';
 export * from './di';
 export * from './elyum-factory';
