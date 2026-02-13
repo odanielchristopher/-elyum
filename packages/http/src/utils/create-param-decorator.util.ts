@@ -1,0 +1,133 @@
+import { IValidator } from '@elyum/validation';
+
+import { ROUTE_PARAMS_METADATA_KEY } from '../constants/metadata-keys.constants';
+import { HttpExecutionContext } from '../context';
+import { ParamMetadata } from '../types';
+
+/**
+ * Factory function para extrair valor de um parâmetro
+ *
+ * Recebe dados da request e retorna valor processado
+ *
+ * @template TInput - Tipo dos dados brutos (ex: body completo, query params)
+ * @template TOutput - Tipo do valor retornado (após processamento/validação)
+ *
+ * @param input - Dados brutos extraídos da request
+ * @param context - Execution context (para acessar request, response, etc)
+ *
+ * @example
+ * // Factory que extrai user-agent header em uppercase
+ * const userAgentFactory: ParamFactory<Record<string, string>, string> = (headers) => {
+ *   return headers['user-agent']?.toUpperCase() || 'UNKNOWN';
+ * };
+ */
+export type ParamFactory<TInput = any, TOutput = any> = (
+  input: TInput,
+  context: typeof HttpExecutionContext,
+  index: number,
+) => TOutput | Promise<TOutput>;
+
+/**
+ * Tipo de fonte de dados da request
+ *
+ * Indica de onde extrair os dados brutos
+ */
+export type ParamSource =
+  | 'body'
+  | 'query'
+  | 'param'
+  | 'headers'
+  | 'request'
+  | 'response'
+  | 'custom';
+
+/**
+ * Configuração do param decorator
+ */
+export interface ParamDecoratorConfig<TInput = any, TOutput = any> {
+  /** Factory para processar valor */
+  factory: ParamFactory<TInput, TOutput>;
+
+  /** Fonte dos dados (body, query, etc) */
+  source: ParamSource;
+
+  /** Chave específica (opcional) */
+  key?: string;
+
+  /** Validator (opcional) */
+  validator?: IValidator<any, any>;
+}
+
+/**
+ * Cria param decorator customizável
+ *
+ * Permite criar decorators que:
+ * - Extraem dados de fontes específicas
+ * - Aplicam transformações customizadas
+ * - Validam dados
+ * - Combinam múltiplas fontes
+ *
+ * @example
+ * // Decorator simples que extrai IP
+ * const Ip = createParamDecorator({
+ *  factory: (request) => request.ip,
+ *  source: 'request'
+ * });
+ *
+ * @example
+ * // Decorator que extrai e valida user-agent
+ * const UserAgent = createParamDecorator({
+ *  factory: (headers) => headers['user-agent'],
+ *  source: 'headers'
+ * });
+ *
+ * @example
+ * // Decorator customizado com lógica complexa
+ * const CurrentUser = createParamDecorator({
+ *  factory: (request) => {
+ *    const userId = HttpExecutionContext.get('userId');
+ *    userService.findById(userId);
+ *  },
+ * });
+ */
+export function createParamDecorator<TInput = any, TOutput = any>({
+  factory,
+  source = 'custom',
+}: {
+  factory: ParamFactory<TInput, TOutput>;
+  source?: ParamSource;
+}): (key?: string, validator?: IValidator<any, any>) => ParameterDecorator {
+  return (
+    key?: string,
+    validator?: IValidator<any, any>,
+  ): ParameterDecorator => {
+    return (target, propertyKey, parameterIndex) => {
+      // Criar metadata do parâmetro
+      const paramMetadata: ParamMetadata = {
+        index: parameterIndex,
+        type: source as any, // Convertido para ParamType no executor
+        key,
+        validator,
+        factory,
+      };
+
+      // Obter parâmetros existentes
+      const existingParams = Reflect.getMetadata(
+        ROUTE_PARAMS_METADATA_KEY,
+        target,
+        propertyKey!,
+      ) as ParamMetadata[] | undefined;
+
+      const params = existingParams || [];
+      params.push(paramMetadata);
+
+      // Armazenar
+      Reflect.defineMetadata(
+        ROUTE_PARAMS_METADATA_KEY,
+        params,
+        target,
+        propertyKey!,
+      );
+    };
+  };
+}

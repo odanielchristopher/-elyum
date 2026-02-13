@@ -1,5 +1,7 @@
 import { IValidator } from '@elyum/validation';
 
+import { ParamFactory } from '../utils/create-param-decorator.util';
+
 /**
  * Tipo de parâmetro
  */
@@ -28,16 +30,21 @@ export interface ParamMetadata {
    * @example @Query('page') → key = 'page'
    * @example @Param('id') → key = 'id'
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * Validator para validação (opcional)
    * @example @Body(zodValidator(schema))
    */
-  validator?: IValidator<any, any>;
+  validator?: IValidator<any, any> | undefined;
 
   /**
    * Se parâmetro é opcional
    */
   optional?: boolean;
+
+  /**
+   * Factory opicional para a executação
+   */
+  factory?: ParamFactory;
 }
