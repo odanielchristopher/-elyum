@@ -12,7 +12,8 @@
     "test:ci": "vitest run"
   },
   "dependencies": {
-    "@elyum/core": "workspace:*"
+    "@elyum/core": "workspace:*",
+    "@elyum/validation": "workspace:*"
   },
   "peerDependencies": {
     "reflect-metadata": "^0.1.13"
