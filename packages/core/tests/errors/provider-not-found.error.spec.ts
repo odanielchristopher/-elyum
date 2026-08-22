@@ -1,5 +1,6 @@
-import { ElyumError, ProviderNotFoundError, describeToken } from '@elyum/core';
 import { describe, expect, it } from 'vitest';
+
+import { ElyumError, ProviderNotFoundError, describeToken } from '@elyum/core';
 
 describe('ProviderNotFoundError', () => {
   it('should build message with requester', () => {

@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import {
   BadRequestException,
   Body,
@@ -20,7 +22,6 @@ import {
   Route,
 } from '@elyum/http';
 import * as HttpPublicApi from '@elyum/http';
-import { describe, expect, it } from 'vitest';
 
 describe('@elyum/http public API', () => {
   it('should expose the supported HTTP building blocks', () => {

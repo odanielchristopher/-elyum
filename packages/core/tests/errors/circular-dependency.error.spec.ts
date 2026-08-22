@@ -1,10 +1,11 @@
+import { describe, expect, it } from 'vitest';
+
 import {
   CircularDependencyError,
   describeToken,
   ElyumError,
   InjectionToken,
 } from '@elyum/core';
-import { describe, expect, it } from 'vitest';
 
 describe('CircularDependencyError', () => {
   it('should build correct message', () => {

@@ -1,7 +1,8 @@
 import { ValidationError } from '@elyum/validation';
-import { YupValidator, yupValidator } from '@elyum/validation-yup';
 import { describe, expect, it } from 'vitest';
 import * as yup from 'yup';
+
+import { YupValidator, yupValidator } from '@elyum/validation-yup';
 
 describe('YupValidator', () => {
   describe('parse() - async', () => {

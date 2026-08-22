@@ -1,3 +1,5 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import {
   CircularDependencyError,
   DEPENDENCIES_METADATA_KEY,
@@ -9,7 +11,6 @@ import {
   ReflectDependencyResolver,
   ReflectMetadataReader,
 } from '@elyum/core';
-import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('ReflectDependencyResolver', () => {
   let container: ElyumContainer;

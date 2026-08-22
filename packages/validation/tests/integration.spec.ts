@@ -1,5 +1,6 @@
-import { IValidator, ValidationError } from '@elyum/validation';
 import { describe, expect, it } from 'vitest';
+
+import { IValidator, ValidationError } from '@elyum/validation';
 
 describe('IValidator Interface - Custom Implementation', () => {
   it('should allow custom validator implementation', () => {

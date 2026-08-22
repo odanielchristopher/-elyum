@@ -10,6 +10,9 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig([
   {
+    ignores: ['**/coverage/**', '**/dist/**', '**/node_modules/**'],
+  },
+  {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'],
     plugins: {
       js,
@@ -36,6 +39,14 @@ export default defineConfig([
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-function-type': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
       'prettier/prettier': 'error',
       quotes: ['error', 'single'],
       semi: ['error', 'always'],

@@ -1,5 +1,6 @@
-import { ElyumError, ProviderIsNotInjectable } from '@elyum/core';
 import { describe, expect, it } from 'vitest';
+
+import { ElyumError, ProviderIsNotInjectable } from '@elyum/core';
 
 describe('ProviderIsNotInjectable', () => {
   it('should build correct message for named class', () => {

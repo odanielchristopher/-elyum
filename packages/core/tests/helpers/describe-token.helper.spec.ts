@@ -1,5 +1,6 @@
-import { describeToken, InjectionToken } from '@elyum/core';
 import { describe, expect, it } from 'vitest';
+
+import { describeToken, InjectionToken } from '@elyum/core';
 
 describe('describeToken', () => {
   it('should return same token if token was string', () => {

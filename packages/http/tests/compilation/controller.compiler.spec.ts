@@ -1,3 +1,5 @@
+import { describe, expect, it, vi } from 'vitest';
+
 import {
   Body,
   compileController,
@@ -9,7 +11,6 @@ import {
   Query,
   ROUTE_PARAMS_METADATA_KEY,
 } from '@elyum/http';
-import { describe, expect, it, vi } from 'vitest';
 
 describe('compileController()', () => {
   describe('handler selection', () => {

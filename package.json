@@ -1,15 +1,16 @@
 {
   "name": "elyum",
   "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
   "description": "",
-  "main": "index.js",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "start:dev": "pnpm -r run start:dev",
     "prepare": "husky install",
-    "ci:lint": "pnpm -r run ci:lint",
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint",
+    "format:check": "pnpm -r run format:check",
+    "ci:lint": "pnpm lint && pnpm format:check",
+    "pretypecheck": "tsc -b packages/core packages/http packages/validation packages/validation-zod packages/validation-yup --pretty false",
     "typecheck": "pnpm -r run typecheck",
     "test:ci": "pnpm -r run test:ci",
     "test:coverage": "pnpm -r run test:coverage",
@@ -33,14 +34,10 @@
     "globals": "^16.2.0",
     "husky": "^8.0.3",
     "lint-staged": "^16.2.7",
-    "nodemon": "^3.1.11",
     "prettier": "^3.6.2",
-    "tsup": "*",
-    "tsx": "^4.21.0",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.33.0"
-  },
-  "dependencies": {
+    "typescript-eslint": "^8.33.0",
     "vitest": "^4.0.18"
   }
 }

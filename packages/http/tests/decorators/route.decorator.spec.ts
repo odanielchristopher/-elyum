@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import {
   compileController,
   Delete,
@@ -10,7 +12,6 @@ import {
   Put,
   Route,
 } from '@elyum/http';
-import { describe, expect, it } from 'vitest';
 
 describe('route decorators', () => {
   it.each([

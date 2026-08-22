@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import {
   Inject,
   INJECT_METADATA_KEY,
@@ -7,7 +9,6 @@ import {
   PROVIDER_TOKEN_METADATA_KEY,
   SCOPE_METADATA_KEY,
 } from '@elyum/core';
-import { describe, expect, it } from 'vitest';
 
 describe('Decorators', () => {
   describe('@Inject', () => {

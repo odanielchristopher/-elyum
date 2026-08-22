@@ -1,3 +1,5 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import {
   ElyumContainer,
   Provider,
@@ -6,7 +8,6 @@ import {
   ReflectMetadataReader,
   ValueProvider,
 } from '@elyum/core';
-import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('ElyumContainer', () => {
   let container: ElyumContainer;

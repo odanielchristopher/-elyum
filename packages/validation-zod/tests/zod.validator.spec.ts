@@ -1,7 +1,8 @@
 import { ValidationError } from '@elyum/validation';
-import { ZodValidator, zodValidator } from '@elyum/validation-zod';
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
+
+import { ZodValidator, zodValidator } from '@elyum/validation-zod';
 
 describe('ZodValidator', () => {
   describe('parse()', () => {

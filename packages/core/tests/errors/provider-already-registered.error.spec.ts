@@ -1,10 +1,11 @@
+import { describe, expect, it } from 'vitest';
+
 import {
   ElyumError,
   InjectionToken,
   ProviderAlreadyRegisteredError,
   describeToken,
 } from '@elyum/core';
-import { describe, expect, it } from 'vitest';
 
 describe('ProviderAlreadyRegisteredError', () => {
   it('should build correct message', () => {

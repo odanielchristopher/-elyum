@@ -6,7 +6,7 @@ export default mergeConfig(
   baseConfig,
   defineConfig({
     test: {
-      name: '@elyum/validation-zod',
+      name: '@elyum/validation-yup',
       environment: 'node',
     },
   }),

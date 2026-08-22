@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "types": ["node"],
-    "outDir": "dist",
+    "outDir": ".typecheck",
     "rootDir": "."
   },
   "include": ["src", "tests"]

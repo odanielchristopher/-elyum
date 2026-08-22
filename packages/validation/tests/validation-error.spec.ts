@@ -1,5 +1,6 @@
-import { ValidationError, ValidationErrorItem } from '@elyum/validation';
 import { describe, expect, it } from 'vitest';
+
+import { ValidationError, ValidationErrorItem } from '@elyum/validation';
 
 describe('ValidationError', () => {
   describe('constructor', () => {
