@@ -3,6 +3,13 @@ export type {
   CompileControllerOptions,
 } from './compiled-controller.type';
 export type {
+  AutomaticControllerExecutionResult,
+  ControllerExecutionResult,
+  ControllerResolver,
+  ExecuteControllerOptions,
+  ManualControllerExecutionResult,
+} from './controller-execution.type';
+export type {
   ControllerRouteMetadata,
   RouteDecoratorOptions,
   RouteOptions,

@@ -90,25 +90,34 @@ export interface ParamDecoratorConfig<TInput = any, TOutput = any> {
  *  },
  * });
  */
-export function createParamDecorator<TInput = undefined, TOutput = any>({
+export function createParamDecorator<
+  TKey = undefined,
+  TOutput = any,
+  TInput = unknown,
+>({
   factory,
   source = 'custom',
 }: {
   factory: ParamFactory<TInput, TOutput>;
   source?: ParamSource;
-}): TInput extends undefined
+}): TKey extends undefined
   ? (validator?: IValidator<any, any>) => ParameterDecorator
-  : (key: TInput, validator?: IValidator<any, any>) => ParameterDecorator {
+  : (key: TKey, validator?: IValidator<any, any>) => ParameterDecorator {
   return ((
-    key?: TInput,
+    key?: TKey,
     validator?: IValidator<any, any>,
   ): ParameterDecorator => {
+    const validatorWithoutKey =
+      validator === undefined && isValidator(key) ? key : undefined;
+    const finalKey = validatorWithoutKey ? undefined : key;
+    const finalValidator = validatorWithoutKey ?? validator;
+
     return (target, propertyKey, parameterIndex) => {
-      const paramMetadata: ParamMetadata<TInput> = {
+      const paramMetadata: ParamMetadata<TKey> = {
         index: parameterIndex,
         type: source,
-        key,
-        validator,
+        key: finalKey,
+        validator: finalValidator,
         factory,
       };
 
@@ -126,4 +135,13 @@ export function createParamDecorator<TInput = undefined, TOutput = any>({
       );
     };
   }) as any;
+}
+
+function isValidator(value: unknown): value is IValidator<any, any> {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'parse' in value &&
+    typeof value.parse === 'function'
+  );
 }

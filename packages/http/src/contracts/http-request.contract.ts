@@ -45,6 +45,6 @@ export interface HttpRequest<
   /** Cookies */
   cookies?: Record<string, string>;
 
-  /** Raw request (framework-specific, use with caution) */
-  raw?: TRaw;
+  /** Native framework request. */
+  raw: TRaw;
 }

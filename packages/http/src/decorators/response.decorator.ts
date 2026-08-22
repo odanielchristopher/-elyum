@@ -1,20 +1,18 @@
-import { HttpResponse } from '../contracts';
 import { createParamDecorator } from '../utils/create-param-decorator.util';
 
 /**
- * @Response decorator - Injeta response completo
- *
- * Útil para controle manual da resposta
+ * Injects the native framework response/reply for manual responses.
  *
  * @example
- * handle(@Response() res: HttpResponse) {
- *   res.status(201).json({ created: true });
+ * handle(@Response() reply: FastifyReply) {
+ *   reply.status(201).send({ created: true });
  * }
  */
 export function Response(): ParameterDecorator {
-  return createParamDecorator<undefined, HttpResponse>({
-    factory(_, context) {
-      return context.getResponse();
+  return createParamDecorator<undefined, unknown>({
+    source: 'response',
+    factory(response) {
+      return response;
     },
   })();
 }

@@ -4,9 +4,10 @@ export type {
   HandlerController,
 } from './controller.contract';
 export type { HttpRequest } from './http-request.contract';
-export type { HttpResponse } from './http-response.contract';
+export { httpResult, isHttpResult } from './http-result.contract';
 export type {
   ControllerResult,
   HttpHeaders,
   HttpResult,
+  HttpResultOptions,
 } from './http-result.contract';

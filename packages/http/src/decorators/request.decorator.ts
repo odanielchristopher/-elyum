@@ -1,18 +1,18 @@
-import { HttpRequest } from '../contracts';
 import { createParamDecorator } from '../utils/create-param-decorator.util';
 
 /**
- * @Request decorator - Injeta request completo
+ * Injects the native framework request.
  *
  * @example
- * handle(@Request() req: HttpRequest) {
- *   console.log(req.method, req.url);
+ * handle(@Request() request: FastifyRequest) {
+ *   console.log(request.id);
  * }
  */
 export function Request(): ParameterDecorator {
-  return createParamDecorator<undefined, HttpRequest>({
-    factory(_, context) {
-      return context.getRequest();
+  return createParamDecorator<undefined, unknown>({
+    source: 'request',
+    factory(request) {
+      return request;
     },
   })();
 }

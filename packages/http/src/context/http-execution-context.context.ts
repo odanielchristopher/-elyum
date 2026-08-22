@@ -1,6 +1,6 @@
-import { ContainerDI, ExecutionContext } from '@elyum/core';
+import { ExecutionContext } from '@elyum/core';
 
-import { HttpRequest, HttpResponse } from '../contracts';
+import { HttpRequest } from '../contracts';
 import { CompiledController } from '../types';
 
 /**
@@ -8,20 +8,20 @@ import { CompiledController } from '../types';
  *
  * Contém dados específicos de uma requisição HTTP
  */
-export interface HttpExecutionContextStore {
-  /** Scoped container para esta request */
-  container: ContainerDI;
+export interface HttpExecutionContextStore<
+  TRequest = unknown,
+  TResponse = unknown,
+> {
+  /** Normalized request data and the native request. */
+  request: HttpRequest<unknown, unknown, unknown, unknown, TRequest>;
 
-  /** Request HTTP */
-  request: HttpRequest;
-
-  /** Response HTTP */
-  response: HttpResponse;
+  /** Native framework response/reply. */
+  response: TResponse;
 
   /** Controller compilado sendo executado */
   route: CompiledController;
 
-  /** Dados customizados (pode ser usado por guards, interceptors, etc) */
+  /** Custom request-local data. */
   [key: string]: any;
 }
 
@@ -57,29 +57,33 @@ export class HttpExecutionContext {
     return ExecutionContext.getStore<HttpExecutionContextStore>();
   }
 
-  /**
-   * Obtém scoped container da request atual
-   */
-  static getContainer(): ContainerDI {
-    return this.getStore().container;
+  /** Gets the native framework request. */
+  static getRequest<TRequest = unknown>(): TRequest {
+    return this.getStore().request.raw as TRequest;
   }
 
-  /**
-   * Obtém request HTTP atual
-   */
-  static getRequest<
+  /** Gets normalized request data used by parameter decorators. */
+  static getRequestData<
     TBody = unknown,
     TQuery = Record<string, unknown>,
     TParams = Record<string, string>,
-  >(): HttpRequest<TBody, TQuery, TParams> {
-    return this.getStore().request as HttpRequest<TBody, TQuery, TParams>;
+    THeaders = Record<string, string>,
+    TRequest = unknown,
+  >(): HttpRequest<TBody, TQuery, TParams, THeaders, TRequest> {
+    return this.getStore().request as HttpRequest<
+      TBody,
+      TQuery,
+      TParams,
+      THeaders,
+      TRequest
+    >;
   }
 
   /**
    * Obtém response HTTP atual
    */
-  static getResponse(): HttpResponse {
-    return this.getStore().response;
+  static getResponse<TResponse = unknown>(): TResponse {
+    return this.getStore().response as TResponse;
   }
 
   /**
