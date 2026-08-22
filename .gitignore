@@ -70,3 +70,5 @@ coverage
 .env
 tsconfig.tsbuildinfo
 dist
+docs
+AGENTS.md

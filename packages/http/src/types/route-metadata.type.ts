@@ -11,7 +11,8 @@ export type ParamType =
   | 'param' // @Param() - route parameters
   | 'headers' // @Headers() - request headers
   | 'request' // @Request() - request completo
-  | 'response'; // @Response() - response completo
+  | 'response' // @Response() - response completo
+  | 'custom'; // Decorator criado pelo usuário
 
 /**
  * Metadata de um parâmetro

@@ -17,19 +17,47 @@
     "emitDecoratorMetadata": true,
     "baseUrl": ".",
     "paths": {
-      "@elyum/validation": ["packages/validation/src"],
-      "@elyum/validation-zod": ["packages/validation-zod/src"],
-      "@elyum/validation-yup": ["packages/validation-yup/src"],
-      "@elyum/core": ["packages/core/src"]
-    }
+      "@elyum/validation": [
+        "packages/validation/src"
+      ],
+      "@elyum/validation-zod": [
+        "packages/validation-zod/src"
+      ],
+      "@elyum/validation-yup": [
+        "packages/validation-yup/src"
+      ],
+      "@elyum/core": [
+        "packages/core/src"
+      ],
+      "@elyum/http": [
+        "packages/http/src"
+      ]
+    },
+    "ignoreDeprecations": "6.0"
   },
-  "include": ["apps/**/*", "packages/**/*"],
-  "exclude": ["node_modules", "dist"],
+  "include": [
+    "apps/**/*",
+    "packages/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "references": [
-    { "path": "./packages/core/tsconfig.json" },
-    { "path": "./packages/http/tsconfig.json" },
-    { "path": "./packages/validation/tsconfig.json" },
-    { "path": "./packages/validation-zod/tsconfig.json" },
-    { "path": "./packages/validation-yup/tsconfig.json" }
+    {
+      "path": "./packages/core/tsconfig.json"
+    },
+    {
+      "path": "./packages/http/tsconfig.json"
+    },
+    {
+      "path": "./packages/validation/tsconfig.json"
+    },
+    {
+      "path": "./packages/validation-zod/tsconfig.json"
+    },
+    {
+      "path": "./packages/validation-yup/tsconfig.json"
+    }
   ]
 }

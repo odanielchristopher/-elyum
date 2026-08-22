@@ -81,6 +81,9 @@ importers:
       '@elyum/core':
         specifier: workspace:*
         version: link:../core
+      '@elyum/validation':
+        specifier: workspace:*
+        version: link:../validation
       reflect-metadata:
         specifier: ^0.1.13
         version: 0.1.14

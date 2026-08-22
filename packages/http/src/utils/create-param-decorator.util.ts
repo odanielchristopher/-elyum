@@ -106,7 +106,7 @@ export function createParamDecorator<TInput = undefined, TOutput = any>({
     return (target, propertyKey, parameterIndex) => {
       const paramMetadata: ParamMetadata<TInput> = {
         index: parameterIndex,
-        type: source as any,
+        type: source,
         key,
         validator,
         factory,
