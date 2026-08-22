@@ -10,6 +10,7 @@ export interface HttpRequest<
   TQuery = Record<string, unknown>,
   TParams = Record<string, string>,
   THeaders = Record<string, string>,
+  TRaw = unknown,
 > {
   /** Request body (já parseado) */
   body: TBody;
@@ -45,5 +46,5 @@ export interface HttpRequest<
   cookies?: Record<string, string>;
 
   /** Raw request (framework-specific, use with caution) */
-  raw?: any;
+  raw?: TRaw;
 }

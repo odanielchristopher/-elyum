@@ -1,1 +1,0 @@
-export type { Guard } from './guard.interface';

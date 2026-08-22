@@ -1,6 +1,7 @@
 import { ContainerDI, ExecutionContext } from '@elyum/core';
 
-import { HttpRequest, HttpResponse, RouteDefinition } from '../contracts';
+import { HttpRequest, HttpResponse } from '../contracts';
+import { CompiledController } from '../types';
 
 /**
  * Store do execution context HTTP
@@ -17,8 +18,8 @@ export interface HttpExecutionContextStore {
   /** Response HTTP */
   response: HttpResponse;
 
-  /** Definição da rota sendo executada */
-  route: RouteDefinition;
+  /** Controller compilado sendo executado */
+  route: CompiledController;
 
   /** Dados customizados (pode ser usado por guards, interceptors, etc) */
   [key: string]: any;
@@ -29,16 +30,6 @@ export interface HttpExecutionContextStore {
  *
  * Estende ExecutionContext do core com métodos convenientes
  * para acessar request, response, etc
- *
- * @example
- * // Dentro de um guard
- * class AuthGuard {
- *   canActivate() {
- *     const request = HttpExecutionContext.getRequest();
- *     const token = request.headers.authorization;
- *     // ...
- *   }
- * }
  *
  * @example
  * // Dentro de um handler
@@ -94,7 +85,7 @@ export class HttpExecutionContext {
   /**
    * Obtém definição da rota atual
    */
-  static getRoute(): RouteDefinition {
+  static getRoute(): CompiledController {
     return this.getStore().route;
   }
 

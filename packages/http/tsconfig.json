@@ -5,8 +5,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "."
   },
-  "include": ["src"],
+  "include": ["src", "tests"],
   "references": [{ "path": "../core" }, { "path": "../validation" }]
 }

@@ -108,7 +108,7 @@ export function createTypedParamDecorator(source: ParamSource) {
       };
 
       // Usar createParamDecorator
-      const decorator = createParamDecorator({
+      const decorator = createParamDecorator<undefined, any>({
         factory,
         source,
       })();

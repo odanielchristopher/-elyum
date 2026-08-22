@@ -3,7 +3,7 @@
  *
  * Permite enviar respostas HTTP de forma agnóstica
  */
-export interface HttpResponse {
+export interface HttpResponse<TRaw = unknown> {
   /**
    * Define status code HTTP
    * @example response.status(201).send(data)
@@ -55,5 +55,5 @@ export interface HttpResponse {
   /**
    * Raw response (framework-specific, use with caution)
    */
-  raw?: any;
+  raw?: TRaw;
 }

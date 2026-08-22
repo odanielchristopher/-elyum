@@ -8,6 +8,7 @@ export default mergeConfig(
     test: {
       name: '@elyum/http',
       environment: 'node',
+      setupFiles: ['reflect-metadata'],
     },
   }),
 );
