@@ -11,8 +11,5 @@ import { createParamDecorator } from '../utils/create-param-decorator.util';
 export function Request(): ParameterDecorator {
   return createParamDecorator<undefined, unknown>({
     source: 'request',
-    factory(request) {
-      return request;
-    },
   })();
 }

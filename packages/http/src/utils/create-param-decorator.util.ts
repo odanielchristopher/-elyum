@@ -46,7 +46,7 @@ export type ParamSource =
  */
 export interface ParamDecoratorConfig<TInput = any, TOutput = any> {
   /** Factory para processar valor */
-  factory: ParamFactory<TInput, TOutput>;
+  factory?: ParamFactory<TInput, TOutput>;
 
   /** Fonte dos dados (body, query, etc) */
   source: ParamSource;
@@ -98,7 +98,7 @@ export function createParamDecorator<
   factory,
   source = 'custom',
 }: {
-  factory: ParamFactory<TInput, TOutput>;
+  factory?: ParamFactory<TInput, TOutput>;
   source?: ParamSource;
 }): TKey extends undefined
   ? (validator?: IValidator<any, any>) => ParameterDecorator
@@ -118,7 +118,7 @@ export function createParamDecorator<
         type: source,
         key: finalKey,
         validator: finalValidator,
-        factory,
+        ...(factory ? { factory } : {}),
       };
 
       const existingParams =
