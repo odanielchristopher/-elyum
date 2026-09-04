@@ -8,6 +8,7 @@ import {
   ControllerCompiler,
   createParamDecorator,
   Get,
+  Param,
   Post,
   Query,
   ROUTE_PARAMS_METADATA_KEY,
@@ -372,5 +373,25 @@ describe('ControllerCompiler configuration', () => {
 
     // Assert
     expect(fromClass).toEqual(fromFunction);
+  });
+
+  it('should preserve built-in validator metadata for adapter inspection', () => {
+    // Arrange
+    const validator = { parse: (value: unknown) => value };
+
+    @Get('/users/:id')
+    class TestController {
+      execute(@Param(validator) _params: unknown) {}
+    }
+
+    // Act
+    const compiled = new ControllerCompiler().compile(TestController);
+
+    // Assert
+    expect(compiled.params[0]).toMatchObject({
+      type: 'param',
+      key: undefined,
+      validator,
+    });
   });
 });

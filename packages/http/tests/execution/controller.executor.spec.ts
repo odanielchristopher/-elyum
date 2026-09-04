@@ -189,6 +189,36 @@ describe('executeController()', () => {
     expect(result).toMatchObject({ body: 'ELYUM' });
   });
 
+  it('should inject and validate the complete route parameters object', async () => {
+    // Arrange
+    const validator: IValidator<Record<string, string>, string> = {
+      parse(params) {
+        return `${params.userId}:${params.postId}`;
+      },
+    };
+
+    @Get('/users/:userId/posts/:postId')
+    class TestController {
+      execute(@Param(validator) routeKey: string) {
+        return routeKey;
+      }
+    }
+
+    // Act
+    const result = await executeController(compileController(TestController), {
+      request: {
+        ...createRequest({}),
+        params: { userId: 'user-1', postId: 'post-2' },
+      },
+      response: {},
+      resolveController: () => new TestController(),
+      isResponseSent: () => false,
+    });
+
+    // Assert
+    expect(result).toMatchObject({ body: 'user-1:post-2' });
+  });
+
   it('should preserve errors from resolvers, factories, validators, and handlers', async () => {
     // Arrange
     const failures = [

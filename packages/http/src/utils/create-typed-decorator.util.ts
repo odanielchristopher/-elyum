@@ -84,7 +84,7 @@ export function createTypedParamDecorator(source: ParamSource) {
       );
 
       // Criar factory customizado
-      const factory: ParamFactory = async (input: any) => {
+      const factory: ParamFactory = (input: any) => {
         let value: any;
 
         // Extrair valor
@@ -99,19 +99,14 @@ export function createTypedParamDecorator(source: ParamSource) {
           value = coerceValue(value, expectedType);
         }
 
-        // Aplicar validação se presente
-        if (finalValidator) {
-          return await finalValidator.parse(value);
-        }
-
         return value;
       };
 
-      // Usar createParamDecorator
+      // Keep validation metadata visible to compilers and adapters.
       const decorator = createParamDecorator<undefined, any>({
         factory,
         source,
-      })();
+      })(finalValidator);
       decorator(target, propertyKey, parameterIndex);
     };
   };
