@@ -1,1 +1,1 @@
-export { compileController } from './controller.compiler';
+export { compileController, ControllerCompiler } from './controller.compiler';

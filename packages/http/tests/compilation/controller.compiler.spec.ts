@@ -2,9 +2,10 @@ import { describe, expect, it, vi } from 'vitest';
 
 import {
   Body,
-  compileController,
+  compileController as compileControllerFunction,
   CONTROLLER_ROUTES_METADATA_KEY,
   ControllerCompilationError,
+  ControllerCompiler,
   createParamDecorator,
   Get,
   Post,
@@ -12,7 +13,21 @@ import {
   ROUTE_PARAMS_METADATA_KEY,
 } from '@elyum/http';
 
-describe('compileController()', () => {
+const compileWithClass: typeof compileControllerFunction = (
+  controllerClass,
+  options,
+) => new ControllerCompiler(options).compile(controllerClass);
+
+describe.each([
+  {
+    name: 'compileController()',
+    compileController: compileControllerFunction,
+  },
+  {
+    name: 'ControllerCompiler.compile()',
+    compileController: compileWithClass,
+  },
+])('$name', ({ compileController }) => {
   describe('handler selection', () => {
     it('should prefer the route handler over the global option', () => {
       // Arrange
@@ -251,6 +266,7 @@ describe('compileController()', () => {
 
     // Act
     const compiled = compileController(TestController);
+    vi.restoreAllMocks();
     const getMetadataSpy = vi.spyOn(Reflect, 'getMetadata');
     const getOwnMetadataSpy = vi.spyOn(Reflect, 'getOwnMetadata');
     void compiled.method;
@@ -263,6 +279,7 @@ describe('compileController()', () => {
     expect(Object.isFrozen(compiled.params[0])).toBe(true);
     expect(getMetadataSpy).not.toHaveBeenCalled();
     expect(getOwnMetadataSpy).not.toHaveBeenCalled();
+    vi.restoreAllMocks();
   });
 
   it('should expose a stable compilation error code', () => {
@@ -279,5 +296,81 @@ describe('compileController()', () => {
         code: 'ELYUM_HTTP_CONTROLLER_COMPILATION',
       }),
     );
+  });
+});
+
+describe('ControllerCompiler configuration', () => {
+  it('should reuse constructor options across multiple compilations', () => {
+    // Arrange
+    @Get('/first')
+    class FirstController {
+      run() {}
+    }
+    @Get('/second')
+    class SecondController {
+      run() {}
+    }
+    const compiler = new ControllerCompiler({ controllerMethod: 'run' });
+
+    // Act
+    const first = compiler.compile(FirstController);
+    const second = compiler.compile(SecondController);
+
+    // Assert
+    expect(first.handlerName).toBe('run');
+    expect(second.handlerName).toBe('run');
+  });
+
+  it('should isolate compiler instances with different options', () => {
+    // Arrange
+    @Get('/users')
+    class TestController {
+      execute() {}
+      run() {}
+    }
+    const conventionalCompiler = new ControllerCompiler();
+    const configuredCompiler = new ControllerCompiler({
+      controllerMethod: 'run',
+    });
+
+    // Act
+    const conventional = conventionalCompiler.compile(TestController);
+    const configured = configuredCompiler.compile(TestController);
+
+    // Assert
+    expect(conventional.handlerName).toBe('execute');
+    expect(configured.handlerName).toBe('run');
+  });
+
+  it('should copy constructor options instead of retaining a mutable reference', () => {
+    // Arrange
+    @Get('/users')
+    class TestController {
+      run() {}
+    }
+    const options = { controllerMethod: 'run' };
+    const compiler = new ControllerCompiler(options);
+    options.controllerMethod = 'missing';
+
+    // Act
+    const compiled = compiler.compile(TestController);
+
+    // Assert
+    expect(compiled.handlerName).toBe('run');
+  });
+
+  it('should remain equivalent to the functional wrapper', () => {
+    // Arrange
+    @Post('/users')
+    class TestController {
+      execute(@Body() _body: unknown) {}
+    }
+
+    // Act
+    const fromClass = new ControllerCompiler().compile(TestController);
+    const fromFunction = compileControllerFunction(TestController);
+
+    // Assert
+    expect(fromClass).toEqual(fromFunction);
   });
 });
