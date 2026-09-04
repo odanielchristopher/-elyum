@@ -21,7 +21,8 @@
       "@elyum/validation-zod": ["packages/validation-zod/src"],
       "@elyum/validation-yup": ["packages/validation-yup/src"],
       "@elyum/core": ["packages/core/src"],
-      "@elyum/http": ["packages/http/src"]
+      "@elyum/http": ["packages/http/src"],
+      "@elyum/fastify": ["packages/fastify/src"]
     },
     "ignoreDeprecations": "5.0"
   },
@@ -33,6 +34,9 @@
     },
     {
       "path": "./packages/http/tsconfig.json"
+    },
+    {
+      "path": "./packages/fastify/tsconfig.json"
     },
     {
       "path": "./packages/validation/tsconfig.json"

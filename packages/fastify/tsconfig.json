@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": ".typecheck",
+    "rootDir": "."
+  },
+  "include": ["src", "tests"],
+  "references": [{ "path": "../core" }, { "path": "../http" }]
+}
