@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../core" },
+    { "path": "../http" },
+    { "path": "../fastify" },
+    { "path": "../validation" },
+    { "path": "../validation-zod" },
+    { "path": "../validation-yup" }
+  ]
+}

@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "description": "Reference applications for Elyum",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "node --watch-path=src --watch-preserve-output --run dev:serve",
+    "dev:serve": "tsc -b && node --enable-source-maps dist/main.js",
+    "format:check": "prettier --check src",
+    "lint": "eslint src",
+    "start": "node --enable-source-maps dist/main.js",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@elyum/core": "workspace:*",
     "@elyum/fastify": "workspace:*",
