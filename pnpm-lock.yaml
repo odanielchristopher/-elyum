@@ -68,6 +68,39 @@ importers:
         specifier: ^0.1.13
         version: 0.1.14
 
+  packages/examples:
+    dependencies:
+      '@elyum/core':
+        specifier: workspace:*
+        version: link:../core
+      '@elyum/fastify':
+        specifier: workspace:*
+        version: link:../fastify
+      '@elyum/http':
+        specifier: workspace:*
+        version: link:../http
+      '@elyum/validation':
+        specifier: workspace:*
+        version: link:../validation
+      '@elyum/validation-yup':
+        specifier: workspace:*
+        version: link:../validation-yup
+      '@elyum/validation-zod':
+        specifier: workspace:*
+        version: link:../validation-zod
+      fastify:
+        specifier: ^5.12.1
+        version: 5.12.1
+      reflect-metadata:
+        specifier: ^0.1.13
+        version: 0.1.14
+      yup:
+        specifier: ^1.3.0
+        version: 1.7.1
+      zod:
+        specifier: ^3.0.0
+        version: 3.25.76
+
   packages/fastify:
     dependencies:
       '@elyum/core':
