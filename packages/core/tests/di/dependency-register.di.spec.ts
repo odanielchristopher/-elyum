@@ -155,6 +155,30 @@ describe('DependencyRegister', () => {
     );
   });
 
+  it('should explain how to register a dependency erased to Object metadata', () => {
+    // Arrange
+    @Injectable()
+    class Root {
+      constructor(readonly dependency: object) {}
+    }
+    Reflect.defineMetadata('design:paramtypes', [Object], Root);
+    const container = ElyumFactory.createRoot();
+
+    // Act & Assert
+    try {
+      new DependencyRegister(container).registerDependencies(Root);
+      expect.fail('Expected dependency registration to fail');
+    } catch (error) {
+      expect(error).toMatchObject({
+        dependency: Object,
+        reason: 'metadata_unavailable',
+      });
+      expect((error as Error).message).toContain(
+        'Declare the constructor parameter with @Inject(token)',
+      );
+    }
+  });
+
   it('should require explicit registration for a custom injectable token', () => {
     // Arrange
     const TOKEN = Symbol('Dependency');

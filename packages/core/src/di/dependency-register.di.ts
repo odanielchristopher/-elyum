@@ -33,6 +33,16 @@ interface RegistrationState {
   readonly visiting: Set<InjectionToken>;
 }
 
+const NON_DISCOVERABLE_TYPES = new Set<Function>([
+  Array,
+  Boolean,
+  Function,
+  Number,
+  Object,
+  Promise,
+  String,
+]);
+
 /**
  * Discovers injectable class dependencies and registers them in an existing
  * container. Discovery and validation complete before the container is
@@ -137,6 +147,17 @@ export class DependencyRegister {
         path,
         `token '${String(token)}' has no registered provider and its implementation cannot be inferred.`,
         'Register a value, class, or factory provider for this token before registering the root class.',
+      );
+    }
+
+    if (NON_DISCOVERABLE_TYPES.has(token)) {
+      throw this.createError(
+        state,
+        token,
+        'metadata_unavailable',
+        path,
+        `reflected type '${token.name}' does not identify a concrete dependency implementation.`,
+        'Declare the constructor parameter with @Inject(token) and register its provider explicitly.',
       );
     }
 
