@@ -1,5 +1,6 @@
 export type { Constructor } from './constructor.type';
 export type { ContainerDI } from './container.contract';
+export type { RegisterDependenciesOptions } from './dependency-register.type';
 export type { DependencyResolver } from './dependency-resolver.type';
 export type { InjectionToken } from './injection-token.type';
 export type { MetadataReader } from './metadata-reader.type';
