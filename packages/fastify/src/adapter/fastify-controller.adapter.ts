@@ -1,4 +1,4 @@
-import { Constructor, ElyumFactory } from '@elyum/core';
+import { Constructor, DependencyRegister, ElyumFactory } from '@elyum/core';
 import {
   CompiledController,
   ControllerCompiler,
@@ -17,6 +17,7 @@ export class FastifyControllerAdapter {
   readonly runtime: ElyumFastifyRuntime;
 
   private readonly compiler: ControllerCompiler;
+  private readonly dependencyRegister: DependencyRegister | undefined;
   private readonly onError: ElyumFastifyOptions['onError'];
 
   constructor(
@@ -30,6 +31,16 @@ export class FastifyControllerAdapter {
       );
     }
 
+    if (
+      options.resolveController &&
+      options.autoRegisterDependencies !== undefined
+    ) {
+      throw new FastifyAdapterConfigurationError(
+        'autoRegisterDependencies was provided with resolveController.',
+        'Remove autoRegisterDependencies and let the application-owned resolver manage its dependency graph.',
+      );
+    }
+
     this.compiler = new ControllerCompiler(
       options.controllerMethod === undefined
         ? {}
@@ -37,6 +48,10 @@ export class FastifyControllerAdapter {
     );
     this.onError = options.onError;
     this.runtime = this.createRuntime(options);
+    this.dependencyRegister =
+      options.autoRegisterDependencies && this.runtime.container
+        ? new DependencyRegister(this.runtime.container)
+        : undefined;
   }
 
   registerController(
@@ -44,6 +59,9 @@ export class FastifyControllerAdapter {
     options: ElyumFastifyRouteOptions = {},
   ): FastifyInstance {
     const compiled = this.compiler.compile(controllerClass);
+    this.dependencyRegister?.registerDependencies(controllerClass, {
+      allowedScopes: ['singleton', 'transient'],
+    });
     this.registerControllerProvider(controllerClass);
 
     this.fastify.route({

@@ -1,4 +1,4 @@
-import { ElyumFactory } from '@elyum/core';
+import { ElyumFactory, Injectable } from '@elyum/core';
 import {
   Body,
   ControllerExecutionError,
@@ -382,6 +382,205 @@ describe('@elyum/fastify', () => {
   });
 
   describe('controller resolution', () => {
+    it('should auto-register an injectable graph with the internal container', async () => {
+      // Arrange
+      @Injectable()
+      class Repository {
+        findMessage() {
+          return 'auto-registered';
+        }
+      }
+
+      @Injectable({ scope: 'transient' })
+      class UseCase {
+        constructor(private readonly repository: Repository) {}
+
+        execute() {
+          return this.repository.findMessage();
+        }
+      }
+
+      @Get('/auto-registration')
+      class TestController {
+        constructor(private readonly useCase: UseCase) {}
+
+        execute() {
+          return this.useCase.execute();
+        }
+      }
+      Reflect.defineMetadata('design:paramtypes', [Repository], UseCase);
+      Reflect.defineMetadata('design:paramtypes', [UseCase], TestController);
+      const application = createApplication();
+      await application.register(elyum(), {
+        autoRegisterDependencies: true,
+      });
+
+      // Act
+      application.controller(TestController);
+      const response = await application.inject({
+        method: 'GET',
+        url: '/auto-registration',
+      });
+
+      // Assert
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBe('auto-registered');
+      expect(application.elyum.container?.getProvider(UseCase)).toMatchObject({
+        scope: 'transient',
+      });
+      expect(
+        application.elyum.container?.getProvider(Repository),
+      ).toMatchObject({ scope: 'singleton' });
+    });
+
+    it('should preserve a dependency provider in a supplied container', async () => {
+      // Arrange
+      @Injectable()
+      class Dependency {
+        readonly value = 'automatic';
+      }
+
+      @Get('/configured-provider')
+      class TestController {
+        constructor(private readonly dependency: Dependency) {}
+
+        execute() {
+          return this.dependency.value;
+        }
+      }
+      Reflect.defineMetadata('design:paramtypes', [Dependency], TestController);
+      const configuredDependency = { value: 'configured' };
+      const container = ElyumFactory.createRoot();
+      container.register({
+        token: Dependency,
+        useValue: configuredDependency,
+      });
+      const application = createApplication();
+      await application.register(elyum(), {
+        autoRegisterDependencies: true,
+        container,
+      });
+
+      // Act
+      application.controller(TestController);
+      const response = await application.inject({
+        method: 'GET',
+        url: '/configured-provider',
+      });
+
+      // Assert
+      expect(response.body).toBe('configured');
+      expect(container.getProvider(Dependency)).toEqual({
+        token: Dependency,
+        useValue: configuredDependency,
+      });
+    });
+
+    it('should keep automatic dependency registration disabled by default', async () => {
+      // Arrange
+      @Injectable()
+      class Dependency {}
+
+      @Get('/explicit-registration')
+      class TestController {
+        constructor(private readonly dependency: Dependency) {}
+
+        execute() {
+          return this.dependency;
+        }
+      }
+      Reflect.defineMetadata('design:paramtypes', [Dependency], TestController);
+      const application = createApplication();
+      await application.register(elyum());
+      application.controller(TestController);
+
+      // Act
+      const response = await application.inject({
+        method: 'GET',
+        url: '/explicit-registration',
+      });
+
+      // Assert
+      expect(
+        application.elyum.container?.getProvider(Dependency),
+      ).toBeUndefined();
+      expect(response.statusCode).toBe(500);
+    });
+
+    it('should reject scoped dependencies during controller registration', async () => {
+      // Arrange
+      @Injectable({ scope: 'scoped' })
+      class ScopedDependency {}
+
+      @Get('/unsupported-scope')
+      class TestController {
+        constructor(private readonly dependency: ScopedDependency) {}
+
+        execute() {
+          return this.dependency;
+        }
+      }
+      Reflect.defineMetadata(
+        'design:paramtypes',
+        [ScopedDependency],
+        TestController,
+      );
+      const application = createApplication();
+      await application.register(elyum(), {
+        autoRegisterDependencies: true,
+      });
+
+      // Act & Assert
+      expect(() => application.controller(TestController)).toThrowError(
+        expect.objectContaining({
+          reason: 'unsupported_scope',
+          dependency: ScopedDependency,
+        }),
+      );
+      expect(
+        application.elyum.container?.getProvider(ScopedDependency),
+      ).toBeUndefined();
+    });
+
+    it('should reject a preexisting scoped provider in a supplied container', async () => {
+      // Arrange
+      class ScopedDependency {}
+
+      @Get('/configured-scope')
+      class TestController {
+        constructor(private readonly dependency: ScopedDependency) {}
+
+        execute() {
+          return this.dependency;
+        }
+      }
+      Reflect.defineMetadata(
+        'design:paramtypes',
+        [ScopedDependency],
+        TestController,
+      );
+      const container = ElyumFactory.createRoot();
+      container.register({
+        token: ScopedDependency,
+        useClass: ScopedDependency,
+        scope: 'scoped',
+      });
+      const application = createApplication();
+      await application.register(elyum(), {
+        autoRegisterDependencies: true,
+        container,
+      });
+
+      // Act & Assert
+      expect(() => application.controller(TestController)).toThrowError(
+        expect.objectContaining({
+          reason: 'unsupported_scope',
+          dependency: ScopedDependency,
+        }),
+      );
+      expect(container.getProvider(TestController)).toBeUndefined();
+    });
+
     it('should auto-register controllers as transient in the internal container', async () => {
       // Arrange
       let instances = 0;
@@ -484,6 +683,20 @@ describe('@elyum/fastify', () => {
       const application = createApplication();
       const invalidOptions = {
         container: ElyumFactory.createRoot(),
+        resolveController: () => ({}),
+      };
+
+      // Act & Assert
+      await expect(
+        application.register(elyum(), invalidOptions as never).ready(),
+      ).rejects.toBeInstanceOf(FastifyAdapterConfigurationError);
+    });
+
+    it('should reject automatic registration with an external resolver', async () => {
+      // Arrange
+      const application = createApplication();
+      const invalidOptions = {
+        autoRegisterDependencies: true,
         resolveController: () => ({}),
       };
 

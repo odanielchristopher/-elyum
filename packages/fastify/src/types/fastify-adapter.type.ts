@@ -30,10 +30,13 @@ interface ElyumFastifyCommonOptions {
 export type ElyumFastifyOptions = ElyumFastifyCommonOptions &
   (
     | {
+        /** Discover missing concrete @Injectable dependencies at registration. */
+        readonly autoRegisterDependencies?: boolean;
         readonly container?: ContainerDI;
         readonly resolveController?: never;
       }
     | {
+        readonly autoRegisterDependencies?: never;
         readonly container?: never;
         readonly resolveController: ControllerResolver;
       }

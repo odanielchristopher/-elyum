@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import elyumDefault, {
   elyum,
   FastifyAdapterConfigurationError,
+  type ElyumFastifyOptions,
 } from '@elyum/fastify';
 
 describe('@elyum/fastify public API', () => {
@@ -38,5 +39,27 @@ describe('@elyum/fastify public API', () => {
     // Assert
     expect(application.controller).toEqual(expect.any(Function));
     await application.close();
+  });
+
+  it('should restrict automatic registration to container modes', () => {
+    // Arrange
+    const containerOptions = {
+      autoRegisterDependencies: true,
+    } satisfies ElyumFastifyOptions;
+    const resolverOptions = {
+      resolveController: () => ({}),
+    } satisfies ElyumFastifyOptions;
+
+    // Act
+    // @ts-expect-error External resolvers own dependency registration.
+    const invalidOptions: ElyumFastifyOptions = {
+      autoRegisterDependencies: true,
+      resolveController: () => ({}),
+    };
+
+    // Assert
+    expect(containerOptions.autoRegisterDependencies).toBe(true);
+    expect(resolverOptions.resolveController).toEqual(expect.any(Function));
+    expect(invalidOptions).toBeDefined();
   });
 });
