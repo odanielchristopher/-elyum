@@ -15,16 +15,14 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": ".",
     "paths": {
-      "@elyum/validation": ["packages/validation/src"],
-      "@elyum/validation-zod": ["packages/validation-zod/src"],
-      "@elyum/validation-yup": ["packages/validation-yup/src"],
-      "@elyum/core": ["packages/core/src"],
-      "@elyum/http": ["packages/http/src"],
-      "@elyum/fastify": ["packages/fastify/src"]
-    },
-    "ignoreDeprecations": "5.0"
+      "@elyum/validation": ["./packages/validation/src"],
+      "@elyum/validation-zod": ["./packages/validation-zod/src"],
+      "@elyum/validation-yup": ["./packages/validation-yup/src"],
+      "@elyum/core": ["./packages/core/src"],
+      "@elyum/http": ["./packages/http/src"],
+      "@elyum/fastify": ["./packages/fastify/src"]
+    }
   },
   "include": ["apps/**/*", "packages/**/*"],
   "exclude": ["node_modules", "dist"],

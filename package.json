@@ -12,6 +12,7 @@
     "ci:lint": "pnpm lint && pnpm format:check",
     "pretypecheck": "tsc -b packages/core packages/http packages/fastify packages/validation packages/validation-zod packages/validation-yup --pretty false",
     "typecheck": "pnpm -r run typecheck",
+    "typecheck:ts6": "tsc6 -b packages/core packages/http packages/fastify packages/validation packages/validation-zod packages/validation-yup --pretty false",
     "test:ci": "pnpm -r run test:ci",
     "test:coverage": "pnpm -r run test:coverage",
     "test": "pnpm -r run test"
@@ -24,6 +25,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.27.0",
     "@types/node": "^25.2.2",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "@vitest/coverage-v8": "4.0.18",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
@@ -35,8 +37,8 @@
     "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.33.0",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-eslint": "^8.70.0",
     "vitest": "^4.0.18"
   }
 }
