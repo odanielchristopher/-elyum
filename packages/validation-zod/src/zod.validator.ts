@@ -27,7 +27,7 @@ export class ZodValidator<TOutput> implements IValidator<unknown, TOutput> {
       return this.schema.parse(data);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        throw this.convertZodError(error);
+        throw this.convertZodError(error, data);
       }
       // Re-throw se não for ZodError
       throw error;
@@ -37,12 +37,15 @@ export class ZodValidator<TOutput> implements IValidator<unknown, TOutput> {
   /**
    * Converte ZodError para ValidationError do Elyum
    */
-  private convertZodError(zodError: z.ZodError): ValidationError {
-    const errors: ValidationErrorItem[] = zodError.errors.map((issue) => ({
+  private convertZodError(
+    zodError: z.ZodError,
+    input: unknown,
+  ): ValidationError {
+    const errors: ValidationErrorItem[] = zodError.issues.map((issue) => ({
       field: issue.path.join('.') || 'root',
       message: issue.message,
       code: issue.code,
-      received: 'received' in issue ? issue.received : undefined,
+      received: this.getReceivedType(issue, input),
       expected: this.getExpectedValue(issue),
     }));
 
@@ -53,18 +56,50 @@ export class ZodValidator<TOutput> implements IValidator<unknown, TOutput> {
    * Extrai valor esperado do issue do Zod
    */
   private getExpectedValue(issue: z.ZodIssue): unknown {
-    // ZodIssue pode ter diferentes formatos dependendo do tipo de erro
     if ('expected' in issue) {
       return issue.expected;
     }
 
-    // Para alguns tipos, podemos inferir
-    switch (issue.code) {
-      case z.ZodIssueCode.invalid_string:
-        return (issue as z.ZodInvalidStringIssue).validation;
-      default:
-        return undefined;
+    if ('format' in issue) {
+      return issue.format;
     }
+
+    return undefined;
+  }
+
+  /**
+   * Preserves the useful received-type detail removed from Zod 4 issues without
+   * storing the potentially sensitive input value in the normalized error.
+   */
+  private getReceivedType(
+    issue: z.ZodIssue,
+    input: unknown,
+  ): string | undefined {
+    if (issue.code !== 'invalid_type') {
+      return undefined;
+    }
+
+    const received = issue.path.reduce<unknown>((value, segment) => {
+      if (value === null || typeof value !== 'object') {
+        return undefined;
+      }
+
+      return (value as Record<PropertyKey, unknown>)[segment];
+    }, input);
+
+    if (received === null) {
+      return 'null';
+    }
+
+    if (Array.isArray(received)) {
+      return 'array';
+    }
+
+    if (typeof received === 'number' && Number.isNaN(received)) {
+      return 'nan';
+    }
+
+    return typeof received;
   }
 
   /**
@@ -75,7 +110,7 @@ export class ZodValidator<TOutput> implements IValidator<unknown, TOutput> {
       return await this.schema.parseAsync(data);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        throw this.convertZodError(error);
+        throw this.convertZodError(error, data);
       }
       throw error;
     }
@@ -94,7 +129,10 @@ export class ZodValidator<TOutput> implements IValidator<unknown, TOutput> {
     if (result.success) {
       return { success: true, data: result.data };
     } else {
-      return { success: false, error: this.convertZodError(result.error) };
+      return {
+        success: false,
+        error: this.convertZodError(result.error, data),
+      };
     }
   }
 }
