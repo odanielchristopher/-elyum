@@ -44,6 +44,9 @@
     },
     {
       "path": "./packages/validation-yup/tsconfig.json"
+    },
+    {
+      "path": "./packages/examples/tsconfig.json"
     }
   ]
 }

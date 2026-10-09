@@ -10,9 +10,9 @@
     "lint": "pnpm -r run lint",
     "format:check": "pnpm -r run format:check",
     "ci:lint": "pnpm lint && pnpm format:check",
-    "pretypecheck": "tsc -b packages/core packages/http packages/fastify packages/validation packages/validation-zod packages/validation-yup --pretty false",
+    "pretypecheck": "tsc -b packages/core packages/http packages/fastify packages/validation packages/validation-zod packages/validation-yup packages/examples --pretty false",
     "typecheck": "pnpm -r run typecheck",
-    "typecheck:ts6": "tsc6 -b packages/core packages/http packages/fastify packages/validation packages/validation-zod packages/validation-yup --pretty false",
+    "typecheck:ts6": "tsc6 -b packages/core packages/http packages/fastify packages/validation packages/validation-zod packages/validation-yup packages/examples --pretty false",
     "test:ci": "pnpm -r run test:ci",
     "test:coverage": "pnpm -r run test:coverage",
     "test": "pnpm -r run test"
