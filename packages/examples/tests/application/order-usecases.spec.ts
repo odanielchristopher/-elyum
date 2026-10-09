@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
+import type { Clock } from '../../src/application/contracts/clock';
+import type { IdGenerator } from '../../src/application/contracts/id-generator';
 import { OrderNotFoundError } from '../../src/application/errors/order-not-found.error';
 import { ProductNotFoundError } from '../../src/application/errors/product-not-found.error';
-import type { Clock } from '../../src/application/ports/clock';
-import type { IdGenerator } from '../../src/application/ports/id-generator';
 import { CreateOrderUseCase } from '../../src/application/usecases/orders/create-order.usecase';
 import { GetOrderUseCase } from '../../src/application/usecases/orders/get-order.usecase';
 import { ListOrdersUseCase } from '../../src/application/usecases/orders/list-orders.usecase';

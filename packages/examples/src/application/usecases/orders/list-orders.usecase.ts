@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@elyum/core';
 
 import type { Order } from '../../../domain/entities/order.entity';
-import type { OrderRepository } from '../../ports/order.repository';
+import type { OrderRepository } from '../../contracts/order.repository';
 import { ORDER_REPOSITORY_TOKEN } from '../../tokens';
 
 @Injectable()

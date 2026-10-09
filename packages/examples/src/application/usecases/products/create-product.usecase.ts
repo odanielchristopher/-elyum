@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@elyum/core';
 
 import { Product } from '../../../domain/entities/product.entity';
+import type { Clock } from '../../contracts/clock';
+import type { IdGenerator } from '../../contracts/id-generator';
+import type { ProductRepository } from '../../contracts/product.repository';
 import { ProductAlreadyExistsError } from '../../errors/product-already-exists.error';
-import type { Clock } from '../../ports/clock';
-import type { IdGenerator } from '../../ports/id-generator';
-import type { ProductRepository } from '../../ports/product.repository';
 import {
   CLOCK_TOKEN,
   ID_GENERATOR_TOKEN,

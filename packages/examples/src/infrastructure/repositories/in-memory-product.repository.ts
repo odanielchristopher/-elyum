@@ -1,5 +1,5 @@
+import type { ProductRepository } from '../../application/contracts/product.repository';
 import { ProductAlreadyExistsError } from '../../application/errors/product-already-exists.error';
-import type { ProductRepository } from '../../application/ports/product.repository';
 import type { Product } from '../../domain/entities/product.entity';
 
 export class InMemoryProductRepository implements ProductRepository {

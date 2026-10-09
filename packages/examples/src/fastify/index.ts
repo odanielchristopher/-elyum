@@ -3,6 +3,7 @@ import Fastify, { type FastifyServerOptions } from 'fastify';
 
 import { createContainer } from '../di/container';
 
+import { handleApplicationError } from './errors/application-error.handler';
 import { routes } from './routes';
 
 export function buildApplication(options: FastifyServerOptions = {}) {
@@ -11,9 +12,7 @@ export function buildApplication(options: FastifyServerOptions = {}) {
   fastify.register(Elyum(), {
     container: createContainer(),
     autoRegisterDependencies: true,
-    onError: (error, { request }) => {
-      request.log.error({ err: error }, 'Controller execution failed');
-    },
+    onError: handleApplicationError,
   });
 
   fastify.register(routes);

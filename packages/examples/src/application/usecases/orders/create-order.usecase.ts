@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@elyum/core';
 
 import { Order } from '../../../domain/entities/order.entity';
+import type { Clock } from '../../contracts/clock';
+import type { IdGenerator } from '../../contracts/id-generator';
+import type { OrderRepository } from '../../contracts/order.repository';
+import type { ProductRepository } from '../../contracts/product.repository';
 import { ProductNotFoundError } from '../../errors/product-not-found.error';
-import type { Clock } from '../../ports/clock';
-import type { IdGenerator } from '../../ports/id-generator';
-import type { OrderRepository } from '../../ports/order.repository';
-import type { ProductRepository } from '../../ports/product.repository';
 import {
   CLOCK_TOKEN,
   ID_GENERATOR_TOKEN,

@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@elyum/core';
 
 import type { Order, OrderStatus } from '../../../domain/entities/order.entity';
+import type { OrderRepository } from '../../contracts/order.repository';
 import { OrderNotFoundError } from '../../errors/order-not-found.error';
-import type { OrderRepository } from '../../ports/order.repository';
 import { ORDER_REPOSITORY_TOKEN } from '../../tokens';
 
 export type UpdateOrderStatusInput = {

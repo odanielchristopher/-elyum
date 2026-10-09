@@ -1,4 +1,4 @@
-import type { OrderRepository } from '../../application/ports/order.repository';
+import type { OrderRepository } from '../../application/contracts/order.repository';
 import type { Order } from '../../domain/entities/order.entity';
 
 export class InMemoryOrderRepository implements OrderRepository {

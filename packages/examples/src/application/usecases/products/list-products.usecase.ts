@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@elyum/core';
 
 import type { Product } from '../../../domain/entities/product.entity';
-import type { ProductRepository } from '../../ports/product.repository';
+import type { ProductRepository } from '../../contracts/product.repository';
 import { PRODUCT_REPOSITORY_TOKEN } from '../../tokens';
 
 @Injectable()

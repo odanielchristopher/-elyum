@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
+import type { Clock } from '../../src/application/contracts/clock';
+import type { IdGenerator } from '../../src/application/contracts/id-generator';
 import { ProductAlreadyExistsError } from '../../src/application/errors/product-already-exists.error';
-import type { Clock } from '../../src/application/ports/clock';
-import type { IdGenerator } from '../../src/application/ports/id-generator';
 import { CreateProductUseCase } from '../../src/application/usecases/products/create-product.usecase';
 import { ListProductsUseCase } from '../../src/application/usecases/products/list-products.usecase';
 import { InMemoryProductRepository } from '../../src/infrastructure/repositories/in-memory-product.repository';
