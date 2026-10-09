@@ -1,5 +1,5 @@
 import 'reflect-metadata';
 
-import { bootstrap } from './fastify';
+import { bootstrap } from './alyum-fastify';
 
 bootstrap();
