@@ -72,7 +72,7 @@ importers:
         specifier: ^0.1.13
         version: 0.1.14
 
-  packages/examples:
+  packages/evaluation:
     dependencies:
       '@elyum/core':
         specifier: workspace:*

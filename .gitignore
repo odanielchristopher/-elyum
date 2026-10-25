@@ -71,5 +71,3 @@ coverage
 tsconfig.tsbuildinfo
 dist
 .typecheck
-docs
-AGENTS.md

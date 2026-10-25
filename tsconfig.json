@@ -50,7 +50,7 @@
       "path": "./packages/validation-yup/tsconfig.json"
     },
     {
-      "path": "./packages/examples/tsconfig.json"
+      "path": "./packages/evaluation/tsconfig.json"
     }
   ]
 }
