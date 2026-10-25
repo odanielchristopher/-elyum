@@ -21,12 +21,16 @@
       "@elyum/validation-yup": ["./packages/validation-yup/src"],
       "@elyum/core": ["./packages/core/src"],
       "@elyum/http": ["./packages/http/src"],
-      "@elyum/fastify": ["./packages/fastify/src"]
+      "@elyum/fastify": ["./packages/fastify/src"],
+      "@elyum/express": ["./packages/express/src"]
     }
   },
   "include": ["apps/**/*", "packages/**/*"],
   "exclude": ["node_modules", "dist"],
   "references": [
+    {
+      "path": "./packages/express/tsconfig.json"
+    },
     {
       "path": "./packages/core/tsconfig.json"
     },

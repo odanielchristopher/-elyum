@@ -15,6 +15,7 @@ export default defineConfig({
     alias: {
       '@elyum/core': path.resolve(__dirname, 'packages', 'core', 'src'),
       '@elyum/http': path.resolve(__dirname, 'packages', 'http', 'src'),
+      '@elyum/express': path.resolve(__dirname, 'packages', 'express', 'src'),
       '@elyum/fastify': path.resolve(__dirname, 'packages', 'fastify', 'src'),
       '@elyum/validation': path.resolve(
         __dirname,

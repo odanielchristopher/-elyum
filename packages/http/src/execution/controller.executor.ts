@@ -66,6 +66,18 @@ export async function executeController<
 
       const args = await resolveArguments(controller, options);
       const value: unknown = await handler.apply(instance, args);
+      if (options.isExecutionDelegated?.()) {
+        if (value !== undefined) {
+          throw ControllerExecutionError.fromController(
+            controller,
+            'response_conflict',
+            'the handler delegated execution and also returned a response value.',
+            'Either delegate execution and return void, or return a value without delegating.',
+          );
+        }
+
+        return Object.freeze({ kind: 'manual' });
+      }
       const responseSent = options.isResponseSent(options.response);
 
       if (responseSent) {

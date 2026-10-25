@@ -30,6 +30,81 @@ function createRequest<TRequest extends object>(raw: TRequest) {
   };
 }
 
+describe('explicit native delegation', () => {
+  it('should suppress automatic sending before inspecting a downstream response', async () => {
+    @Get('/delegated')
+    class DelegatingController {
+      execute() {}
+    }
+    const isResponseSent = vi.fn(() => true);
+
+    const result = await executeController(
+      compileController(DelegatingController),
+      {
+        request: createRequest({}),
+        response: {},
+        resolveController: () => new DelegatingController(),
+        isResponseSent,
+        isExecutionDelegated: () => true,
+      },
+    );
+
+    expect(result).toEqual({ kind: 'manual' });
+    expect(isResponseSent).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    null,
+    { unexpected: true },
+    httpResult({ statusCode: 202, body: 'unexpected' }),
+  ])(
+    'should reject a returned response value after delegation: %j',
+    async (body) => {
+      @Get('/delegated')
+      class DelegatingController {
+        execute() {
+          return body;
+        }
+      }
+      const execution = executeController(
+        compileController(DelegatingController),
+        {
+          request: createRequest({}),
+          response: {},
+          resolveController: () => new DelegatingController(),
+          isResponseSent: () => false,
+          isExecutionDelegated: () => true,
+        },
+      );
+
+      await expect(execution).rejects.toMatchObject({
+        reason: 'response_conflict',
+        controllerName: 'DelegatingController',
+        path: '/delegated',
+      });
+    },
+  );
+
+  it('should keep automatic empty responses when the delegation predicate is false', async () => {
+    @Get('/not-delegated')
+    class Controller {
+      execute() {}
+    }
+    const result = await executeController(compileController(Controller), {
+      request: createRequest({}),
+      response: {},
+      resolveController: () => new Controller(),
+      isResponseSent: () => false,
+      isExecutionDelegated: () => false,
+    });
+    expect(result).toEqual({
+      kind: 'automatic',
+      statusCode: 200,
+      body: undefined,
+    });
+  });
+});
+
 describe('executeController()', () => {
   it('should resolve a controller asynchronously and preserve its this binding', async () => {
     // Arrange

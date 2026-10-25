@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "../dist/example",
+    "types": ["node"]
+  },
+  "include": ["main.ts"],
+  "exclude": []
+}

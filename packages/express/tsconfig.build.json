@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "ignoreDeprecations": "6.0",
+    "paths": {},
+    "rootDir": "src"
+  },
+  "include": ["src"],
+  "exclude": ["dist", "tests"]
+}

@@ -19,6 +19,8 @@ export interface ExecuteControllerOptions<
   readonly response: TResponse;
   readonly resolveController: ControllerResolver<TController>;
   readonly isResponseSent: (response: TResponse) => boolean;
+  /** Reports explicit delegation to a native pipeline, without sending a response. */
+  readonly isExecutionDelegated?: () => boolean;
 }
 
 export interface AutomaticControllerExecutionResult<TBody = unknown> {
