@@ -11,6 +11,11 @@ The application is evidence for the TCC only when the same domain and
 application behavior can be exercised through Elyum Fastify, Elyum Express,
 and equivalent direct-framework implementations.
 
+The current Fastify order application is stored in `packages/evaluation`
+(private `@elyum/evaluation`), renamed from the former examples package without
+changing its internal layout or behavior. The four experimental variants are
+not implemented yet. `packages/express/examples` is a separate adapter example.
+
 ## Architectural boundary
 
 The application follows these dependency directions:

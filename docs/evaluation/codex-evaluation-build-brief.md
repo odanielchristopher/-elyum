@@ -16,7 +16,7 @@ Antes de alterar código, leia integralmente esses documentos e a especificaçã
 Entregar:
 
 1. `@elyum/express` como adapter mínimo e publicável;
-2. `packages/examples` renomeado para `packages/evaluation`;
+2. `packages/evaluation` como pacote privado de avaliação;
 3. quatro aplicações funcionalmente equivalentes dentro do pacote de avaliação;
 4. suíte externa de aceitação executável contra qualquer variante;
 5. endpoints B1, B2 e B3;
@@ -180,7 +180,11 @@ Porta de saída: testes do pacote, tipos e integração real passando.
 
 ## Fase 3 — Renomear o pacote de avaliação
 
-Renomeie `packages/examples` para `packages/evaluation` em um commit isolado.
+Executada nesta branch em um commit isolado: o antigo `packages/examples`
+passou a `packages/evaluation`, privado `@elyum/evaluation`. A estrutura
+interna e o comportamento permanecem os mesmos; as quatro aplicações abaixo
+continuam previstas somente para a Fase 4. Evidências no
+[relatório da Fase 3](./reports/phase-3-package-rename.md).
 
 Atualize:
 

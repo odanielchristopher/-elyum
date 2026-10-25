@@ -6,7 +6,7 @@ export default mergeConfig(
   baseConfig,
   defineConfig({
     test: {
-      name: '@elyum/examples',
+      name: '@elyum/evaluation',
       environment: 'node',
       setupFiles: ['reflect-metadata'],
     },

@@ -108,3 +108,20 @@
 - Restrição de autoria mantida: após `evaluation-baseline-v1`, a IA não poderá
   implementar, corrigir, refatorar ou sugerir soluções dos patches medidos de
   M1, M2 ou M3. Esta regularização não congela baseline nem prepara soluções.
+
+## 25 de outubro de 2026 — Fase 3 organizacional
+
+- Autorização explícita do autor: somente rename após commit documental,
+  dois commits separados e push da branch, sem merge, PR ou Fase 4.
+- Partida: `e7ce90daeae60bf6e0cc754f89dd3cb6b705691b`; base inicial
+  `a1175d5b80c2efff070a5c61ac818ba38e04c192`, conferida com origin/main.
+- IA executou `git mv` para a raiz `packages/evaluation`, atualizou nome NPM,
+  nome Vitest, referências root, importer pelo pnpm e documentação viva.
+- Produção e testes mantidos byte a byte; duas edições locais limitadas aos
+  nomes em package.json/vitest.config.ts. Exemplo do adapter Express intacto.
+- Instalação congelada, 309 testes, ambos os typechecks, lint/formatação e
+  build local passaram; detalhes no
+  [relatório da Fase 3](./reports/phase-3-package-rename.md).
+- Nenhuma variante, benchmark, solução de cenário, tag ou resultado criado.
+  Proibição de assistência na solução dos patches M1–M3 após congelamento
+  permanece integral. Revisão do orientador continua pendente.

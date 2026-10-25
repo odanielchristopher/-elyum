@@ -68,8 +68,10 @@ registro, matching, middleware e ciclo do servidor.
 
 ### 2. Pacote privado de avaliação
 
-Renomear `packages/examples` para `packages/evaluation`, com nome NPM privado
-`@elyum/evaluation`.
+A decisão de renomear o antigo `packages/examples` para `packages/evaluation`,
+privado `@elyum/evaluation`, foi executada na Fase 3. A aplicação atual permanece
+com a organização interna original; a estrutura-alvo abaixo não foi criada.
+Consultar o [relatório da Fase 3](../evaluation/reports/phase-3-package-rename.md).
 
 Estrutura-alvo:
 

@@ -43,8 +43,8 @@ produção de outra aplicação. A suíte de aceitação, fixtures, scripts de c
 e geradores de carga podem ser compartilhados e ficam fora das métricas de
 modificabilidade.
 
-Os artefatos ficam em `packages/evaluation`, que substitui o atual
-`packages/examples`. O adapter Express é um produto do Elyum e deve permanecer
+Os artefatos ficam em `packages/evaluation`, originado na Fase 3 pela
+renomeação do antigo `packages/examples`. O adapter Express é um produto do Elyum e deve permanecer
 em `packages/express`, fora do pacote privado de avaliação.
 
 ## 4. Baseline funcional comum

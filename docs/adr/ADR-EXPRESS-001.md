@@ -604,6 +604,14 @@ experimentais ou parâmetros de benchmark.
 `packages/examples` permanece com nome e comportamento existentes. As Fases 3
 em diante, publicação, benchmarks e cenários medidos não foram executados.
 
+## Atualização organizacional posterior — Fase 3
+
+O pacote privado antes chamado `packages/examples` passou a
+`packages/evaluation`, sem alterar a aplicação de pedidos. O limite descrito
+acima pertence à entrega original da Fase 2; a API Express e seu diretório
+`packages/express/examples` permanecem intactos. Consultar o
+[relatório da Fase 3](../evaluation/reports/phase-3-package-rename.md).
+
 ## Referências nativas consultadas
 
 - [Express 5 API](https://expressjs.com/en/5x/api/): app, Router e objetos nativos.
