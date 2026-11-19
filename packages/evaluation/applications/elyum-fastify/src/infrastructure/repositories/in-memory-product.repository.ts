@@ -5,6 +5,11 @@ import type { Product } from '../../domain/entities/product.entity';
 export class InMemoryProductRepository implements ProductRepository {
   private readonly products = new Map<string, Product>();
 
+  constructor(initialProducts: readonly Product[] = []) {
+    for (const product of initialProducts)
+      this.products.set(product.id, product);
+  }
+
   async add(product: Product): Promise<void> {
     const existingProduct = this.findByNameSync(product.name);
 

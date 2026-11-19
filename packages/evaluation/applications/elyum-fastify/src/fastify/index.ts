@@ -16,6 +16,10 @@ export function buildApplication(
 ) {
   const fastify = Fastify(options);
 
+  fastify.addHook('onRequest', async (_request, reply) => {
+    reply.header('X-Request-Source', 'evaluation');
+  });
+
   fastify.register(Elyum(), {
     container: createContainer(dependencies),
     autoRegisterDependencies: true,

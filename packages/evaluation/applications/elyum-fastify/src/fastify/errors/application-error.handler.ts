@@ -15,7 +15,11 @@ export const handleApplicationError: ElyumFastifyErrorHandler = (
     void reply.code(400).send({
       code: 'VALIDATION_ERROR',
       message: error.message,
-      errors: error.errors,
+      errors: error.errors.map(({ field, code, message }) => ({
+        field,
+        code,
+        message,
+      })),
     });
     return;
   }

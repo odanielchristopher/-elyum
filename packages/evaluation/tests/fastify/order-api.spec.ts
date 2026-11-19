@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { CreateOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/create-order.usecase';
 import { GetOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/get-order.usecase';
 import { ListOrdersUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase';
+import { PreviewOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase';
 import { UpdateOrderStatusUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase';
 import { CreateProductUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/create-product.usecase';
 import { ListProductsUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/list-products.usecase';
@@ -10,16 +11,22 @@ import {
   buildApplication,
   startApplication,
 } from '../../applications/elyum-fastify/src/fastify';
-import { EXAMPLE_AUTHORIZATION } from '../../applications/elyum-fastify/src/fastify/hooks/authenticate.hook';
 import { CreateOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller';
 import { GetOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller';
 import { ListOrdersController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller';
+import { PreviewOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller';
 import { UpdateOrderStatusController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller';
 import { CreateProductController } from '../../applications/elyum-fastify/src/presentation/controllers/products/create-product.controller';
 import { ListProductsController } from '../../applications/elyum-fastify/src/presentation/controllers/products/list-products.controller';
 
 function defineConstructorMetadataForVitest(): void {
   // Vite does not emit design:paramtypes. Production tsc builds do.
+  Reflect.defineMetadata('design:paramtypes', [Object], PreviewOrderUseCase);
+  Reflect.defineMetadata(
+    'design:paramtypes',
+    [PreviewOrderUseCase],
+    PreviewOrderController,
+  );
   Reflect.defineMetadata(
     'design:paramtypes',
     [Object, Object, Object, Object],
@@ -91,7 +98,6 @@ async function createOrder(application: TestApplication, productId: string) {
   const response = await application.inject({
     method: 'POST',
     url: '/orders',
-    headers: { authorization: EXAMPLE_AUTHORIZATION },
     payload: {
       customerId: '93464e3f-01cf-47f2-8608-62c82a1ff25c',
       items: [{ productId, quantity: 2 }],
@@ -143,6 +149,55 @@ describe('Fastify order API', () => {
     }
   });
 
+  it('should serve health, seeded preview and the frozen validation response', async () => {
+    const app = buildApplication();
+    applications.push(app);
+    const health = await app.inject({ method: 'GET', url: '/health' });
+    expect(health.json()).toEqual({ status: 'ok', version: '0.1.0' });
+    const preview = await app.inject({
+      method: 'POST',
+      url: '/orders/preview',
+      payload: {
+        customerId: 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+        items: [
+          { productId: '11111111-1111-4111-8111-111111111111', quantity: 2 },
+        ],
+      },
+    });
+    expect(preview.statusCode).toBe(200);
+    expect(preview.json()).toMatchObject({ totalInCents: 50000 });
+    const invalid = await app.inject({
+      method: 'POST',
+      url: '/orders/preview',
+      payload: {
+        customerId: 'invalid-customer-id',
+        items: [{ productId: 'invalid-product-id', quantity: 0 }],
+      },
+    });
+    expect(invalid.statusCode).toBe(400);
+    expect(invalid.json()).toEqual({
+      code: 'VALIDATION_ERROR',
+      message: 'Validation failed with 3 errors',
+      errors: [
+        {
+          field: 'customerId',
+          code: 'invalid_format',
+          message: 'Invalid customer ID.',
+        },
+        {
+          field: 'items.0.productId',
+          code: 'invalid_format',
+          message: 'Invalid product ID.',
+        },
+        {
+          field: 'items.0.quantity',
+          code: 'too_small',
+          message: 'Quantity must be a positive integer.',
+        },
+      ],
+    });
+  });
+
   it('should create a product and use its catalog price in a new order', async () => {
     const application = buildApplication();
     applications.push(application);
@@ -173,17 +228,14 @@ describe('Fastify order API', () => {
     const getResponse = await application.inject({
       method: 'GET',
       url: `/orders/${order.id}`,
-      headers: { authorization: EXAMPLE_AUTHORIZATION },
     });
     const listResponse = await application.inject({
       method: 'GET',
       url: '/orders',
-      headers: { authorization: EXAMPLE_AUTHORIZATION },
     });
     const updateResponse = await application.inject({
       method: 'PATCH',
       url: `/orders/${order.id}/status`,
-      headers: { authorization: EXAMPLE_AUTHORIZATION },
       payload: { status: 'confirmed' },
     });
 
@@ -212,7 +264,6 @@ describe('Fastify order API', () => {
     const missingOrderResponse = await application.inject({
       method: 'GET',
       url: '/orders/93464e3f-01cf-47f2-8608-62c82a1ff25c',
-      headers: { authorization: EXAMPLE_AUTHORIZATION },
     });
 
     expect(invalidProductResponse.statusCode).toBe(400);
@@ -243,13 +294,11 @@ describe('Fastify order API', () => {
     await application.inject({
       method: 'PATCH',
       url: `/orders/${order.id}/status`,
-      headers: { authorization: EXAMPLE_AUTHORIZATION },
       payload: { status: 'confirmed' },
     });
     const invalidTransitionResponse = await application.inject({
       method: 'PATCH',
       url: `/orders/${order.id}/status`,
-      headers: { authorization: EXAMPLE_AUTHORIZATION },
       payload: { status: 'cancelled' },
     });
 
@@ -263,7 +312,7 @@ describe('Fastify order API', () => {
     });
   });
 
-  it('should preserve native Fastify hooks on controller routes', async () => {
+  it('should expose public order routes and the native source hook', async () => {
     const application = buildApplication();
     applications.push(application);
 
@@ -272,10 +321,7 @@ describe('Fastify order API', () => {
       url: '/orders',
     });
 
-    expect(response.statusCode).toBe(401);
-    expect(response.json()).toEqual({
-      code: 'UNAUTHORIZED',
-      message: 'Provide the example bearer token to access order routes.',
-    });
+    expect(response.statusCode).toBe(200);
+    expect(response.headers['x-request-source']).toBe('evaluation');
   });
 });

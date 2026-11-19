@@ -8,6 +8,7 @@ import {
   ORDER_REPOSITORY_TOKEN,
   PRODUCT_REPOSITORY_TOKEN,
 } from '../application/tokens';
+import { Product } from '../domain/entities/product.entity';
 import { NodeIdGenerator } from '../infrastructure/random/node-id-generator';
 import { InMemoryOrderRepository } from '../infrastructure/repositories/in-memory-order.repository';
 import { InMemoryProductRepository } from '../infrastructure/repositories/in-memory-product.repository';
@@ -24,7 +25,29 @@ export function createContainer(
   });
   container.register({
     token: PRODUCT_REPOSITORY_TOKEN,
-    useClass: InMemoryProductRepository,
+    useValue: new InMemoryProductRepository([
+      new Product({
+        id: '11111111-1111-4111-8111-111111111111',
+        name: 'Mechanical Keyboard',
+        description: 'Mechanical keyboard',
+        priceInCents: 25000,
+        createdAt: new Date('2026-01-01T00:00:00.000Z'),
+      }),
+      new Product({
+        id: '22222222-2222-4222-8222-222222222222',
+        name: 'Wireless Mouse',
+        description: 'Wireless mouse',
+        priceInCents: 10000,
+        createdAt: new Date('2026-01-01T00:00:00.000Z'),
+      }),
+      new Product({
+        id: '33333333-3333-4333-8333-333333333333',
+        name: 'Monitor',
+        description: '24-inch monitor',
+        priceInCents: 90000,
+        createdAt: new Date('2026-01-01T00:00:00.000Z'),
+      }),
+    ]),
   });
   container.register({
     token: ID_GENERATOR_TOKEN,
