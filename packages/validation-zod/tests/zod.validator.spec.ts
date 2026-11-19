@@ -1,3 +1,5 @@
+import { inspect } from 'node:util';
+
 import { ValidationError } from '@elyum/validation';
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
@@ -278,6 +280,50 @@ describe('ZodValidator', () => {
       expect(name).toBe('John');
       expect(age).toBe(30);
     });
+  });
+
+  it('should keep sensitive input out of normalized and serialized errors', async () => {
+    const secrets = [
+      'password-example-secret',
+      'token-example-secret',
+      'authorization-example-secret',
+      'nested-example-secret',
+    ];
+    const validator = new ZodValidator(
+      z.object({
+        password: z.number(),
+        token: z.number(),
+        authorization: z.number(),
+        nested: z.object({ secret: z.number() }),
+      }),
+    );
+    for (const data of [
+      {
+        password: secrets[0],
+        token: 1,
+        authorization: 1,
+        nested: { secret: 1 },
+      },
+      {
+        password: secrets[0],
+        token: secrets[1],
+        authorization: secrets[2],
+        nested: { secret: secrets[3] },
+      },
+    ]) {
+      const result = await validator.safeParse(data);
+      expect(result.success).toBe(false);
+      if (result.success) throw new Error('Expected validation failure');
+      expect(result.error.errors.length).toBe(data.token === 1 ? 1 : 4);
+      for (const representation of [
+        inspect(result.error),
+        JSON.stringify(result.error),
+        JSON.stringify(result.error.toJSON()),
+      ]) {
+        for (const secret of secrets)
+          expect(representation).not.toContain(secret);
+      }
+    }
   });
 
   describe('Error details', () => {

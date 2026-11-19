@@ -1,3 +1,5 @@
+import { inspect } from 'node:util';
+
 import { ValidationError } from '@elyum/validation';
 import { describe, expect, it } from 'vitest';
 import * as yup from 'yup';
@@ -267,6 +269,73 @@ describe('YupValidator', () => {
     });
   });
 
+  it('should keep sensitive input out of normalized and serialized errors', async () => {
+    const secrets = [
+      'password-example-secret',
+      'token-example-secret',
+      'authorization-example-secret',
+      'nested-example-secret',
+    ];
+    const validator = new YupValidator(
+      yup.object({
+        password: yup.number(),
+        token: yup.number(),
+        authorization: yup.number(),
+        nested: yup.object({ secret: yup.number() }),
+      }),
+    );
+    for (const data of [
+      {
+        password: secrets[0],
+        token: 1,
+        authorization: 1,
+        nested: { secret: 1 },
+      },
+      {
+        password: secrets[0],
+        token: secrets[1],
+        authorization: secrets[2],
+        nested: { secret: secrets[3] },
+      },
+    ]) {
+      const result = await validator.safeParse(data);
+      expect(result.success).toBe(false);
+      if (result.success) throw new Error('Expected validation failure');
+      expect(result.error.errors.length).toBe(data.token === 1 ? 1 : 4);
+      for (const representation of [
+        inspect(result.error),
+        JSON.stringify(result.error),
+        JSON.stringify(result.error.toJSON()),
+      ]) {
+        for (const secret of secrets)
+          expect(representation).not.toContain(secret);
+      }
+    }
+  });
+
+  it('should sanitize a Yup error without inner errors', async () => {
+    const secret = 'single-example-secret';
+    const validator = new YupValidator(
+      yup.mixed().test('custom', 'invalid', (value) => {
+        throw new yup.ValidationError(
+          `Invalid value: ${String(value)}`,
+          value,
+          'password',
+          'custom',
+        );
+      }),
+    );
+    const result = await validator.safeParse(secret);
+    expect(result.success).toBe(false);
+    if (result.success) throw new Error('Expected validation failure');
+    expect(result.error.errors[0]).toMatchObject({
+      field: 'password',
+      code: 'custom',
+    });
+    expect(inspect(result.error)).not.toContain(secret);
+    expect(JSON.stringify(result.error)).not.toContain(secret);
+  });
+
   describe('Error conversion', () => {
     it('should include error type/code', async () => {
       // Arrange
@@ -284,7 +353,7 @@ describe('YupValidator', () => {
       }
     });
 
-    it('should include received value', async () => {
+    it('should not include the received value', async () => {
       // Arrange
       const schema = yup.number();
       const validator = new YupValidator(schema);
@@ -296,7 +365,7 @@ describe('YupValidator', () => {
       } catch (error) {
         // Assert
         const validationError = error as ValidationError;
-        expect(validationError.errors[0]?.received).toBe(NaN);
+        expect(validationError.errors[0]?.received).toBeUndefined();
       }
     });
   });
