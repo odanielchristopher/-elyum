@@ -1,5 +1,10 @@
 # Plano de implementação para o Codex — base experimental do Elyum
 
+> Status: documento histórico. Para o baseline atual, prevalecem os
+> [contratos v2](./evaluation-contracts-v2.md), o
+> [protocolo v0.2](./evaluation-protocol-v0.2.md) e o
+> [plano da fase 4](./codex-phase4-implementation-plan.md).
+
 ## Papel
 
 Você está trabalhando no monorepo `odanielchristopher/-elyum`. Construa a base
@@ -16,7 +21,7 @@ Antes de alterar código, leia integralmente esses documentos e a especificaçã
 Entregar:
 
 1. `@elyum/express` como adapter mínimo e publicável;
-2. `packages/evaluation` como pacote privado de avaliação;
+2. `packages/examples` renomeado para `packages/evaluation`;
 3. quatro aplicações funcionalmente equivalentes dentro do pacote de avaliação;
 4. suíte externa de aceitação executável contra qualquer variante;
 5. endpoints B1, B2 e B3;
@@ -165,26 +170,11 @@ Após aprovação do ADR:
 Não adicionar conveniências como CORS, logger ou criação automática do servidor
 neste milestone.
 
-Ajuste de escopo confirmado pelo autor durante a revisão do ADR Express:
-JSON pode ser instalado somente mediante opção explícita, com as opções
-nativas de `express.json`. Sem a opção, não instalar parser. A composição
-preserva a mesma instância app/Router, permite exatamente um controller em
-ordem livre com middleware e oferece `@Next()` específico do adapter.
-A extensão necessária do executor deve continuar framework-neutral e preservar
-Fastify; não há autorização para adicionar CORS, logger ou servidor próprio.
-Essas decisões estão registradas no ADR aceito `docs/adr/ADR-EXPRESS-001.md`.
-Callback `onError` configurado que não responde encaminha o erro original;
-fallback seguro somente sem callback configurado no middleware explícito.
-
 Porta de saída: testes do pacote, tipos e integração real passando.
 
 ## Fase 3 — Renomear o pacote de avaliação
 
-Executada nesta branch em um commit isolado: o antigo `packages/examples`
-passou a `packages/evaluation`, privado `@elyum/evaluation`. A estrutura
-interna e o comportamento permanecem os mesmos; as quatro aplicações abaixo
-continuam previstas somente para a Fase 4. Evidências no
-[relatório da Fase 3](./reports/phase-3-package-rename.md).
+Renomeie `packages/examples` para `packages/evaluation` em um commit isolado.
 
 Atualize:
 

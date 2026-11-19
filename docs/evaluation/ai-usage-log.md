@@ -125,3 +125,14 @@
 - Nenhuma variante, benchmark, solução de cenário, tag ou resultado criado.
   Proibição de assistência na solução dos patches M1–M3 após congelamento
   permanece integral. Revisão do orientador continua pendente.
+
+## 19 de novembro de 2026 — Preparação do baseline v2
+
+- Autorização: preparação documental e construção do baseline com quatro
+  aplicações, com commits independentes e sem merge, tag ou cenários medidos.
+- Base: `305798d1a062e92107e4b6b20b6c1cb7a2989d21`; a correção de
+  confidencialidade está incluída.
+- O pacote de referência foi fornecido extraído em `docs/`; os contratos v2
+  prevalecem sobre versões anteriores. Revisão do orientador permanece pendente.
+- Esta entrada registra somente a preparação documental. Nenhuma conclusão
+  experimental ou aprovação acadêmica é atribuída à assistência de IA.
