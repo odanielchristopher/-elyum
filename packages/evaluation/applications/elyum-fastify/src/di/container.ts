@@ -1,5 +1,7 @@
 import { ElyumFactory } from '@elyum/core';
 
+import type { Clock } from '../application/contracts/clock';
+import type { IdGenerator } from '../application/contracts/id-generator';
 import {
   CLOCK_TOKEN,
   ID_GENERATOR_TOKEN,
@@ -11,7 +13,9 @@ import { InMemoryOrderRepository } from '../infrastructure/repositories/in-memor
 import { InMemoryProductRepository } from '../infrastructure/repositories/in-memory-product.repository';
 import { SystemClock } from '../infrastructure/time/system-clock';
 
-export function createContainer() {
+export function createContainer(
+  options: { clock?: Clock; idGenerator?: IdGenerator } = {},
+) {
   const container = ElyumFactory.createRoot();
 
   container.register({
@@ -22,8 +26,14 @@ export function createContainer() {
     token: PRODUCT_REPOSITORY_TOKEN,
     useClass: InMemoryProductRepository,
   });
-  container.register({ token: ID_GENERATOR_TOKEN, useClass: NodeIdGenerator });
-  container.register({ token: CLOCK_TOKEN, useClass: SystemClock });
+  container.register({
+    token: ID_GENERATOR_TOKEN,
+    useValue: options.idGenerator ?? new NodeIdGenerator(),
+  });
+  container.register({
+    token: CLOCK_TOKEN,
+    useValue: options.clock ?? new SystemClock(),
+  });
 
   return container;
 }

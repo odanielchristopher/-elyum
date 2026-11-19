@@ -6,7 +6,10 @@ import { ListOrdersUseCase } from '../../applications/elyum-fastify/src/applicat
 import { UpdateOrderStatusUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase';
 import { CreateProductUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/create-product.usecase';
 import { ListProductsUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/list-products.usecase';
-import { buildApplication } from '../../applications/elyum-fastify/src/fastify';
+import {
+  buildApplication,
+  startApplication,
+} from '../../applications/elyum-fastify/src/fastify';
 import { EXAMPLE_AUTHORIZATION } from '../../applications/elyum-fastify/src/fastify/hooks/authenticate.hook';
 import { CreateOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller';
 import { GetOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller';
@@ -110,6 +113,34 @@ describe('Fastify order API', () => {
     await Promise.all(
       applications.splice(0).map((application) => application.close()),
     );
+  });
+
+  it('should start on an ephemeral port with injected time and IDs', async () => {
+    const running = await startApplication({
+      host: '127.0.0.1',
+      port: 0,
+      logger: false,
+      clock: { now: () => new Date('2026-02-01T12:00:00.000Z') },
+      idGenerator: { generate: () => '44444444-4444-4444-8444-444444444444' },
+    });
+    try {
+      const response = await fetch(`${running.baseUrl}/products`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Lamp',
+          description: '',
+          priceInCents: 100,
+        }),
+      });
+      expect(response.status).toBe(201);
+      expect(await response.json()).toMatchObject({
+        id: '44444444-4444-4444-8444-444444444444',
+        createdAt: '2026-02-01T12:00:00.000Z',
+      });
+    } finally {
+      await running.close();
+    }
   });
 
   it('should create a product and use its catalog price in a new order', async () => {
