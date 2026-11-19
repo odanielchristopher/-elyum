@@ -128,6 +128,12 @@ Maintain a non-trivial reference application that can be exercised through every
 
 The reference scenarios validate user-visible parity. They do not require identical internal implementation or identical native options.
 
+The four evaluation baselines follow [contracts v2](../evaluation/evaluation-contracts-v2.md).
+Their shared suite uses real HTTP and public startup entrypoints, with fresh
+state and deterministic dependencies. Authentication and request-correlation
+scenarios are outside that baseline; this does not add request-scoped provider
+support to either adapter.
+
 ### Architecture evaluation tests
 
 Portability and removability are product claims and require controlled evidence rather than ordinary assertions alone.
@@ -168,9 +174,7 @@ describe('ElyumContainer', () => {
   describe('resolve()', () => {
     it('should reuse singleton providers across child containers', () => {
       // Arrange
-
       // Act
-
       // Assert
     });
   });

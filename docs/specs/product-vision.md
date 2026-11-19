@@ -183,10 +183,10 @@ The repository currently contains a strong foundation but not an end-to-end HTTP
   controller compilation, sync/async resolution, native `@Next()` continuation,
   opt-in JSON parsing, response mapping and explicit error middleware.
 
-Still missing or incomplete are request-scope evaluation, automatic schema
-integration, equivalent reference applications across adapters,
-portability/removability experiments, and benchmarks. The existing order API
-remains Fastify-based; the Express package has a separate runnable example.
+The evaluation package now contains four independent order API baselines and a
+shared real-HTTP acceptance/equivalence suite. Request-scope evaluation, automatic
+schema integration, measured portability/removability experiments and benchmarks
+remain separate work. The Express package retains a separate runnable example.
 
 Dependency auto-registration is an optional startup convenience. It discovers only concrete `@Injectable` classes and leaves tokens, factories, values, configuration, and implementation selection explicit. Fastify does not yet support request-scoped providers; that lifecycle remains gated by disposal semantics and comparative HTTP benchmarks.
 

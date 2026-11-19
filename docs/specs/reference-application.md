@@ -1,105 +1,80 @@
 # Elyum reference application
 
-## Purpose
+## Purpose and status
 
-The reference application is an order API used to demonstrate Elyum through a
-non-trivial but controlled business domain. It starts with in-memory storage so
-framework behavior, dependency injection, portability, removability, and later
-benchmarks are not confused with database latency or ORM behavior.
+The private `@elyum/evaluation` package contains four independent order API
+baselines: Elyum/Fastify (EF), native Fastify (FN), Elyum/Express (EE), and native
+Express (EN). Their normative observable behavior is defined by
+[contracts v2](../evaluation/evaluation-contracts-v2.md), with experimental scope
+in [protocol v0.2](../evaluation/evaluation-protocol-v0.2.md). The package README
+documents initialization, shutdown and checks. `packages/express/examples` remains
+a separate adapter example.
 
-The application is evidence for the TCC only when the same domain and
-application behavior can be exercised through Elyum Fastify, Elyum Express,
-and equivalent direct-framework implementations.
-
-The current Fastify order application is stored in `packages/evaluation`
-(private `@elyum/evaluation`), renamed from the former examples package without
-changing its internal layout or behavior. The four experimental variants are
-not implemented yet. `packages/express/examples` is a separate adapter example.
+This baseline makes the applications available for evaluation; passing functional
+tests does not prove low overhead, portability or removability.
 
 ## Architectural boundary
 
-The application follows these dependency directions:
+Every application has a physically independent production tree under
+`packages/evaluation/applications`:
 
-- `domain` owns entities, value semantics, invariants, and domain errors;
-- `application` owns use cases, ports, injection tokens, and application errors;
-- `infrastructure` implements application ports for persistence, IDs, and time;
-- `presentation` owns validation schemas and framework-neutral controllers;
-- `fastify` owns the Fastify composition, route registration, hooks, and native
-  error mapping;
-- `di` is the application composition root.
+- `domain` owns entities, value semantics, invariants and domain errors;
+- `application` owns use cases, ports and application errors;
+- `infrastructure` implements in-memory persistence, IDs and time;
+- `presentation` owns Zod schemas and controllers or native handlers;
+- `fastify` or `express` owns native routing, source hooks/middleware, error
+  mapping and lifecycle;
+- Elyum `di` or native `composition.ts` owns application assembly.
 
-Domain and application errors must not extend HTTP exceptions. HTTP adapters
-map them to native responses at their boundary. Repositories are asynchronous
-ports even when the in-memory implementation completes immediately, allowing a
-database implementation to replace them without redesigning use cases.
+Domain/application errors do not extend HTTP exceptions. Repositories are
+asynchronous ports. Production code is never imported between treatments; only
+external tests, fixtures, HTTP clients, scripts and manifests are shared. Native
+treatments use manual composition and Zod directly, without decorators, reflection
+or Elyum imports. EF/EE retain Elyum DI, validators and controllers.
 
-## Order model
+## Domain and application behavior
 
-An order contains an ID, customer ID, immutable item snapshots, creation time,
-calculated total in cents, and one of these states:
+An order contains ID, customer ID, immutable item snapshots, creation time,
+calculated total in integer cents and status `pending`, `confirmed` or `cancelled`.
+Only pending orders transition. Prices come from the product catalog, and repeated
+product lines remain independent and preserve input order. Preview calculates
+items and total without persistence, IDs or clock calls.
 
-- `pending`;
-- `confirmed`;
-- `cancelled`.
+Products contain ID, name, description, positive integer price in cents and
+creation time. Names are trimmed and unique without regard to case. Descriptions
+are trimmed by the entity. Each new application starts with the catalog frozen
+in the functional contract and no orders.
 
-Only a pending order may transition to confirmed or cancelled. Monetary values
-use integer cents. The client supplies product IDs and quantities; the create
-order use case obtains current prices from the product repository and stores
-them in the order item snapshots. The client never supplies the authoritative
-order total.
+Clock and ID generator are replaceable application ports. Omitted dependencies
+use system time and random UUIDs. EF/EE register the ports in a fresh Elyum root;
+FN/EN construct their use cases explicitly. No request-scoped container is added.
 
-Products contain an ID, name, description, integer price in cents, and creation
-time. Product names are unique without regard to casing in the current
-in-memory catalog.
+## HTTP and lifecycle
 
-## Dependency injection
+All eight baseline routes are public:
 
-Repositories, the clock, and the ID generator are application-owned abstract
-contracts and use explicit symbol tokens. Their concrete providers are
-registered at the composition root and use singleton scope. Concrete use cases
-remain discoverable through conservative `@Injectable()` registration.
+- `GET /health`;
+- `POST /products` and `GET /products`;
+- `POST /orders` and `GET /orders`;
+- `GET /orders/:id`;
+- `PATCH /orders/:id/status`;
+- `POST /orders/preview`.
 
-IDs and time are ports rather than calls embedded in entities. This keeps unit
-tests deterministic and makes the business behavior independent from Node.js
-and the HTTP framework.
+Native Fastify hooks or Express middleware add `X-Request-Source: evaluation`.
+Each public entrypoint provides `startApplication({ host, port, logger, clock?,
+idGenerator? })` returning `{ baseUrl, close }`. The shared suite uses real HTTP,
+loopback, ephemeral ports, fresh state and deterministic cleanup.
 
-## Initial application capabilities
+Application-owned error handling maps known errors to 400, 404 or 409. Validation
+responses project only `field`, `code` and `message`; B3 has a frozen response.
+Other error message text is not normative. Unexpected failures continue through
+the host-native error pipeline. Native missing-route/malformed-JSON bodies are
+outside required body equivalence. Express parser options allow well-formed JSON
+to reach the same Zod schema boundary as Fastify.
 
-The reusable core supports:
+## Evaluation boundary
 
-- creating and listing products;
-- creating orders from catalog products;
-- reading and listing orders;
-- confirming or cancelling a pending order;
-- reporting duplicate products, missing products, missing orders, invalid
-  entity data, and invalid status transitions through typed errors.
-
-The first HTTP milestone may expose only a subset of these capabilities. Route
-coverage can grow without changing the reusable core.
-
-## Fastify registration
-
-The Fastify example currently exposes:
-
-- `POST /products` and `GET /products` as public catalog routes;
-- `POST /orders`, `GET /orders`, `GET /orders/:id`, and
-  `PATCH /orders/:id/status` as protected order routes.
-
-Protected routes receive the application-owned `authenticate` function through
-the native `onRequest` route option passed to `fastify.controller`. The
-demonstration credential is `Authorization: Bearer example-token`; it is not a
-production authentication design.
-
-The application-owned Elyum `onError` callback maps normalized validation and
-known domain/application errors to `400`, `404`, or `409`. Unknown errors are
-not converted: they are logged and rethrown by the adapter into Fastify's
-native error pipeline.
-
-## Deferred work
-
-- database and ORM integrations;
-- authentication implementation beyond a demonstrative native hook;
-- Express composition;
-- direct Fastify and Express variants for removability comparisons;
-- request-scoped state;
-- benchmark fixtures and measurements.
+Manifests record source provenance, file responsibility, hashes and dependencies.
+Automated checks protect production independence and the shared suite boundary.
+Measured scenarios, benchmark collection, interpretation, definitive baseline
+freeze and academic review remain outside baseline implementation.

@@ -3,7 +3,9 @@
 > Status: documento histórico. Para o baseline atual, prevalecem os
 > [contratos v2](./evaluation-contracts-v2.md), o
 > [protocolo v0.2](./evaluation-protocol-v0.2.md) e o
-> [plano da fase 4](./codex-phase4-implementation-plan.md).
+> [plano da fase 4](./codex-phase4-implementation-plan.md). A construção e
+> validação funcional estão registradas no
+> [relatório das Fases 4 e 5](./reports/phase-4-and-5-baseline.md).
 
 ## Papel
 

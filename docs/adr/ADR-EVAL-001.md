@@ -199,3 +199,12 @@ aumentariam o escopo dentro do prazo disponível.
 - nenhuma aplicação nativa importa Elyum;
 - todas as variantes passam pela mesma suíte observável;
 - scripts conseguem limitar métricas à raiz de uma aplicação.
+
+## Atualização factual — Fases 4 e 5
+
+As quatro árvores de produção e a suíte externa foram implementadas no pacote de
+avaliação. O [relatório das Fases 4 e 5](../evaluation/reports/phase-4-and-5-baseline.md)
+registra a sequência de commits, manifestos e verificações. A descrição anterior
+sobre a estrutura ainda não criada refere-se ao encerramento da Fase 3.
+Os contratos v2 regem o baseline; revisão acadêmica, freeze e coleta continuam
+separados desta entrega funcional.

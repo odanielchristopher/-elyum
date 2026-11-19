@@ -136,3 +136,24 @@
   prevalecem sobre versões anteriores. Revisão do orientador permanece pendente.
 - Esta entrada registra somente a preparação documental. Nenhuma conclusão
   experimental ou aprovação acadêmica é atribuída à assistência de IA.
+
+## 19 de novembro de 2026 — Implementação e validação das Fases 4 e 5
+
+- Autor autorizou continuar na branch `feat/four-apps-baseline` até concluir as
+  quatro aplicações e sua validação, preservando contratos v2/protocolo v0.2.
+- Estado retomado na última continuação: `eb4fbbc`; os commits `818d7df`,
+  `cbed116`, `003c269` e `eb4fbbc` já registravam documentos, movimento e EF.
+- Assistência de IA: FN com composição manual e Zod; EE derivada de EF e EN de FN;
+  ciclo de vida/CLI; suíte HTTP comum e equivalência bruta B1–B3; manifestos,
+  auditoria de imports e seus testes; documentação e atualização factual das specs.
+- Commits da continuação: `a4b6c4e`, `02180be`, `a80cf10`, `d6b6830`, `c8672d8`.
+  O relatório final integra este commit documental, sem squash ou merge.
+- Fronteira funcional: nenhum pacote central do Elyum foi alterado. Todas as
+  aplicações usam Zod e não há produção importada entre tratamentos.
+- Validação: 658 testes Vitest e 20 testes Node aprovados, ambos os typechecks,
+  lint/formatação, build, instalação congelada, diff check e verificação histórica
+  dos hashes. Detalhes, ambiente, precedência documental e decisões estão no
+  [relatório das Fases 4 e 5](./reports/phase-4-and-5-baseline.md).
+- Não houve coleta, benchmark oficial, resultado experimental, cenário M1–M3,
+  mudança medida P1, tag ou interpretação. A autoria assistida fica declarada;
+  revisão/compreensão final do autor e revisão do orientador permanecem pendentes.
