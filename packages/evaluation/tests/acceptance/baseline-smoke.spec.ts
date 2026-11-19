@@ -10,6 +10,7 @@ const variants: Variant[] = [
   'elyum-fastify',
   'fastify-native',
   'elyum-express',
+  'express-native',
 ];
 
 describe.each(variants)('%s baseline smoke', (variant) => {
