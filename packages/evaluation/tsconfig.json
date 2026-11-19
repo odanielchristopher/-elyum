@@ -3,16 +3,28 @@
   "compilerOptions": {
     "composite": true,
     "outDir": "dist",
-    "rootDir": "applications/elyum-fastify/src",
+    "rootDir": "applications",
     "sourceMap": true
   },
-  "include": ["applications/elyum-fastify/src"],
+  "include": ["applications"],
   "references": [
-    { "path": "../core" },
-    { "path": "../http" },
-    { "path": "../fastify" },
-    { "path": "../validation" },
-    { "path": "../validation-zod" },
-    { "path": "../validation-yup" }
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../http"
+    },
+    {
+      "path": "../fastify"
+    },
+    {
+      "path": "../validation"
+    },
+    {
+      "path": "../validation-zod"
+    },
+    {
+      "path": "../validation-yup"
+    }
   ]
 }

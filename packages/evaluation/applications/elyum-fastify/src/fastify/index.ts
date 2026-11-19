@@ -56,15 +56,3 @@ export async function startApplication(options: {
     throw error;
   }
 }
-
-export const bootstrap = async () => {
-  const fastify = buildApplication({ logger: true });
-
-  try {
-    await fastify.listen({ port: 3000 });
-    fastify.log.info('Server is running on http://localhost:3000');
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-};
