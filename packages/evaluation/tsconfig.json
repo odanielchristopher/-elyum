@@ -24,9 +24,6 @@
       "path": "../validation-zod"
     },
     {
-      "path": "../validation-yup"
-    },
-    {
       "path": "../express"
     }
   ]

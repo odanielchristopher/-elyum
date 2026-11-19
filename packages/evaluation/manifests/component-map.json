@@ -1,0 +1,2813 @@
+{
+  "schemaVersion": 1,
+  "p1": {
+    "selectedRoutes": [
+      "GET /health",
+      "POST /orders/preview",
+      "POST /orders",
+      "GET /orders",
+      "GET /orders/:id"
+    ],
+    "rule": "Reachability through static local imports from each public index.ts. Combined route registration and composition remain whole files. No churn, SLOC or experimental result is calculated."
+  },
+  "files": [
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/clock.ts",
+      "component": "application",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-fastify/src/di/container.ts",
+          "applications/elyum-fastify/src/fastify/index.ts",
+          "applications/elyum-fastify/src/infrastructure/time/system-clock.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/id-generator.ts",
+      "component": "application",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-fastify/src/di/container.ts",
+          "applications/elyum-fastify/src/fastify/index.ts",
+          "applications/elyum-fastify/src/infrastructure/random/node-id-generator.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/order.repository.ts",
+      "component": "application",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/product.repository.ts",
+      "component": "application",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+          "applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/errors/order-not-found.error.ts",
+      "component": "application",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/errors/product-already-exists.error.ts",
+      "component": "application",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts",
+          "applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/errors/product-not-found.error.ts",
+      "component": "application",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/tokens.ts",
+      "component": "application",
+      "sha256": "53221bd60e46ed4a10d34ff8e6e69d57b65f1ea36f1515046cbe9a86b9912249",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+          "applications/elyum-fastify/src/di/container.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+      "component": "application",
+      "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+      "component": "application",
+      "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+      "component": "application",
+      "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+      "component": "application",
+      "sha256": "b66f45a51c178db42edb05488c4e47d519ad57590aacfc9d267b887d33de349b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+      "component": "application",
+      "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+      "component": "application",
+      "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+      "component": "application",
+      "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/products/list-products.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/di/container.ts",
+      "component": "composition",
+      "sha256": "b5a071528ee16d6909895e0fde419a1fa3044ef3be324b29fb21e00dea824855",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/entities/order.entity.ts",
+      "component": "domain",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/contracts/order.repository.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error.ts",
+          "applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/entities/product.entity.ts",
+      "component": "domain",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/application/contracts/product.repository.ts",
+          "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+          "applications/elyum-fastify/src/di/container.ts",
+          "applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/errors/domain-validation.error.ts",
+      "component": "domain",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/domain/entities/order.entity.ts",
+          "applications/elyum-fastify/src/domain/entities/product.entity.ts",
+          "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error.ts",
+      "component": "domain",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/domain/entities/order.entity.ts",
+          "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts",
+      "component": "http",
+      "sha256": "52ac429cd0fbe0f6a8a5f027ed66f7dce9a2fdf73e4a5adc7627261a0f6ace0f",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/fastify/index.ts",
+      "component": "http",
+      "sha256": "faf72d2c523abd1c830f8a50873e809bb6cf9da59bd0a47bebac77bfa968301f",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/fastify/routes/index.ts",
+      "component": "http",
+      "sha256": "78157daad17a84b4c1462ee60b6da9b474cf35cc0d32d69e5cc1bc3eb3294546",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/index.ts",
+      "component": "entrypoint",
+      "sha256": "b5ff39ab828a067afab2eb03808791154f6ee67b4a7b74d40daa8c2a6bfef610",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Public startApplication entrypoint used by the external harness.",
+        "importedBy": ["applications/elyum-fastify/src/main.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/random/node-id-generator.ts",
+      "component": "infrastructure",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "component": "infrastructure",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "component": "infrastructure",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/time/system-clock.ts",
+      "component": "infrastructure",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/main.ts",
+      "component": "entrypoint",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "hostSpecific": false,
+      "p1": {
+        "included": false,
+        "reason": "Process launcher; external harness starts through index.ts.",
+        "importedBy": []
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/health.controller.ts",
+      "component": "presentation",
+      "sha256": "d237c3a51a3f030a886ae67eb4114d98501cae99ed281446269ac14f638977b8",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts",
+      "component": "presentation",
+      "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts",
+      "component": "presentation",
+      "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller.ts",
+      "component": "presentation",
+      "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts",
+      "component": "presentation",
+      "sha256": "46ac48269627c234938a8f2c7b37ef530fa8c1b24e10bf32aca153fd46b15a1b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts",
+      "component": "presentation",
+      "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts",
+      "component": "presentation",
+      "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/products/list-products.controller.ts",
+      "component": "presentation",
+      "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-fastify/src/fastify/routes/index.ts"]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/orders/create-order.schema.ts",
+      "component": "presentation",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts",
+          "applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/orders/order-id.schema.ts",
+      "component": "presentation",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts",
+          "applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "component": "presentation",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/products/create-product.schema.ts",
+      "component": "presentation",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/clock.ts",
+      "component": "application",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/fastify/index.ts",
+          "applications/fastify-native/src/infrastructure/time/system-clock.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/id-generator.ts",
+      "component": "application",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/fastify/index.ts",
+          "applications/fastify-native/src/infrastructure/random/node-id-generator.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/order.repository.ts",
+      "component": "application",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/fastify-native/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/product.repository.ts",
+      "component": "application",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/fastify-native/src/application/usecases/products/list-products.usecase.ts",
+          "applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/errors/order-not-found.error.ts",
+      "component": "application",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/fastify-native/src/fastify/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/errors/product-already-exists.error.ts",
+      "component": "application",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/fastify-native/src/fastify/application-error.handler.ts",
+          "applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/errors/product-not-found.error.ts",
+      "component": "application",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/fastify-native/src/fastify/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+      "component": "application",
+      "sha256": "d48b395c5f6e36cf182aaaa9195bbadfbd4ea6dd283b38a2d2ec4903b3248be6",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/create-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+      "component": "application",
+      "sha256": "055c82525b877fd27eb313f915a2eb140f7ad4198574be8cf744a56453f8fd0c",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/get-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/list-orders.usecase.ts",
+      "component": "application",
+      "sha256": "ddd9d3c44fce3614ac055386284c9f7ee52c59472b5d026ead0dbafb309c71b2",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/list-orders.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+      "component": "application",
+      "sha256": "6ab111f479fced9e76d85ef17d908a9eba39082b43e3123ea8b53b7293d1dd0b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/preview-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+      "component": "application",
+      "sha256": "941e8de1398f737665f1027760835bd77888cedf6565f10482c49d7c58b1808a",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+      "component": "application",
+      "sha256": "bcea36c2ad299b4e482bbd386c250e5d51193da3f6c4926fce61940d2428de22",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/products/create-product.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/products/list-products.usecase.ts",
+      "component": "application",
+      "sha256": "bcf8e40ac12d73c25886660e717aaf1a9d4efa1f62cc7b5055e3a3b08198edf9",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/presentation/handlers/products/list-products.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/composition.ts",
+      "component": "composition",
+      "sha256": "37ba6c252c01324a394ace07a2f771eaac8671cfe5e53e5e6d32e51dfa4fccb7",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/fastify/index.ts",
+          "applications/fastify-native/src/fastify/routes.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/entities/order.entity.ts",
+      "component": "domain",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/contracts/order.repository.ts",
+          "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/fastify-native/src/domain/errors/invalid-order-status-transition.error.ts",
+          "applications/fastify-native/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/entities/product.entity.ts",
+      "component": "domain",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/application/contracts/product.repository.ts",
+          "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/fastify-native/src/application/usecases/products/list-products.usecase.ts",
+          "applications/fastify-native/src/composition.ts",
+          "applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/errors/domain-validation.error.ts",
+      "component": "domain",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/domain/entities/order.entity.ts",
+          "applications/fastify-native/src/domain/entities/product.entity.ts",
+          "applications/fastify-native/src/fastify/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/errors/invalid-order-status-transition.error.ts",
+      "component": "domain",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/domain/entities/order.entity.ts",
+          "applications/fastify-native/src/fastify/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/fastify/application-error.handler.ts",
+      "component": "http",
+      "sha256": "04b45f9666b1275dc595d678b899be782c81f838186f9642871e58071defd55a",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/index.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/fastify/index.ts",
+      "component": "http",
+      "sha256": "74d01372464315504f2d2b76aeb583353b1ac6b0c3c7da8a77c6806237e9a309",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/index.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/fastify/routes.ts",
+      "component": "http",
+      "sha256": "2367ea6caeb7981136f1f72e63a0382b67eff6cf9b4774812ebb43b205a46e17",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/index.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/index.ts",
+      "component": "entrypoint",
+      "sha256": "b5ff39ab828a067afab2eb03808791154f6ee67b4a7b74d40daa8c2a6bfef610",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Public startApplication entrypoint used by the external harness.",
+        "importedBy": ["applications/fastify-native/src/main.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/random/node-id-generator.ts",
+      "component": "infrastructure",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "component": "infrastructure",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "component": "infrastructure",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/time/system-clock.ts",
+      "component": "infrastructure",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/main.ts",
+      "component": "entrypoint",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "hostSpecific": false,
+      "p1": {
+        "included": false,
+        "reason": "Process launcher; external harness starts through index.ts.",
+        "importedBy": []
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/health.handler.ts",
+      "component": "presentation",
+      "sha256": "764b2d16f60bc910d8f343618d2c93b69c1e8843e30f2966ce96bd28216f1797",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/create-order.handler.ts",
+      "component": "presentation",
+      "sha256": "d01d51df3629f60256ccd648d1c4053431bc0d2a6c5c4d71ab911ba0b28294dd",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/get-order.handler.ts",
+      "component": "presentation",
+      "sha256": "3d24c640f2db27b6f5e1b7bf4078c8d88dcbafa9341dfa6b6f456e2f1758ff78",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/list-orders.handler.ts",
+      "component": "presentation",
+      "sha256": "5dd971c35c33eb81436f871bd53396c587f631578ba8d557407fea798b1660c8",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/preview-order.handler.ts",
+      "component": "presentation",
+      "sha256": "963bbdbba86ba3e57d408d4cd2e55ad55a4917de6de646bde26ac35524161854",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+      "component": "presentation",
+      "sha256": "c12ef910973af64e36dea8a797e5be9e693ce0a2f7866ba9748c2f8f168ceb07",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/products/create-product.handler.ts",
+      "component": "presentation",
+      "sha256": "acc063330798821478d32ce6d01b3e7ea2302cd9badb116042f1ef8b8b1fbbd1",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/products/list-products.handler.ts",
+      "component": "presentation",
+      "sha256": "4251f55590d777db9830455075699cef779ce1b763c51e0aa0a235e99b544503",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/fastify-native/src/fastify/routes.ts"]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/orders/create-order.schema.ts",
+      "component": "presentation",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/presentation/handlers/orders/create-order.handler.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/preview-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/orders/order-id.schema.ts",
+      "component": "presentation",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/presentation/handlers/orders/get-order.handler.ts",
+          "applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "component": "presentation",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/products/create-product.schema.ts",
+      "component": "presentation",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/fastify-native/src/presentation/handlers/products/create-product.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/clock.ts",
+      "component": "application",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-express/src/di/container.ts",
+          "applications/elyum-express/src/express/index.ts",
+          "applications/elyum-express/src/infrastructure/time/system-clock.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/id-generator.ts",
+      "component": "application",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-express/src/di/container.ts",
+          "applications/elyum-express/src/express/index.ts",
+          "applications/elyum-express/src/infrastructure/random/node-id-generator.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/order.repository.ts",
+      "component": "application",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-express/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/product.repository.ts",
+      "component": "application",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/list-products.usecase.ts",
+          "applications/elyum-express/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/errors/order-not-found.error.ts",
+      "component": "application",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-express/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/errors/product-already-exists.error.ts",
+      "component": "application",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-express/src/express/application-error.handler.ts",
+          "applications/elyum-express/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/errors/product-not-found.error.ts",
+      "component": "application",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-express/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/tokens.ts",
+      "component": "application",
+      "sha256": "53221bd60e46ed4a10d34ff8e6e69d57b65f1ea36f1515046cbe9a86b9912249",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/list-products.usecase.ts",
+          "applications/elyum-express/src/di/container.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+      "component": "application",
+      "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/elyum-express/src/presentation/controllers/orders/create-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+      "component": "application",
+      "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/get-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/list-orders.usecase.ts",
+      "component": "application",
+      "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/list-orders.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+      "component": "application",
+      "sha256": "b66f45a51c178db42edb05488c4e47d519ad57590aacfc9d267b887d33de349b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/preview-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+      "component": "application",
+      "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/update-order-status.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+      "component": "application",
+      "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/products/create-product.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/products/list-products.usecase.ts",
+      "component": "application",
+      "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/products/list-products.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/di/container.ts",
+      "component": "composition",
+      "sha256": "b5a071528ee16d6909895e0fde419a1fa3044ef3be324b29fb21e00dea824855",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/index.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/entities/order.entity.ts",
+      "component": "domain",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/contracts/order.repository.ts",
+          "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/elyum-express/src/domain/errors/invalid-order-status-transition.error.ts",
+          "applications/elyum-express/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/entities/product.entity.ts",
+      "component": "domain",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/application/contracts/product.repository.ts",
+          "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+          "applications/elyum-express/src/application/usecases/products/list-products.usecase.ts",
+          "applications/elyum-express/src/di/container.ts",
+          "applications/elyum-express/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/errors/domain-validation.error.ts",
+      "component": "domain",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/domain/entities/order.entity.ts",
+          "applications/elyum-express/src/domain/entities/product.entity.ts",
+          "applications/elyum-express/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/errors/invalid-order-status-transition.error.ts",
+      "component": "domain",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/domain/entities/order.entity.ts",
+          "applications/elyum-express/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/express/application-error.handler.ts",
+      "component": "http",
+      "sha256": "06f7230fe87d0f39b57272ab91836b88b82835a94a915abb2a6f847d93f8b13d",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/index.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/express/index.ts",
+      "component": "http",
+      "sha256": "f05d92a66a1b968e59871e8a30d0e54a5f9eaeab07d8743460f569a56b4e22a6",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/index.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/express/routes.ts",
+      "component": "http",
+      "sha256": "4a40ddbba7533b4d1815d071202b09c3f1590cbb7bc75da4dcfd867fc09de271",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/index.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/index.ts",
+      "component": "entrypoint",
+      "sha256": "3555e79090771dd813ac787edef102ca65dcbd6ee09ab097ab96d027ba1416ff",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Public startApplication entrypoint used by the external harness.",
+        "importedBy": ["applications/elyum-express/src/main.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/random/node-id-generator.ts",
+      "component": "infrastructure",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "component": "infrastructure",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "component": "infrastructure",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/time/system-clock.ts",
+      "component": "infrastructure",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/di/container.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/main.ts",
+      "component": "entrypoint",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "hostSpecific": false,
+      "p1": {
+        "included": false,
+        "reason": "Process launcher; external harness starts through index.ts.",
+        "importedBy": []
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/health.controller.ts",
+      "component": "presentation",
+      "sha256": "d237c3a51a3f030a886ae67eb4114d98501cae99ed281446269ac14f638977b8",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/create-order.controller.ts",
+      "component": "presentation",
+      "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/get-order.controller.ts",
+      "component": "presentation",
+      "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/list-orders.controller.ts",
+      "component": "presentation",
+      "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/preview-order.controller.ts",
+      "component": "presentation",
+      "sha256": "46ac48269627c234938a8f2c7b37ef530fa8c1b24e10bf32aca153fd46b15a1b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/update-order-status.controller.ts",
+      "component": "presentation",
+      "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/products/create-product.controller.ts",
+      "component": "presentation",
+      "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/products/list-products.controller.ts",
+      "component": "presentation",
+      "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/elyum-express/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/orders/create-order.schema.ts",
+      "component": "presentation",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/create-order.controller.ts",
+          "applications/elyum-express/src/presentation/controllers/orders/preview-order.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/orders/order-id.schema.ts",
+      "component": "presentation",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/get-order.controller.ts",
+          "applications/elyum-express/src/presentation/controllers/orders/update-order-status.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "component": "presentation",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/orders/update-order-status.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/products/create-product.schema.ts",
+      "component": "presentation",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/elyum-express/src/presentation/controllers/products/create-product.controller.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/clock.ts",
+      "component": "application",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/express/index.ts",
+          "applications/express-native/src/infrastructure/time/system-clock.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/id-generator.ts",
+      "component": "application",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/express/index.ts",
+          "applications/express-native/src/infrastructure/random/node-id-generator.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/order.repository.ts",
+      "component": "application",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/express-native/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/product.repository.ts",
+      "component": "application",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/express-native/src/application/usecases/products/list-products.usecase.ts",
+          "applications/express-native/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/errors/order-not-found.error.ts",
+      "component": "application",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/express-native/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/errors/product-already-exists.error.ts",
+      "component": "application",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/express-native/src/express/application-error.handler.ts",
+          "applications/express-native/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/errors/product-not-found.error.ts",
+      "component": "application",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/express-native/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+      "component": "application",
+      "sha256": "d48b395c5f6e36cf182aaaa9195bbadfbd4ea6dd283b38a2d2ec4903b3248be6",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/usecases/orders/preview-order.usecase.ts",
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/orders/create-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/get-order.usecase.ts",
+      "component": "application",
+      "sha256": "055c82525b877fd27eb313f915a2eb140f7ad4198574be8cf744a56453f8fd0c",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/orders/get-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/list-orders.usecase.ts",
+      "component": "application",
+      "sha256": "ddd9d3c44fce3614ac055386284c9f7ee52c59472b5d026ead0dbafb309c71b2",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/orders/list-orders.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/preview-order.usecase.ts",
+      "component": "application",
+      "sha256": "6ab111f479fced9e76d85ef17d908a9eba39082b43e3123ea8b53b7293d1dd0b",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/orders/preview-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/update-order-status.usecase.ts",
+      "component": "application",
+      "sha256": "941e8de1398f737665f1027760835bd77888cedf6565f10482c49d7c58b1808a",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/orders/update-order-status.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+      "component": "application",
+      "sha256": "bcea36c2ad299b4e482bbd386c250e5d51193da3f6c4926fce61940d2428de22",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/products/create-product.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/products/list-products.usecase.ts",
+      "component": "application",
+      "sha256": "bcf8e40ac12d73c25886660e717aaf1a9d4efa1f62cc7b5055e3a3b08198edf9",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/presentation/handlers/products/list-products.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/composition.ts",
+      "component": "composition",
+      "sha256": "37ba6c252c01324a394ace07a2f771eaac8671cfe5e53e5e6d32e51dfa4fccb7",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/express/index.ts",
+          "applications/express-native/src/express/routes.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/entities/order.entity.ts",
+      "component": "domain",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/contracts/order.repository.ts",
+          "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/get-order.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/list-orders.usecase.ts",
+          "applications/express-native/src/application/usecases/orders/update-order-status.usecase.ts",
+          "applications/express-native/src/domain/errors/invalid-order-status-transition.error.ts",
+          "applications/express-native/src/infrastructure/repositories/in-memory-order.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/entities/product.entity.ts",
+      "component": "domain",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/application/contracts/product.repository.ts",
+          "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+          "applications/express-native/src/application/usecases/products/list-products.usecase.ts",
+          "applications/express-native/src/composition.ts",
+          "applications/express-native/src/infrastructure/repositories/in-memory-product.repository.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/errors/domain-validation.error.ts",
+      "component": "domain",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/domain/entities/order.entity.ts",
+          "applications/express-native/src/domain/entities/product.entity.ts",
+          "applications/express-native/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/errors/invalid-order-status-transition.error.ts",
+      "component": "domain",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/domain/entities/order.entity.ts",
+          "applications/express-native/src/express/application-error.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/express/application-error.handler.ts",
+      "component": "http",
+      "sha256": "6771ead026200e2c610cc0965844bcaf9da50170abf4fd70ec0c95de19d5b4f0",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/index.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/express/index.ts",
+      "component": "http",
+      "sha256": "1330abaca25d909896b96a49366ae4c3731bea5e856baacd00405a9dfce411fe",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/index.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/express/routes.ts",
+      "component": "http",
+      "sha256": "5c2beee6c5dc62d60caecb2ab16809144b1c6ccce998c74cbb8e177e23e10ed5",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/index.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/index.ts",
+      "component": "entrypoint",
+      "sha256": "3555e79090771dd813ac787edef102ca65dcbd6ee09ab097ab96d027ba1416ff",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Public startApplication entrypoint used by the external harness.",
+        "importedBy": ["applications/express-native/src/main.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/random/node-id-generator.ts",
+      "component": "infrastructure",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "component": "infrastructure",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "component": "infrastructure",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/time/system-clock.ts",
+      "component": "infrastructure",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/composition.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/main.ts",
+      "component": "entrypoint",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "hostSpecific": false,
+      "p1": {
+        "included": false,
+        "reason": "Process launcher; external harness starts through index.ts.",
+        "importedBy": []
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/health.handler.ts",
+      "component": "presentation",
+      "sha256": "5f676ff2cfe22fa5613507af97bd549bdaed5eeff67c2b486f39ff5b9008a8a0",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/create-order.handler.ts",
+      "component": "presentation",
+      "sha256": "df7e167dd32b5f53044b0e061370f83cd67af0723db73790dfee2888f62c9aec",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/get-order.handler.ts",
+      "component": "presentation",
+      "sha256": "b7a377e778789d6066f990c90f7ba6045c665b5020f96633878d511eb986b0ed",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/list-orders.handler.ts",
+      "component": "presentation",
+      "sha256": "70c786992a6e1792e921f7a6e51aebb892036b6bb7f87996f91d05d5c6c37b86",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/preview-order.handler.ts",
+      "component": "presentation",
+      "sha256": "ebef1246eaa2cb6ea44a8788328ec0058053b1257b8150ed9b151e630cee0b5c",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+      "component": "presentation",
+      "sha256": "0a4d121baec4b729a2a38b534a5aa016dad78eca51f9347602428e856f2d2943",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/products/create-product.handler.ts",
+      "component": "presentation",
+      "sha256": "b14aabe23382c15a2862e65e12b80ed738512f1f179ecb6545e6cac715c398e6",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/products/list-products.handler.ts",
+      "component": "presentation",
+      "sha256": "d1840968e3ac18e1589eddd3a3ff9c4eff0d3dd8d8279c34cb1acfb6ec84fa5a",
+      "hostSpecific": true,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": ["applications/express-native/src/express/routes.ts"]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/orders/create-order.schema.ts",
+      "component": "presentation",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/presentation/handlers/orders/create-order.handler.ts",
+          "applications/express-native/src/presentation/handlers/orders/preview-order.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/orders/order-id.schema.ts",
+      "component": "presentation",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/presentation/handlers/orders/get-order.handler.ts",
+          "applications/express-native/src/presentation/handlers/orders/update-order-status.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "component": "presentation",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/presentation/handlers/orders/update-order-status.handler.ts"
+        ]
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/products/create-product.schema.ts",
+      "component": "presentation",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "hostSpecific": false,
+      "p1": {
+        "included": true,
+        "reason": "Transitive local import of the startup graph, including shared registration/composition for routes outside the slice.",
+        "importedBy": [
+          "applications/express-native/src/presentation/handlers/products/create-product.handler.ts"
+        ]
+      }
+    }
+  ],
+  "semanticMappings": [
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/contracts/clock.ts",
+      "target": "applications/elyum-express/src/application/contracts/clock.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/contracts/id-generator.ts",
+      "target": "applications/elyum-express/src/application/contracts/id-generator.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/contracts/order.repository.ts",
+      "target": "applications/elyum-express/src/application/contracts/order.repository.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/contracts/product.repository.ts",
+      "target": "applications/elyum-express/src/application/contracts/product.repository.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/errors/order-not-found.error.ts",
+      "target": "applications/elyum-express/src/application/errors/order-not-found.error.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/errors/product-already-exists.error.ts",
+      "target": "applications/elyum-express/src/application/errors/product-already-exists.error.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/errors/product-not-found.error.ts",
+      "target": "applications/elyum-express/src/application/errors/product-not-found.error.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/tokens.ts",
+      "target": "applications/elyum-express/src/application/tokens.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/orders/list-orders.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+      "target": "applications/elyum-express/src/application/usecases/products/list-products.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/di/container.ts",
+      "target": "applications/elyum-express/src/di/container.ts",
+      "component": "composition"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/domain/entities/order.entity.ts",
+      "target": "applications/elyum-express/src/domain/entities/order.entity.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/domain/entities/product.entity.ts",
+      "target": "applications/elyum-express/src/domain/entities/product.entity.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/domain/errors/domain-validation.error.ts",
+      "target": "applications/elyum-express/src/domain/errors/domain-validation.error.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error.ts",
+      "target": "applications/elyum-express/src/domain/errors/invalid-order-status-transition.error.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts",
+      "target": "applications/elyum-express/src/express/application-error.handler.ts",
+      "component": "http"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/fastify/index.ts",
+      "target": "applications/elyum-express/src/express/index.ts",
+      "component": "http"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/fastify/routes/index.ts",
+      "target": "applications/elyum-express/src/express/routes.ts",
+      "component": "http"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/index.ts",
+      "target": "applications/elyum-express/src/index.ts",
+      "component": "entrypoint"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/infrastructure/random/node-id-generator.ts",
+      "target": "applications/elyum-express/src/infrastructure/random/node-id-generator.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "target": "applications/elyum-express/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "target": "applications/elyum-express/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/infrastructure/time/system-clock.ts",
+      "target": "applications/elyum-express/src/infrastructure/time/system-clock.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/main.ts",
+      "target": "applications/elyum-express/src/main.ts",
+      "component": "entrypoint"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/health.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/health.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/orders/create-order.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/orders/get-order.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/orders/list-orders.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/orders/preview-order.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/orders/update-order-status.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/products/create-product.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/controllers/products/list-products.controller.ts",
+      "target": "applications/elyum-express/src/presentation/controllers/products/list-products.controller.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/schemas/orders/create-order.schema.ts",
+      "target": "applications/elyum-express/src/presentation/schemas/orders/create-order.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/schemas/orders/order-id.schema.ts",
+      "target": "applications/elyum-express/src/presentation/schemas/orders/order-id.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "target": "applications/elyum-express/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "EF->EE",
+      "source": "applications/elyum-fastify/src/presentation/schemas/products/create-product.schema.ts",
+      "target": "applications/elyum-express/src/presentation/schemas/products/create-product.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/contracts/clock.ts",
+      "target": "applications/express-native/src/application/contracts/clock.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/contracts/id-generator.ts",
+      "target": "applications/express-native/src/application/contracts/id-generator.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/contracts/order.repository.ts",
+      "target": "applications/express-native/src/application/contracts/order.repository.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/contracts/product.repository.ts",
+      "target": "applications/express-native/src/application/contracts/product.repository.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/errors/order-not-found.error.ts",
+      "target": "applications/express-native/src/application/errors/order-not-found.error.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/errors/product-already-exists.error.ts",
+      "target": "applications/express-native/src/application/errors/product-already-exists.error.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/errors/product-not-found.error.ts",
+      "target": "applications/express-native/src/application/errors/product-not-found.error.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/orders/get-order.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/orders/list-orders.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/orders/list-orders.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/orders/preview-order.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/orders/update-order-status.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/application/usecases/products/list-products.usecase.ts",
+      "target": "applications/express-native/src/application/usecases/products/list-products.usecase.ts",
+      "component": "application"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/composition.ts",
+      "target": "applications/express-native/src/composition.ts",
+      "component": "composition"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/domain/entities/order.entity.ts",
+      "target": "applications/express-native/src/domain/entities/order.entity.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/domain/entities/product.entity.ts",
+      "target": "applications/express-native/src/domain/entities/product.entity.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/domain/errors/domain-validation.error.ts",
+      "target": "applications/express-native/src/domain/errors/domain-validation.error.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/domain/errors/invalid-order-status-transition.error.ts",
+      "target": "applications/express-native/src/domain/errors/invalid-order-status-transition.error.ts",
+      "component": "domain"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/fastify/application-error.handler.ts",
+      "target": "applications/express-native/src/express/application-error.handler.ts",
+      "component": "http"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/fastify/index.ts",
+      "target": "applications/express-native/src/express/index.ts",
+      "component": "http"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/fastify/routes.ts",
+      "target": "applications/express-native/src/express/routes.ts",
+      "component": "http"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/index.ts",
+      "target": "applications/express-native/src/index.ts",
+      "component": "entrypoint"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/infrastructure/random/node-id-generator.ts",
+      "target": "applications/express-native/src/infrastructure/random/node-id-generator.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "target": "applications/express-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "target": "applications/express-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/infrastructure/time/system-clock.ts",
+      "target": "applications/express-native/src/infrastructure/time/system-clock.ts",
+      "component": "infrastructure"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/main.ts",
+      "target": "applications/express-native/src/main.ts",
+      "component": "entrypoint"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/health.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/health.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/orders/create-order.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/orders/create-order.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/orders/get-order.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/orders/get-order.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/orders/list-orders.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/orders/list-orders.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/orders/preview-order.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/orders/preview-order.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/products/create-product.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/products/create-product.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/handlers/products/list-products.handler.ts",
+      "target": "applications/express-native/src/presentation/handlers/products/list-products.handler.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/schemas/orders/create-order.schema.ts",
+      "target": "applications/express-native/src/presentation/schemas/orders/create-order.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/schemas/orders/order-id.schema.ts",
+      "target": "applications/express-native/src/presentation/schemas/orders/order-id.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "target": "applications/express-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "component": "presentation"
+    },
+    {
+      "pair": "FN->EN",
+      "source": "applications/fastify-native/src/presentation/schemas/products/create-product.schema.ts",
+      "target": "applications/express-native/src/presentation/schemas/products/create-product.schema.ts",
+      "component": "presentation"
+    }
+  ]
+}

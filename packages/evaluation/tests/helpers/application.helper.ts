@@ -19,12 +19,28 @@ export type StartApplication = (
 ) => Promise<RunningApplication>;
 
 const load = createRequire(path.resolve(__dirname, '../../package.json'));
+const entrypoints: Record<Variant, string> = {
+  'elyum-fastify': path.resolve(
+    __dirname,
+    '../../dist/elyum-fastify/src/index.js',
+  ),
+  'fastify-native': path.resolve(
+    __dirname,
+    '../../dist/fastify-native/src/index.js',
+  ),
+  'elyum-express': path.resolve(
+    __dirname,
+    '../../dist/elyum-express/src/index.js',
+  ),
+  'express-native': path.resolve(
+    __dirname,
+    '../../dist/express-native/src/index.js',
+  ),
+};
 
 /** Load the tsc output so decorator metadata is exercised as in production. */
 export function loadApplication(variant: Variant): StartApplication {
-  const entry = load(
-    path.resolve(__dirname, `../../dist/${variant}/src/index.js`),
-  ) as {
+  const entry = load(entrypoints[variant]) as {
     startApplication: StartApplication;
   };
   return entry.startApplication;

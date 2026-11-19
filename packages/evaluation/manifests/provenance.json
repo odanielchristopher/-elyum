@@ -1,0 +1,1955 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+  "structuralMoveCommit": "cbed1164737e1618a0c479774f656c07e14536d8",
+  "treatmentOrigins": {
+    "EF": {
+      "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+      "root": "packages/evaluation/src",
+      "treatment": "original order API"
+    },
+    "FN": {
+      "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+      "root": "packages/evaluation/applications/elyum-fastify/src",
+      "treatment": "EF"
+    },
+    "EE": {
+      "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+      "root": "packages/evaluation/applications/elyum-fastify/src",
+      "treatment": "EF"
+    },
+    "EN": {
+      "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+      "root": "packages/evaluation/applications/fastify-native/src",
+      "treatment": "FN"
+    }
+  },
+  "files": [
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/clock.ts",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/contracts/clock.ts",
+        "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/id-generator.ts",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/contracts/id-generator.ts",
+        "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/order.repository.ts",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/contracts/order.repository.ts",
+        "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/contracts/product.repository.ts",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/contracts/product.repository.ts",
+        "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/errors/order-not-found.error.ts",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/errors/order-not-found.error.ts",
+        "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/errors/product-already-exists.error.ts",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/errors/product-already-exists.error.ts",
+        "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/errors/product-not-found.error.ts",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/errors/product-not-found.error.ts",
+        "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/tokens.ts",
+      "sha256": "53221bd60e46ed4a10d34ff8e6e69d57b65f1ea36f1515046cbe9a86b9912249",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/tokens.ts",
+        "sha256": "53221bd60e46ed4a10d34ff8e6e69d57b65f1ea36f1515046cbe9a86b9912249",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+      "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/usecases/orders/create-order.usecase.ts",
+        "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+      "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/usecases/orders/get-order.usecase.ts",
+        "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+      "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/usecases/orders/list-orders.usecase.ts",
+        "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+      "sha256": "b66f45a51c178db42edb05488c4e47d519ad57590aacfc9d267b887d33de349b",
+      "origin": {
+        "treatment": "created during baseline implementation",
+        "sourceContextCommit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+      "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/usecases/orders/update-order-status.usecase.ts",
+        "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+      "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/usecases/products/create-product.usecase.ts",
+        "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+      "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/application/usecases/products/list-products.usecase.ts",
+        "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/di/container.ts",
+      "sha256": "b5a071528ee16d6909895e0fde419a1fa3044ef3be324b29fb21e00dea824855",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/di/container.ts",
+        "sha256": "7cbfa1ae177ef83e59105f8a9b3c46c7f732e245b0d8a9385cb5893db8442b2d",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/entities/order.entity.ts",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/domain/entities/order.entity.ts",
+        "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/entities/product.entity.ts",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/domain/entities/product.entity.ts",
+        "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/errors/domain-validation.error.ts",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/domain/errors/domain-validation.error.ts",
+        "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error.ts",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/domain/errors/invalid-order-status-transition.error.ts",
+        "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/fastify/errors/application-error.handler.ts",
+      "sha256": "52ac429cd0fbe0f6a8a5f027ed66f7dce9a2fdf73e4a5adc7627261a0f6ace0f",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/fastify/errors/application-error.handler.ts",
+        "sha256": "f94a70e079e17c5e1ba48cbfc3317a32d840b57ced05ed03123df25f16a6ee3a",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/fastify/index.ts",
+      "sha256": "faf72d2c523abd1c830f8a50873e809bb6cf9da59bd0a47bebac77bfa968301f",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/fastify/index.ts",
+        "sha256": "10f601fda45eb5a64501a43d8ae4593210b0830afd98ea9827c91aa9af07fbc9",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/fastify/routes/index.ts",
+      "sha256": "78157daad17a84b4c1462ee60b6da9b474cf35cc0d32d69e5cc1bc3eb3294546",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/fastify/routes/index.ts",
+        "sha256": "2177bb639e83d354566764bfea10d29b087bad1534823000a30dcff3e761d92b",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/index.ts",
+      "sha256": "b5ff39ab828a067afab2eb03808791154f6ee67b4a7b74d40daa8c2a6bfef610",
+      "origin": {
+        "treatment": "created during baseline implementation",
+        "sourceContextCommit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/random/node-id-generator.ts",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/infrastructure/random/node-id-generator.ts",
+        "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/infrastructure/repositories/in-memory-order.repository.ts",
+        "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/infrastructure/repositories/in-memory-product.repository.ts",
+        "sha256": "9586633dc8b948b508772a01034fe3b96840b0c0ce6bb28f90d6111633396efa",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/infrastructure/time/system-clock.ts",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/infrastructure/time/system-clock.ts",
+        "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/main.ts",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/main.ts",
+        "sha256": "6f692475b4e45949b4f5f1dfba4687a3e16e63d882b985467e305ac23bc01334",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/health.controller.ts",
+      "sha256": "d237c3a51a3f030a886ae67eb4114d98501cae99ed281446269ac14f638977b8",
+      "origin": {
+        "treatment": "created during baseline implementation",
+        "sourceContextCommit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts",
+      "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/controllers/orders/create-order.controller.ts",
+        "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts",
+      "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/controllers/orders/get-order.controller.ts",
+        "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller.ts",
+      "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/controllers/orders/list-orders.controller.ts",
+        "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts",
+      "sha256": "46ac48269627c234938a8f2c7b37ef530fa8c1b24e10bf32aca153fd46b15a1b",
+      "origin": {
+        "treatment": "created during baseline implementation",
+        "sourceContextCommit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts",
+      "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/controllers/orders/update-order-status.controller.ts",
+        "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts",
+      "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/controllers/products/create-product.controller.ts",
+        "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/controllers/products/list-products.controller.ts",
+      "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/controllers/products/list-products.controller.ts",
+        "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/orders/create-order.schema.ts",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/schemas/orders/create-order.schema.ts",
+        "sha256": "f166cdd10a143f9db7ef7c1e02e5e5929a396ea2cdbf14f2f161e8b7fffda456",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/orders/order-id.schema.ts",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/schemas/orders/order-id.schema.ts",
+        "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/schemas/orders/update-order-status.schema.ts",
+        "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EF",
+      "file": "applications/elyum-fastify/src/presentation/schemas/products/create-product.schema.ts",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "origin": {
+        "treatment": "original order API",
+        "commit": "305798d1a062e92107e4b6b20b6c1cb7a2989d21",
+        "file": "packages/evaluation/src/presentation/schemas/products/create-product.schema.ts",
+        "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/clock.ts",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/clock.ts",
+        "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/id-generator.ts",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/id-generator.ts",
+        "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/order.repository.ts",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/order.repository.ts",
+        "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/contracts/product.repository.ts",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/product.repository.ts",
+        "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/errors/order-not-found.error.ts",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/errors/order-not-found.error.ts",
+        "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/errors/product-already-exists.error.ts",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/errors/product-already-exists.error.ts",
+        "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/errors/product-not-found.error.ts",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/errors/product-not-found.error.ts",
+        "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+      "sha256": "d48b395c5f6e36cf182aaaa9195bbadfbd4ea6dd283b38a2d2ec4903b3248be6",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+        "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+      "sha256": "055c82525b877fd27eb313f915a2eb140f7ad4198574be8cf744a56453f8fd0c",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+        "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/list-orders.usecase.ts",
+      "sha256": "ddd9d3c44fce3614ac055386284c9f7ee52c59472b5d026ead0dbafb309c71b2",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+        "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+      "sha256": "6ab111f479fced9e76d85ef17d908a9eba39082b43e3123ea8b53b7293d1dd0b",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+        "sha256": "b66f45a51c178db42edb05488c4e47d519ad57590aacfc9d267b887d33de349b",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+      "sha256": "941e8de1398f737665f1027760835bd77888cedf6565f10482c49d7c58b1808a",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+        "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+      "sha256": "bcea36c2ad299b4e482bbd386c250e5d51193da3f6c4926fce61940d2428de22",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+        "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/application/usecases/products/list-products.usecase.ts",
+      "sha256": "bcf8e40ac12d73c25886660e717aaf1a9d4efa1f62cc7b5055e3a3b08198edf9",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+        "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/composition.ts",
+      "sha256": "37ba6c252c01324a394ace07a2f771eaac8671cfe5e53e5e6d32e51dfa4fccb7",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/di/container.ts",
+        "sha256": "b5a071528ee16d6909895e0fde419a1fa3044ef3be324b29fb21e00dea824855",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/entities/order.entity.ts",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/entities/order.entity.ts",
+        "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/entities/product.entity.ts",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/entities/product.entity.ts",
+        "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/errors/domain-validation.error.ts",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/errors/domain-validation.error.ts",
+        "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/domain/errors/invalid-order-status-transition.error.ts",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error.ts",
+        "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/fastify/application-error.handler.ts",
+      "sha256": "04b45f9666b1275dc595d678b899be782c81f838186f9642871e58071defd55a",
+      "origin": {
+        "treatment": "created during baseline implementation",
+        "sourceContextCommit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/fastify/index.ts",
+      "sha256": "74d01372464315504f2d2b76aeb583353b1ac6b0c3c7da8a77c6806237e9a309",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/fastify/index.ts",
+        "sha256": "86d375b2341df9205c0c4a258244bc1cd4aa250d3adf05e3c19ff71b881112c8",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/fastify/routes.ts",
+      "sha256": "2367ea6caeb7981136f1f72e63a0382b67eff6cf9b4774812ebb43b205a46e17",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/fastify/routes/index.ts",
+        "sha256": "78157daad17a84b4c1462ee60b6da9b474cf35cc0d32d69e5cc1bc3eb3294546",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/index.ts",
+      "sha256": "b5ff39ab828a067afab2eb03808791154f6ee67b4a7b74d40daa8c2a6bfef610",
+      "origin": {
+        "treatment": "created during baseline implementation",
+        "sourceContextCommit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/random/node-id-generator.ts",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/random/node-id-generator.ts",
+        "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts",
+        "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts",
+        "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/infrastructure/time/system-clock.ts",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/time/system-clock.ts",
+        "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/main.ts",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/main.ts",
+        "sha256": "6f692475b4e45949b4f5f1dfba4687a3e16e63d882b985467e305ac23bc01334",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/health.handler.ts",
+      "sha256": "764b2d16f60bc910d8f343618d2c93b69c1e8843e30f2966ce96bd28216f1797",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/health.controller.ts",
+        "sha256": "d237c3a51a3f030a886ae67eb4114d98501cae99ed281446269ac14f638977b8",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/create-order.handler.ts",
+      "sha256": "d01d51df3629f60256ccd648d1c4053431bc0d2a6c5c4d71ab911ba0b28294dd",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts",
+        "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/get-order.handler.ts",
+      "sha256": "3d24c640f2db27b6f5e1b7bf4078c8d88dcbafa9341dfa6b6f456e2f1758ff78",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts",
+        "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/list-orders.handler.ts",
+      "sha256": "5dd971c35c33eb81436f871bd53396c587f631578ba8d557407fea798b1660c8",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller.ts",
+        "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/preview-order.handler.ts",
+      "sha256": "963bbdbba86ba3e57d408d4cd2e55ad55a4917de6de646bde26ac35524161854",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts",
+        "sha256": "46ac48269627c234938a8f2c7b37ef530fa8c1b24e10bf32aca153fd46b15a1b",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+      "sha256": "c12ef910973af64e36dea8a797e5be9e693ce0a2f7866ba9748c2f8f168ceb07",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts",
+        "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/products/create-product.handler.ts",
+      "sha256": "acc063330798821478d32ce6d01b3e7ea2302cd9badb116042f1ef8b8b1fbbd1",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts",
+        "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/handlers/products/list-products.handler.ts",
+      "sha256": "4251f55590d777db9830455075699cef779ce1b763c51e0aa0a235e99b544503",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/products/list-products.controller.ts",
+        "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/orders/create-order.schema.ts",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/orders/create-order.schema.ts",
+        "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/orders/order-id.schema.ts",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/orders/order-id.schema.ts",
+        "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/orders/update-order-status.schema.ts",
+        "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "FN",
+      "file": "applications/fastify-native/src/presentation/schemas/products/create-product.schema.ts",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "origin": {
+        "treatment": "EF",
+        "commit": "eb4fbbcbdbf546ddf6942af0851eccffb5ac490f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/products/create-product.schema.ts",
+        "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/clock.ts",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/clock.ts",
+        "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/id-generator.ts",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/id-generator.ts",
+        "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/order.repository.ts",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/order.repository.ts",
+        "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/contracts/product.repository.ts",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/contracts/product.repository.ts",
+        "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/errors/order-not-found.error.ts",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/errors/order-not-found.error.ts",
+        "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/errors/product-already-exists.error.ts",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/errors/product-already-exists.error.ts",
+        "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/errors/product-not-found.error.ts",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/errors/product-not-found.error.ts",
+        "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/tokens.ts",
+      "sha256": "53221bd60e46ed4a10d34ff8e6e69d57b65f1ea36f1515046cbe9a86b9912249",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/tokens.ts",
+        "sha256": "53221bd60e46ed4a10d34ff8e6e69d57b65f1ea36f1515046cbe9a86b9912249",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/create-order.usecase.ts",
+      "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/create-order.usecase.ts",
+        "sha256": "297e65cf6279e0bd9d0aa21a347b5b8a0854e68f002a667bc7ae3b134a0ace74",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/get-order.usecase.ts",
+      "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/get-order.usecase.ts",
+        "sha256": "7508171b4d0ec24f2473797426eec024e0ca1159efd6a1a20feb8a03cdba5c08",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/list-orders.usecase.ts",
+      "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase.ts",
+        "sha256": "d644ae2edb747915f9d679ffd59dd5ebf3cffe4bd50ef89c524edfd88bdfdb29",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/preview-order.usecase.ts",
+      "sha256": "b66f45a51c178db42edb05488c4e47d519ad57590aacfc9d267b887d33de349b",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/preview-order.usecase.ts",
+        "sha256": "b66f45a51c178db42edb05488c4e47d519ad57590aacfc9d267b887d33de349b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/orders/update-order-status.usecase.ts",
+      "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase.ts",
+        "sha256": "c2da8cf68f87e7727758f14378ad4176fedc2d25f9f1d06b5994fb4b14079626",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/products/create-product.usecase.ts",
+      "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/products/create-product.usecase.ts",
+        "sha256": "59df6c587d1c49ecde4804c4f0b9d55e1ed2b65f6906e110987453a46c814b84",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/application/usecases/products/list-products.usecase.ts",
+      "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/application/usecases/products/list-products.usecase.ts",
+        "sha256": "828e3fdaade96b3ce83b0c3b86b76f7cfd84499e644d1539c05834ebf62d2612",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/di/container.ts",
+      "sha256": "b5a071528ee16d6909895e0fde419a1fa3044ef3be324b29fb21e00dea824855",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/di/container.ts",
+        "sha256": "b5a071528ee16d6909895e0fde419a1fa3044ef3be324b29fb21e00dea824855",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/entities/order.entity.ts",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/entities/order.entity.ts",
+        "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/entities/product.entity.ts",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/entities/product.entity.ts",
+        "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/errors/domain-validation.error.ts",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/errors/domain-validation.error.ts",
+        "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/domain/errors/invalid-order-status-transition.error.ts",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error.ts",
+        "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/express/application-error.handler.ts",
+      "sha256": "06f7230fe87d0f39b57272ab91836b88b82835a94a915abb2a6f847d93f8b13d",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/fastify/errors/application-error.handler.ts",
+        "sha256": "52ac429cd0fbe0f6a8a5f027ed66f7dce9a2fdf73e4a5adc7627261a0f6ace0f",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/express/index.ts",
+      "sha256": "f05d92a66a1b968e59871e8a30d0e54a5f9eaeab07d8743460f569a56b4e22a6",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/fastify/index.ts",
+        "sha256": "faf72d2c523abd1c830f8a50873e809bb6cf9da59bd0a47bebac77bfa968301f",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/express/routes.ts",
+      "sha256": "4a40ddbba7533b4d1815d071202b09c3f1590cbb7bc75da4dcfd867fc09de271",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/fastify/routes/index.ts",
+        "sha256": "78157daad17a84b4c1462ee60b6da9b474cf35cc0d32d69e5cc1bc3eb3294546",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/index.ts",
+      "sha256": "3555e79090771dd813ac787edef102ca65dcbd6ee09ab097ab96d027ba1416ff",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/index.ts",
+        "sha256": "b5ff39ab828a067afab2eb03808791154f6ee67b4a7b74d40daa8c2a6bfef610",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/random/node-id-generator.ts",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/random/node-id-generator.ts",
+        "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository.ts",
+        "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository.ts",
+        "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/infrastructure/time/system-clock.ts",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/infrastructure/time/system-clock.ts",
+        "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/main.ts",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/main.ts",
+        "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/health.controller.ts",
+      "sha256": "d237c3a51a3f030a886ae67eb4114d98501cae99ed281446269ac14f638977b8",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/health.controller.ts",
+        "sha256": "d237c3a51a3f030a886ae67eb4114d98501cae99ed281446269ac14f638977b8",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/create-order.controller.ts",
+      "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller.ts",
+        "sha256": "63b23a8e437261893b881baa62a2bb47e36ea4a5f603ff0eddf17ad7ca089a64",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/get-order.controller.ts",
+      "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller.ts",
+        "sha256": "8ee8e8c6573f423c99951891c797084919383d3cdbfa53832dcd584194fd7a47",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/list-orders.controller.ts",
+      "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller.ts",
+        "sha256": "b022bc89e3fa44631e6b9357954aa42d6943d927c020c58ed2174bf543882016",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/preview-order.controller.ts",
+      "sha256": "46ac48269627c234938a8f2c7b37ef530fa8c1b24e10bf32aca153fd46b15a1b",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/preview-order.controller.ts",
+        "sha256": "46ac48269627c234938a8f2c7b37ef530fa8c1b24e10bf32aca153fd46b15a1b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/orders/update-order-status.controller.ts",
+      "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller.ts",
+        "sha256": "1742c0a12514dd954ffd1454d035b19bb7301ea8f830a13ae408dffceff4dfd6",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/products/create-product.controller.ts",
+      "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/products/create-product.controller.ts",
+        "sha256": "41e4e5736ceba8801e7952f0aaca7ecfc109e8e902969e08ea63c457f2030fa0",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/controllers/products/list-products.controller.ts",
+      "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/controllers/products/list-products.controller.ts",
+        "sha256": "9aa43f188561983d648e6a62dc7d75745e63b3a531dded153ea172eb9d58f4e2",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/orders/create-order.schema.ts",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/orders/create-order.schema.ts",
+        "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/orders/order-id.schema.ts",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/orders/order-id.schema.ts",
+        "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/orders/update-order-status.schema.ts",
+        "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EE",
+      "file": "applications/elyum-express/src/presentation/schemas/products/create-product.schema.ts",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "origin": {
+        "treatment": "EF",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/elyum-fastify/src/presentation/schemas/products/create-product.schema.ts",
+        "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/clock.ts",
+      "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/contracts/clock.ts",
+        "sha256": "13b633bf6aee3f4d3c9dcad4fe3fa796e1eceb38944dc0b805c5ca7d9f24cd70",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/id-generator.ts",
+      "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/contracts/id-generator.ts",
+        "sha256": "b41c010d471d0f1abb26b071b236641cb89d2d9c47c321c5ef772a4f5b41be71",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/order.repository.ts",
+      "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/contracts/order.repository.ts",
+        "sha256": "8bcbfca90663bb6894539dcb109eb41ce807538f07d0ad9b11022ede74aaf950",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/contracts/product.repository.ts",
+      "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/contracts/product.repository.ts",
+        "sha256": "174cf339d7f7fb10f560349a40a74734e66e6c21efcb193690934a194462a203",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/errors/order-not-found.error.ts",
+      "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/errors/order-not-found.error.ts",
+        "sha256": "c51378b847636168d6ff8dc2414fd2923c197fcde28c4cea6993e97892c5623b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/errors/product-already-exists.error.ts",
+      "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/errors/product-already-exists.error.ts",
+        "sha256": "6ac3d8b71cc70a1dca7bca2a7f1ce17898e5cb38c503609b406483e261831369",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/errors/product-not-found.error.ts",
+      "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/errors/product-not-found.error.ts",
+        "sha256": "ee1bc4808dbb2a4a43c643bde1fda49d5e10ce9c62754ae47b9d705a2efaae1c",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/create-order.usecase.ts",
+      "sha256": "d48b395c5f6e36cf182aaaa9195bbadfbd4ea6dd283b38a2d2ec4903b3248be6",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/orders/create-order.usecase.ts",
+        "sha256": "d48b395c5f6e36cf182aaaa9195bbadfbd4ea6dd283b38a2d2ec4903b3248be6",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/get-order.usecase.ts",
+      "sha256": "055c82525b877fd27eb313f915a2eb140f7ad4198574be8cf744a56453f8fd0c",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/orders/get-order.usecase.ts",
+        "sha256": "055c82525b877fd27eb313f915a2eb140f7ad4198574be8cf744a56453f8fd0c",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/list-orders.usecase.ts",
+      "sha256": "ddd9d3c44fce3614ac055386284c9f7ee52c59472b5d026ead0dbafb309c71b2",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/orders/list-orders.usecase.ts",
+        "sha256": "ddd9d3c44fce3614ac055386284c9f7ee52c59472b5d026ead0dbafb309c71b2",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/preview-order.usecase.ts",
+      "sha256": "6ab111f479fced9e76d85ef17d908a9eba39082b43e3123ea8b53b7293d1dd0b",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/orders/preview-order.usecase.ts",
+        "sha256": "6ab111f479fced9e76d85ef17d908a9eba39082b43e3123ea8b53b7293d1dd0b",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/orders/update-order-status.usecase.ts",
+      "sha256": "941e8de1398f737665f1027760835bd77888cedf6565f10482c49d7c58b1808a",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/orders/update-order-status.usecase.ts",
+        "sha256": "941e8de1398f737665f1027760835bd77888cedf6565f10482c49d7c58b1808a",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/products/create-product.usecase.ts",
+      "sha256": "bcea36c2ad299b4e482bbd386c250e5d51193da3f6c4926fce61940d2428de22",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/products/create-product.usecase.ts",
+        "sha256": "bcea36c2ad299b4e482bbd386c250e5d51193da3f6c4926fce61940d2428de22",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/application/usecases/products/list-products.usecase.ts",
+      "sha256": "bcf8e40ac12d73c25886660e717aaf1a9d4efa1f62cc7b5055e3a3b08198edf9",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/application/usecases/products/list-products.usecase.ts",
+        "sha256": "bcf8e40ac12d73c25886660e717aaf1a9d4efa1f62cc7b5055e3a3b08198edf9",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/composition.ts",
+      "sha256": "37ba6c252c01324a394ace07a2f771eaac8671cfe5e53e5e6d32e51dfa4fccb7",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/composition.ts",
+        "sha256": "37ba6c252c01324a394ace07a2f771eaac8671cfe5e53e5e6d32e51dfa4fccb7",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/entities/order.entity.ts",
+      "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/domain/entities/order.entity.ts",
+        "sha256": "356418ab0069425bcf437bae3c745ba5eca8c2e97635eb692eb0a561f70eeda3",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/entities/product.entity.ts",
+      "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/domain/entities/product.entity.ts",
+        "sha256": "99d4751a64b712752e238fd57acf5b5900cb5e40d18a8f87e50b2fba28662c76",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/errors/domain-validation.error.ts",
+      "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/domain/errors/domain-validation.error.ts",
+        "sha256": "b015b581304b0957db304d26696e8853f67591434ab89e69205388f2ca99fc53",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/domain/errors/invalid-order-status-transition.error.ts",
+      "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/domain/errors/invalid-order-status-transition.error.ts",
+        "sha256": "492c874c8f43c288f05e08585f6e4941a1f2f4f538113d06fb5386d03bf44aa4",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/express/application-error.handler.ts",
+      "sha256": "6771ead026200e2c610cc0965844bcaf9da50170abf4fd70ec0c95de19d5b4f0",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/fastify/application-error.handler.ts",
+        "sha256": "04b45f9666b1275dc595d678b899be782c81f838186f9642871e58071defd55a",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/express/index.ts",
+      "sha256": "1330abaca25d909896b96a49366ae4c3731bea5e856baacd00405a9dfce411fe",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/fastify/index.ts",
+        "sha256": "74d01372464315504f2d2b76aeb583353b1ac6b0c3c7da8a77c6806237e9a309",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/express/routes.ts",
+      "sha256": "5c2beee6c5dc62d60caecb2ab16809144b1c6ccce998c74cbb8e177e23e10ed5",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/fastify/routes.ts",
+        "sha256": "2367ea6caeb7981136f1f72e63a0382b67eff6cf9b4774812ebb43b205a46e17",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/index.ts",
+      "sha256": "3555e79090771dd813ac787edef102ca65dcbd6ee09ab097ab96d027ba1416ff",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/index.ts",
+        "sha256": "b5ff39ab828a067afab2eb03808791154f6ee67b4a7b74d40daa8c2a6bfef610",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/random/node-id-generator.ts",
+      "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/infrastructure/random/node-id-generator.ts",
+        "sha256": "5e6d0fe0cf55e5d4cbf8974ff670ed4c6fef1ce3e391a34b69d07f09e2e761a1",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+      "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/infrastructure/repositories/in-memory-order.repository.ts",
+        "sha256": "30b09df72a4aad26e78b7bf22a3c1be4004e7cc0337f2c13f6f3074f1a4513fe",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+      "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/infrastructure/repositories/in-memory-product.repository.ts",
+        "sha256": "e59d18c56e674a8979450df4fa8bb382ebcc6ac8dcf3ae4c47064e33c6d6ef50",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/infrastructure/time/system-clock.ts",
+      "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/infrastructure/time/system-clock.ts",
+        "sha256": "7d39adfad249da0300a2c980543df248d5dfdc77ed2f0cc8020ebde222e24e75",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/main.ts",
+      "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/main.ts",
+        "sha256": "bf8e4673d6e8500721dca8699328491c5d42e232336653b1dde28d0514e7c24f",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/health.handler.ts",
+      "sha256": "5f676ff2cfe22fa5613507af97bd549bdaed5eeff67c2b486f39ff5b9008a8a0",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/health.handler.ts",
+        "sha256": "764b2d16f60bc910d8f343618d2c93b69c1e8843e30f2966ce96bd28216f1797",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/create-order.handler.ts",
+      "sha256": "df7e167dd32b5f53044b0e061370f83cd67af0723db73790dfee2888f62c9aec",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/orders/create-order.handler.ts",
+        "sha256": "d01d51df3629f60256ccd648d1c4053431bc0d2a6c5c4d71ab911ba0b28294dd",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/get-order.handler.ts",
+      "sha256": "b7a377e778789d6066f990c90f7ba6045c665b5020f96633878d511eb986b0ed",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/orders/get-order.handler.ts",
+        "sha256": "3d24c640f2db27b6f5e1b7bf4078c8d88dcbafa9341dfa6b6f456e2f1758ff78",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/list-orders.handler.ts",
+      "sha256": "70c786992a6e1792e921f7a6e51aebb892036b6bb7f87996f91d05d5c6c37b86",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/orders/list-orders.handler.ts",
+        "sha256": "5dd971c35c33eb81436f871bd53396c587f631578ba8d557407fea798b1660c8",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/preview-order.handler.ts",
+      "sha256": "ebef1246eaa2cb6ea44a8788328ec0058053b1257b8150ed9b151e630cee0b5c",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/orders/preview-order.handler.ts",
+        "sha256": "963bbdbba86ba3e57d408d4cd2e55ad55a4917de6de646bde26ac35524161854",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+      "sha256": "0a4d121baec4b729a2a38b534a5aa016dad78eca51f9347602428e856f2d2943",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/orders/update-order-status.handler.ts",
+        "sha256": "c12ef910973af64e36dea8a797e5be9e693ce0a2f7866ba9748c2f8f168ceb07",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/products/create-product.handler.ts",
+      "sha256": "b14aabe23382c15a2862e65e12b80ed738512f1f179ecb6545e6cac715c398e6",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/products/create-product.handler.ts",
+        "sha256": "acc063330798821478d32ce6d01b3e7ea2302cd9badb116042f1ef8b8b1fbbd1",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/handlers/products/list-products.handler.ts",
+      "sha256": "d1840968e3ac18e1589eddd3a3ff9c4eff0d3dd8d8279c34cb1acfb6ec84fa5a",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/handlers/products/list-products.handler.ts",
+        "sha256": "4251f55590d777db9830455075699cef779ce1b763c51e0aa0a235e99b544503",
+        "operation": "adapted"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/orders/create-order.schema.ts",
+      "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/schemas/orders/create-order.schema.ts",
+        "sha256": "583fa847fc26dd8b81fa772dabdf23b86b8cbda6ba4553bba668eddace004895",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/orders/order-id.schema.ts",
+      "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/schemas/orders/order-id.schema.ts",
+        "sha256": "bdc721804d390835af48dc25777dd66ec287c2d1f7bb321d1d5b1d741aa7af96",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+      "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/schemas/orders/update-order-status.schema.ts",
+        "sha256": "f62e0189c596a4a0d768c3be21b6ba180ffe0ef61841bae7f6d4e59d17e6088e",
+        "operation": "copied"
+      }
+    },
+    {
+      "application": "EN",
+      "file": "applications/express-native/src/presentation/schemas/products/create-product.schema.ts",
+      "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+      "origin": {
+        "treatment": "FN",
+        "commit": "a4b6c4e1bfbbd0ca0ad767ea17ccd3e75ab70e3f",
+        "file": "packages/evaluation/applications/fastify-native/src/presentation/schemas/products/create-product.schema.ts",
+        "sha256": "773c25c551c2b2c39d97fd10f0824d6d61e420e69ef429a78b78c4d508d9ade9",
+        "operation": "copied"
+      }
+    }
+  ]
+}
