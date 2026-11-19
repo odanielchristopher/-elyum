@@ -6,7 +6,11 @@ import {
   type Variant,
 } from '../helpers/application.helper';
 
-const variants: Variant[] = ['elyum-fastify', 'fastify-native'];
+const variants: Variant[] = [
+  'elyum-fastify',
+  'fastify-native',
+  'elyum-express',
+];
 
 describe.each(variants)('%s baseline smoke', (variant) => {
   it('should expose health and the deterministic catalog over real HTTP', async () => {

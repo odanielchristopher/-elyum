@@ -77,6 +77,9 @@ importers:
       '@elyum/core':
         specifier: workspace:*
         version: link:../core
+      '@elyum/express':
+        specifier: workspace:*
+        version: link:../express
       '@elyum/fastify':
         specifier: workspace:*
         version: link:../fastify
@@ -92,6 +95,12 @@ importers:
       '@elyum/validation-zod':
         specifier: workspace:*
         version: link:../validation-zod
+      '@types/express':
+        specifier: 5.0.6
+        version: 5.0.6
+      express:
+        specifier: 5.3.0
+        version: 5.3.0
       fastify:
         specifier: ^5.12.3
         version: 5.12.3

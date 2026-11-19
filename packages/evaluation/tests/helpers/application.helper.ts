@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module';
 import path from 'node:path';
 
-export type Variant = 'elyum-fastify' | 'fastify-native';
+export type Variant = 'elyum-fastify' | 'fastify-native' | 'elyum-express';
 export type StartOptions = {
   host: string;
   port: number;
