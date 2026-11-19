@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { Order } from '../../src/domain/entities/order.entity';
-import { DomainValidationError } from '../../src/domain/errors/domain-validation.error';
-import { InvalidOrderStatusTransitionError } from '../../src/domain/errors/invalid-order-status-transition.error';
+import { Order } from '../../applications/elyum-fastify/src/domain/entities/order.entity';
+import { DomainValidationError } from '../../applications/elyum-fastify/src/domain/errors/domain-validation.error';
+import { InvalidOrderStatusTransitionError } from '../../applications/elyum-fastify/src/domain/errors/invalid-order-status-transition.error';
 
 const CREATED_AT = new Date('2026-01-01T00:00:00.000Z');
 

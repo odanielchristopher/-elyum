@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import type { Clock } from '../../src/application/contracts/clock';
-import type { IdGenerator } from '../../src/application/contracts/id-generator';
-import { ProductAlreadyExistsError } from '../../src/application/errors/product-already-exists.error';
-import { CreateProductUseCase } from '../../src/application/usecases/products/create-product.usecase';
-import { ListProductsUseCase } from '../../src/application/usecases/products/list-products.usecase';
-import { InMemoryProductRepository } from '../../src/infrastructure/repositories/in-memory-product.repository';
+import type { Clock } from '../../applications/elyum-fastify/src/application/contracts/clock';
+import type { IdGenerator } from '../../applications/elyum-fastify/src/application/contracts/id-generator';
+import { ProductAlreadyExistsError } from '../../applications/elyum-fastify/src/application/errors/product-already-exists.error';
+import { CreateProductUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/create-product.usecase';
+import { ListProductsUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/list-products.usecase';
+import { InMemoryProductRepository } from '../../applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository';
 
 const NOW = new Date('2026-01-01T00:00:00.000Z');
 

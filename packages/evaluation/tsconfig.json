@@ -3,10 +3,10 @@
   "compilerOptions": {
     "composite": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "applications/elyum-fastify/src",
     "sourceMap": true
   },
-  "include": ["src"],
+  "include": ["applications/elyum-fastify/src"],
   "references": [
     { "path": "../core" },
     { "path": "../http" },

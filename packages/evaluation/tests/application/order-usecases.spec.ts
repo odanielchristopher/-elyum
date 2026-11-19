@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest';
 
-import type { Clock } from '../../src/application/contracts/clock';
-import type { IdGenerator } from '../../src/application/contracts/id-generator';
-import { OrderNotFoundError } from '../../src/application/errors/order-not-found.error';
-import { ProductNotFoundError } from '../../src/application/errors/product-not-found.error';
-import { CreateOrderUseCase } from '../../src/application/usecases/orders/create-order.usecase';
-import { GetOrderUseCase } from '../../src/application/usecases/orders/get-order.usecase';
-import { ListOrdersUseCase } from '../../src/application/usecases/orders/list-orders.usecase';
-import { UpdateOrderStatusUseCase } from '../../src/application/usecases/orders/update-order-status.usecase';
-import { Product } from '../../src/domain/entities/product.entity';
-import { InMemoryOrderRepository } from '../../src/infrastructure/repositories/in-memory-order.repository';
-import { InMemoryProductRepository } from '../../src/infrastructure/repositories/in-memory-product.repository';
+import type { Clock } from '../../applications/elyum-fastify/src/application/contracts/clock';
+import type { IdGenerator } from '../../applications/elyum-fastify/src/application/contracts/id-generator';
+import { OrderNotFoundError } from '../../applications/elyum-fastify/src/application/errors/order-not-found.error';
+import { ProductNotFoundError } from '../../applications/elyum-fastify/src/application/errors/product-not-found.error';
+import { CreateOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/create-order.usecase';
+import { GetOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/get-order.usecase';
+import { ListOrdersUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase';
+import { UpdateOrderStatusUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase';
+import { Product } from '../../applications/elyum-fastify/src/domain/entities/product.entity';
+import { InMemoryOrderRepository } from '../../applications/elyum-fastify/src/infrastructure/repositories/in-memory-order.repository';
+import { InMemoryProductRepository } from '../../applications/elyum-fastify/src/infrastructure/repositories/in-memory-product.repository';
 
 const NOW = new Date('2026-01-01T00:00:00.000Z');
 

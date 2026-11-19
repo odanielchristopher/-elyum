@@ -1,19 +1,19 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
-import { CreateOrderUseCase } from '../../src/application/usecases/orders/create-order.usecase';
-import { GetOrderUseCase } from '../../src/application/usecases/orders/get-order.usecase';
-import { ListOrdersUseCase } from '../../src/application/usecases/orders/list-orders.usecase';
-import { UpdateOrderStatusUseCase } from '../../src/application/usecases/orders/update-order-status.usecase';
-import { CreateProductUseCase } from '../../src/application/usecases/products/create-product.usecase';
-import { ListProductsUseCase } from '../../src/application/usecases/products/list-products.usecase';
-import { buildApplication } from '../../src/fastify';
-import { EXAMPLE_AUTHORIZATION } from '../../src/fastify/hooks/authenticate.hook';
-import { CreateOrderController } from '../../src/presentation/controllers/orders/create-order.controller';
-import { GetOrderController } from '../../src/presentation/controllers/orders/get-order.controller';
-import { ListOrdersController } from '../../src/presentation/controllers/orders/list-orders.controller';
-import { UpdateOrderStatusController } from '../../src/presentation/controllers/orders/update-order-status.controller';
-import { CreateProductController } from '../../src/presentation/controllers/products/create-product.controller';
-import { ListProductsController } from '../../src/presentation/controllers/products/list-products.controller';
+import { CreateOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/create-order.usecase';
+import { GetOrderUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/get-order.usecase';
+import { ListOrdersUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/list-orders.usecase';
+import { UpdateOrderStatusUseCase } from '../../applications/elyum-fastify/src/application/usecases/orders/update-order-status.usecase';
+import { CreateProductUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/create-product.usecase';
+import { ListProductsUseCase } from '../../applications/elyum-fastify/src/application/usecases/products/list-products.usecase';
+import { buildApplication } from '../../applications/elyum-fastify/src/fastify';
+import { EXAMPLE_AUTHORIZATION } from '../../applications/elyum-fastify/src/fastify/hooks/authenticate.hook';
+import { CreateOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/create-order.controller';
+import { GetOrderController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/get-order.controller';
+import { ListOrdersController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/list-orders.controller';
+import { UpdateOrderStatusController } from '../../applications/elyum-fastify/src/presentation/controllers/orders/update-order-status.controller';
+import { CreateProductController } from '../../applications/elyum-fastify/src/presentation/controllers/products/create-product.controller';
+import { ListProductsController } from '../../applications/elyum-fastify/src/presentation/controllers/products/list-products.controller';
 
 function defineConstructorMetadataForVitest(): void {
   // Vite does not emit design:paramtypes. Production tsc builds do.
