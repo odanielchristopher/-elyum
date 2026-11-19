@@ -25,7 +25,7 @@ export function buildApplication(
     next();
   });
   const app = native;
-  app.use(express.json());
+  app.use(express.json({ strict: false }));
   registerRoutes(app, composeApplication(dependencies));
   app.use(handleApplicationError);
   const fallback: ErrorRequestHandler = (

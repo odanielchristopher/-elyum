@@ -28,7 +28,7 @@ export function buildApplication(
     next();
   });
   const app = elyum(native, {
-    json: {},
+    json: { strict: false },
     container: createContainer(dependencies),
     autoRegisterDependencies: true,
     onError: handleApplicationError,
