@@ -11,7 +11,7 @@ export type ValidationErrorItem = {
   /** Código do erro (opcional, para i18n) */
   code?: string | undefined;
 
-  /** Valor que falhou na validação (opcional) */
+  /** @deprecated Adapters must never store raw input here. */
   received?: unknown | undefined;
 
   /** Valor esperado (opcional) */

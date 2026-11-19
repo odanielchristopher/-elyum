@@ -50,22 +50,40 @@ export class YupValidator<TOutput> implements IValidator<unknown, TOutput> {
       for (const innerError of yupError.inner) {
         errors.push({
           field: innerError.path || 'root',
-          message: innerError.message,
+          message: this.safeMessage(innerError),
           code: innerError.type,
-          received: innerError.value,
         });
       }
     } else {
       // Erro único
       errors.push({
         field: yupError.path || 'root',
-        message: yupError.message,
+        message: this.safeMessage(yupError),
         code: yupError.type,
-        received: yupError.value,
       });
     }
 
     return ValidationError.fromErrors(errors);
+  }
+
+  /** Yup type errors may interpolate the original input into their message. */
+  private safeMessage(error: yup.ValidationError): string {
+    let message = error.message;
+    const visited = new WeakSet<object>();
+    const redact = (value: unknown): void => {
+      if (typeof value === 'string' && value.length > 0) {
+        message = message.split(value).join('[redacted]');
+        const escaped = JSON.stringify(value).slice(1, -1);
+        if (escaped !== value)
+          message = message.split(escaped).join('[redacted]');
+      } else if (value && typeof value === 'object' && !visited.has(value)) {
+        visited.add(value);
+        for (const child of Object.values(value)) redact(child);
+      }
+    };
+    redact(error.value);
+    redact(error.params?.originalValue);
+    return message;
   }
 
   /**

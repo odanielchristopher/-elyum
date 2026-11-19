@@ -15,6 +15,7 @@ import {
   UnauthorizedException,
 } from '@elyum/http';
 import { ValidationError } from '@elyum/validation';
+import { yupValidator } from '@elyum/validation-yup';
 import express, {
   Router,
   type ErrorRequestHandler,
@@ -24,10 +25,53 @@ import express, {
   type Response as NativeResponse,
 } from 'express';
 import { describe, expect, it, vi } from 'vitest';
+import * as yup from 'yup';
 
 import elyum, { ExpressAdapterConfigurationError, Next } from '@elyum/express';
 
 import { request, serve } from './helpers/server.helper';
+
+describe('validation error confidentiality', () => {
+  it('should not send sensitive Yup inputs in the default response', async () => {
+    const secrets = [
+      'password-example-secret',
+      'token-example-secret',
+      'authorization-example-secret',
+      'nested-example-secret',
+    ];
+    const validator = yupValidator(
+      yup.object({
+        password: yup.number(),
+        token: yup.number(),
+        authorization: yup.number(),
+        nested: yup.object({ secret: yup.number() }),
+      }),
+    );
+    @Post('/sensitive')
+    class Controller {
+      execute(@Body(validator) body: unknown) {
+        return body;
+      }
+    }
+    const app = elyum(express(), { json: {} });
+    app.controller(Controller);
+    app.use(app.elyum.errorHandler());
+    const response = await request(`${await serve(app)}/sensitive`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        password: secrets[0],
+        token: secrets[1],
+        authorization: secrets[2],
+        nested: { secret: secrets[3] },
+      }),
+    });
+    expect(response.status).toBe(400);
+    const body = await response.text();
+    expect(JSON.parse(body).errors).toHaveLength(4);
+    for (const secret of secrets) expect(body).not.toContain(secret);
+  });
+});
 
 describe('@elyum/express native registration', () => {
   it('should preserve identity, native methods, callable Router and chaining', async () => {
